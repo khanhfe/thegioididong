@@ -1,0 +1,359 @@
+@import "header.css";
+.homebanner{
+    position: relative;
+    width: 65.834%;
+    float: left;
+    height: 354px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+.owl-carousel{
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+.owl-carousel .owl-wrapper-out{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    background: #fff
+}
+.owl-wrapper{
+    position: relative;
+    display: block;
+}
+.owl-item{
+    float: left;
+}
+.owl-control{
+    margin-top:0;
+    text-align: center;
+    display: none;
+}
+.homebanner .owl-buttons {
+    position: absolute;
+    top: 38%;
+    height: 0;
+    width: 100%;
+    display: block;
+}
+.owl-buttons div{
+    display: inline;
+    cursor: pointer;
+}
+.owl-prev{
+    position: absolute;
+    left: 10px;
+    line-height: 40px;
+    margin: 0;
+    border-radius: 5px;
+    background: rgba(0,0,0,.3);
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    font-size: 46px;
+    color: #fff
+}
+.owl-next{
+    position: absolute;
+    right: 10px;
+    line-height: 40px;
+    margin: 0;
+    border-radius: 5px;
+    background: rgba(0,0,0,.3);
+    width: 48px;
+    height: 48px;
+    text-align: center;
+    font-size: 46px;
+    color: #fff
+}
+.owl-control.active{
+    display: block
+}
+#sync2 {
+    display: block;
+    width: 100%;
+    background: #fff;
+    height: 55px;
+}
+#sync2 .owl-item {
+    height: 55px;
+    position: relative;
+}
+#sync2 .item {
+    display: table;
+    width: 100%;
+    vertical-align: middle;
+    position: relative;
+    background: #fff;
+    color: #666;
+    text-align: center;
+    cursor: pointer;
+    height: 55px;
+    font-size: 12px;
+    padding: 0 1%;
+}
+#sync2 .item h3 {
+    font-size: 12px;
+    line-height: 1.3em;
+    vertical-align: middle;
+    display: table-cell;
+    font-weight: 100;
+    border-right: 1px solid #eee ;
+}
+.homenews {
+    float: right;
+    width: 33.2%;
+    height: 354px;
+    overflow: hidden;
+}
+.homenews figure {
+    display: block;
+    overflow: hidden;
+    border-bottom: 1px solid #efefef;
+    background: #fff;
+}
+.homenews h2 a {
+    font-weight: 600;
+    color: #333
+}
+.homenews h2 {
+    float: left;
+    padding: 10px 20px 10px 10px;
+    background: #fdd504;
+    line-height: 1.3em;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    text-transform: uppercase;
+    text-align: center;
+    position: relative;
+}
+.homenews h2:after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-right: 12px solid #fff;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+}
+.liveevent {
+    position: relative;
+    color: #f33;
+    font-size: 12px;
+    display: inline-block;
+    width: 240px;
+    padding-left: 20px;
+    vertical-align: middle;
+    height: 38px;
+    line-height: 38px;
+    float: right;
+}
+#dot {
+    width: 10px;
+    height: 10px;
+    background-color: #f33;
+    border-radius: 100%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -5px;
+    display: block;
+}
+#dot .ping {
+    border: 1px solid #f33;
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+    background-color: rgba(238,46,36,.2);
+    border-radius: 100%;
+    animation: sonar 1.25s linear infinite;
+    display: block;
+}
+@keyframes sonar{
+    from{opacity: 1}
+    to{transform: scale(3);opacity: 0}
+}
+.liveevent .text {
+    line-height: 1.4;
+    display: inline-block;
+    vertical-align: middle;
+}
+.homenews ul{
+    display: block;
+    overflow: hidden;
+}
+.homenews li {
+    display: block;
+    padding: 10px 10px 5px;
+    border-bottom: 1px solid #ededed;
+    background: #fff;
+}
+.homenews li a {
+    display: block;
+    overflow: hidden;
+}
+.homenews li a:hover h3{
+    color: #288ad6;
+}
+.homenews li img {
+    float: left;
+    width: 100px;
+    height: 57px;
+    margin: 0 10px 0 0;
+}
+.homenews li h3 {
+    display: block;
+    overflow: hidden;
+    height: 36px;
+    line-height: 1.3em;
+    font-size: 14px;
+    font-weight: 100;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.homenews li span {
+    float: left;
+    font-size: 12px;
+    color: #999;
+    margin-right: 10px;
+}
+.twobanner a {
+    display: block;
+    overflow: hidden;
+    margin-top: 10px;
+}
+.twobanner a img {
+    width: 100%;
+    height: 110px;
+    display: block;
+}
+.promotebanner a {
+    display: block;
+    position: relative;
+    top: -5px;
+    height: 80px;
+}
+.container{
+    width: 100%;
+    min-width: 1024px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff
+}
+.container h2{
+    font-size: 16px;
+    padding: 14px 10px;
+    float: left;
+    text-transform: uppercase;
+}
+.product{
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    border-top: 1px solid #eee;
+}
+.carousel{
+    position: inherit;
+    text-align: center;
+    margin: auto;
+}
+#carousel {
+    transition: all 200ms ease 0s;
+}
+.carousel ul {
+    display: flex;
+}
+.carousel ul li{
+    display:inline-flex;
+    list-style: none;
+    width: 240px;
+    padding: 20px
+}
+.carousel ul li a{
+    text-align: left;
+    text-decoration: none;
+    display: block;
+    color: #333;
+}
+.carousel ul li a img{
+    padding: 0.5em;
+    transition: all 300ms ease;
+}
+.carousel h5,.price,.promo{
+    padding: 3px 0;
+}
+.carousel h5{
+    font-size: 14px;
+    font-weight: unset;
+}
+.carousel .promo{
+    font-size: 12px;
+}
+.carousel .price{
+    color: #e10c00;
+    font-family: 18px;
+}
+.price span {
+    margin-left: 5px;
+    font-size: 12px;
+    color: #222;
+    text-decoration: line-through;
+}
+.carousel ul li a:hover img{
+    transform: translateY(-10px);    
+}
+.carousel ul li a:hover h5{
+    color: #288ad6;
+}
+label {
+	width: fit-content;
+    display: inline-block;
+    position: absolute;
+    top: 195px;
+    font-size: 11px;
+    color: #fff;
+    font-weight: 600;
+    background: #3fb846;
+    border-radius: 2px;
+    padding: 0 5px;
+    height: 20px;
+}
+label.discount {
+    background-image: linear-gradient(-90deg,#ec1f1f 0%,#ff9c00 100%);
+    border-radius: 10px;
+    padding: 1px 10px;
+}
+.control{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10000
+}
+.control .btn{
+   cursor: pointer; 
+   box-shadow: 0 0 4px 2px rgba(0,0,0,.15);
+   width: 34px;
+   height: 70px;
+   position: absolute;
+   font-size: 46px;
+   color: #999;
+   padding-top: 22px;
+   top: 110px;
+   vertical-align: middle;
+   text-align: center;
+}
+.control .prev{
+    border-radius: 0 5px 5px 0 ; 
+}
+.control .next{
+    right: 0;
+    border-radius: 5px 0 0 5px;
+}

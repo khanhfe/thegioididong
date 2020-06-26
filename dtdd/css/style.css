@@ -1,0 +1,244 @@
+@import "../../css/header.css";
+body{
+	background: #fff
+}
+section{
+    margin-top: 55px;
+}
+.category{
+	list-style: none;
+	line-height: 32px;
+    padding-top: 5px;
+}
+.category li{
+	display: inline-block;
+    vertical-align: middle;
+}
+.category li a{
+	padding-right: 10px;
+	color: #288ad6;
+	display: inline-block;
+}
+.category li span{
+	display: inline-block;
+    font-size: 20px;
+    color: #999;
+    padding: 2px 5px 0 0;
+    line-height: 1;
+}
+h1,h2{
+	font-weight: lighter;
+}
+.row{
+	border-top: 1px solid #e5e5e5;
+	display: block;
+    padding: 5px 0;
+    margin-top: 5px;
+}
+.container > h1{
+	line-height: 40px;
+	font-size: 24px;
+}
+#product{
+	display: flex;
+}
+#product .image{
+	width: 35%;
+}
+#product .price_sale{
+	width: 34%;
+}
+#product .image img{
+	display: block;
+    height: auto;
+    margin: auto;
+    cursor: pointer;
+    max-width: 100%;
+}
+.price,.tableparameter{
+	margin-top: 8px;
+	padding: 0 10px 10px;
+}
+.price{
+    display: flex;
+    align-items: center;
+}
+.price strong{
+	margin-right: 5px;
+	line-height: 20px;
+	font-size: 24px;
+	color: #e10c00;
+    margin-right: 10px;
+}
+.price span.hisprice {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 18px;
+    color: #999;
+    text-decoration: line-through;
+    margin-right: 10px;
+}
+label.installment {
+    background: #f28902;
+    margin-left: 7px;
+    display: inline-block;
+    font-size: 11px;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 0 5px 0 8px;
+    height: 20px;
+}
+.mermory .default{
+	padding:0 10px;
+	margin-bottom: 15px;
+}
+.area_promotion {
+    display: block;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    position: relative;
+    margin: 5px 10px 12px;
+    background: #fff;
+    padding-bottom: 10px;
+}
+.area_promotion strong {
+    display: block;
+    overflow: hidden;
+    font-size: 15px;
+    color: #333;
+    padding: 15px 15px 10px 15px;
+    text-transform: uppercase;
+}
+.area_promotion .infopromo span {
+    display: block;
+    overflow: hidden;
+    font-size: 14px;
+    color: #333;
+    padding: 0 15px 5px 40px;
+}
+.area_promotion .infopromo span.notnull:before {
+    content: '';
+    margin-left: -20px;
+    background: url(../../img/icon/check@2x.png);
+    width: 14px;
+    height: 14px;
+    background-size: 14px 14px;
+    margin-right: 0;
+    float: left;
+    margin-top: 2px;
+}
+.area_promotion .vipservice {
+    border: none;
+    margin: 10px 12px 0 12px;
+    border-top: 1px solid #ccc;
+    padding: 12px 0 0 0;
+    border-radius: 0;
+}
+.vipservice>* {
+    margin-bottom: 10px;
+}
+.ol{
+    display: flex;
+    align-items: center;
+    line-height: 19px;
+}
+.ol input{
+    margin-right: 5px;
+}
+.area_order{
+	margin: 10px;
+}
+.buy_now{
+    display: block;
+    overflow: hidden;
+    padding: 7px 0;
+    border-radius: 4px;
+    font-size: 16px;
+    line-height: normal;
+    text-transform: uppercase;
+    color: #fff;
+    text-align: center;
+	background: -webkit-linear-gradient(top,#f59000,#fd6e1d);
+}
+.area_order span {
+    display: block;
+    font-size: 13px;
+    color: #fff;
+    text-transform: none;
+    padding-top: 3px;
+}
+.area_order .buy_repay {
+    line-height: normal;
+    display: block;
+    padding: 7px 0;
+    text-align: center;
+    margin: 10px 0 0;
+    background: #288ad6;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 15px;
+    text-transform: uppercase;
+    width: 48.5%;
+    float: left;
+}
+.area_order .buy_repay.s {
+    float: right;
+}
+.tableparameter{
+	width: 31%;
+}
+.tableparameter h2{
+    padding-bottom: 2px;
+}
+.parameter {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+    padding-top: 10px;
+}
+.parameter li {
+    display: table;
+    background: #fff;
+    width: 100%;
+    border-top: 1px solid #eee;
+    padding: 5px 0;
+}
+.parameter li span {
+    display: table-cell;
+    width: 40%;
+    vertical-align: top;
+    padding: 5px 0;
+    font-size: 14px;
+    color: #666;
+}
+.parameter li div {
+    display: table-cell;
+    width: auto;
+    vertical-align: top;
+    padding: 6px 5px;
+    font-size: 14px;
+    color: #333;
+}
+.parameter li div a{
+    color: #288ad6
+}
+.viewparameterfull {
+    display: block;
+    width: 100%;
+    padding: 6px 0;
+    margin: 10px 0 0;
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    background-color: #288ad6;
+    color: #fff;
+    border: 1px solid #288ad6;
+    border-radius: 4px;
+}
+.viewparameterfull:hover{
+    background: #fff;
+    color: #288ad6
+}

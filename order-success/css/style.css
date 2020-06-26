@@ -1,0 +1,316 @@
+@import "../../css/header.css";
+section{
+	margin-top: 55px;
+}
+a{
+	color: #228ad6
+}
+.container {
+    width: 600px;
+    background: #fff;
+    margin: 90px auto 0 auto;
+    padding-bottom: 5px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 20px rgba(0,0,0,.15);
+}
+.picsuccess {
+    overflow: hidden;
+    padding-top: 20px;
+    width: 600px;
+}
+.picsuccess .notistatus {
+    left: 0;
+    right: 0;
+    line-height: 36px;
+    font-size: 16px;
+    color: #00af1d;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+.iconnoti {
+    background: url(../../img/icon/iconcartmobile@2x.png) no-repeat;
+    background-size: 80px 85px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    display: inline-block;
+}
+.iconsuccess {
+    background-position: -25px 0;
+    width: 19px;
+    height: 15px;
+    margin-right: 3px;
+}
+.thank {
+    display: block;
+    overflow: hidden;
+    margin: auto;
+    color: #333;
+    line-height: 22px;
+    padding: 20px;
+    background: #fff;
+}
+.titlebill {
+    display: block;
+    margin: 0 20px;
+    line-height: 30px;
+    font-size: 14px;
+    color: #333;
+    background: #f3f3f3;
+    text-transform: uppercase;
+    padding: 0 10px;
+}
+.infoorder, .callship, .cty {
+    display: block;
+    overflow: hidden;
+    font-size: 14px;
+    color: #333;
+    padding: 10px 20px 0 20px;
+    margin: auto;
+    background: #fff;
+}
+.infoorder div {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 5px;
+    padding-left: 10px;
+}
+.infoorder div:before {
+    content: '•';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 20px;
+    color: #999;
+    margin: 0 3px 0 -10px;
+}
+.infoorder div strong {
+    color: #c10017;
+}
+.mess-payment {
+    display: none;
+    overflow: hidden;
+    font-size: 14px;
+    color: #333;
+    padding: 10px 10px;
+    background-color: #e3f6de;
+    margin: 10px 20px;
+    border-radius: 3px;
+}
+.choosepayment div h3 {
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 10px 20px 10px;
+}
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+    grid-row-gap: 10px;
+}
+.choosepayment div a {
+    justify-self: center;
+    overflow: hidden;
+    width: 275px;
+    border-radius: 4px;
+    font-size: 13px;
+    color: #fff;
+    text-align: center;
+    background: #2889d6;
+    height: 45px;
+}
+.payoffline span{
+    line-height: 45px;
+}
+.atm div{
+    margin-top: 4px;
+}
+.atm p{
+    margin-bottom: 5px;
+    line-height: 12px;
+}
+.visa div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 45px;
+}
+.visa div img{
+    margin-left: 8px;
+    height: 17px;
+}
+.qr-code div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4px;
+}
+.deleteOrder {
+    text-align: center;
+    margin-top: 10px;
+}
+.callship {
+    line-height: 22px;
+    padding-bottom: 10px;
+}
+.callship a{
+    display: inline
+}
+.list_order {
+    display: block;
+    overflow: visible;
+    background: #fff;
+    clear: both;
+    padding-top: 10px;
+    list-style: none;
+}
+.list_order li {
+    display: block;
+    overflow: visible;
+    padding: 10px 0;
+    margin: 0 20px;
+    min-height: 110px;
+    border-bottom: 1px solid #eee;
+}
+.list_order li .colimg {
+    float: left;
+    overflow: hidden;
+    width: 85px;
+    text-align: center;
+}
+.list_order li img {
+    display: inline-block;
+    width: 75px;
+    margin: 5px 0 10px;
+}
+.list_order li .colinfo {
+    display: inline-block;
+    overflow: visible;
+    width: 450px;
+    padding-left: 5px;
+}
+.list_order li .colinfo strong {
+    font-weight: normal;
+    font-size: 14px;
+    color: #c10017;
+    float: right;
+}
+.list_order li .colinfo a {
+    display: inline-block;
+    font-size: 14px;
+    color: #333;
+    text-overflow: ellipsis;
+    width: 62%;
+}
+.list_order li .promotion {
+    background: #fff;
+    padding: 5px ;
+    width: 70%;
+    height: auto;
+    margin: 5px 10px 0 0;
+    display: block;
+    overflow: hidden;
+}
+.list_order li .promotion span {
+    display: block;
+    overflow: hidden;
+    padding-left: 10px;
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+.list_order li .promotion span.notnull:before {
+    content: '•';
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    font-size: 20px;
+    color: #999;
+    margin: 0 3px 0 -10px;
+}
+.list_order li .promotion span a {
+    display: inline;
+    font-size: 12px;
+    color: #288ad6;
+}
+.buyother {
+    display: block;
+    overflow: hidden;
+    background: #fff;
+    line-height: 40px;
+    text-align: center;
+    margin: 15px auto;
+    width: 300px;
+    font-size: 14px;
+    color: #288ad6;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 1px solid #288ad6;
+    border-radius: 4px;
+}
+.popup {
+    background: rgba(0,0,0,.4);
+    cursor: pointer;
+    height: 100%;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+.popup>div {
+    background-color: #fff;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: auto;
+    max-width: 450px;
+    min-height: 100px;
+    width: 60%;
+    position: relative;
+    border-radius: 8px;
+    padding: 30px;
+}
+.popup h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;
+}
+.popup p{
+    font-size: 13px;
+    line-height: 20px;
+    margin: 10px 0 5px;
+    text-align: left;
+    font-size: 14px;
+}
+.popup .p1{
+    color: #999;
+    margin: 5px 0 15px;
+}
+.popup a{
+    display: inline-block;
+    text-transform: uppercase;
+    border: 1px solid #288ad6;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 130px;
+    font-size: 14px;
+}
+.popup a.close{
+    background: #fff;
+}
+.popup a.confirm{
+    background: #228ad6;
+    color:#fff;
+}
+#popup-success p{
+    margin:15px 0;
+}
+#popup-success p b{
+    font-size: 18px;
+    color: #e10c00
+}
