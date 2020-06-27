@@ -197,11 +197,29 @@ a{
     float: right;
 }
 .list_order li .colinfo a {
-    display: inline-block;
+    display:block;
     font-size: 14px;
     color: #333;
     text-overflow: ellipsis;
     width: 62%;
+}
+.onecolor {
+    float: left;
+    position: relative;
+    background: #fff;
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+}
+.onecolor span {
+    color: #999;
+}
+.quan {
+    float: right;
+    margin-top: 10px;
+}
+.quan span {
+    color: #999;
 }
 .list_order li .promotion {
     background: #fff;

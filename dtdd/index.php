@@ -25,7 +25,7 @@
 <body>
 	<header>
 		<div class="wrap-main">
-			<a href="#" title="Về trang chủ Thegioididong.com" class="logo">
+			<a href="../" title="Về trang chủ Thegioididong.com" class="logo">
 				<i class="icon-logo"></i>
 			</a>
 			<form id="search-site" action="#" method="get" accept-charset="utf-8" autocomplete="off">

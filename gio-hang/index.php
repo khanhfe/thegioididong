@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php session_start(); require 'connect_address.php';date_default_timezone_set("Asia/Ho_Chi_Minh");?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +8,7 @@
 	<title>Giỏ hàng của bạn</title>
 	<link href="../img/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
 	<?php $src = "../";?>
@@ -73,6 +74,7 @@
         	<div class="yourcart">Giỏ hàng của bạn</div>
     	</div>
     	<div class="wrap_cart">
+    		<div class="overlay"></div>
     		<form action="../order-success/" method="post" accept-charset="utf-8">
     			<div class="detail_cart">
     				<ul class="list_order">
@@ -178,15 +180,71 @@
 				    </div>
 				    <div class="areainfo">
 				        <div class="left">
-				            <input type="text" id="fullname" class="saveinfo" name="FullName" placeholder="Họ và tên" maxlength="50" value="<?php echo !empty($_SESSION['fullname'])? $_SESSION['fullname']: '' ?>">
+				            <input type="text" class="saveinfo" name="FullName" placeholder="Họ và tên" maxlength="50" value="<?php echo !empty($_SESSION['fullname'])? $_SESSION['fullname']: '' ?>">
 				            <div class="error" id="errorFullName"></div>
 				        </div>
 				        <div class="right">
-				            <input type="tel" id="phonenumber" class="saveinfo" name="PhoneNumber" placeholder="Số điện thoại" maxlength="10" value="<?php echo !empty($_SESSION['phonenumber'])? $_SESSION['phonenumber']: '' ?>">
+				            <input type="tel" class="saveinfo" name="PhoneNumber" placeholder="Số điện thoại" maxlength="10" value="<?php echo !empty($_SESSION['phonenumber'])? $_SESSION['phonenumber']: '' ?>">
 				            <div class="error" id="errorPhoneNumber"></div>
 				        </div>
-				        <input type="text" class="saveinfo" style="" id="OrderNote" name="OrderNote" placeholder="Yêu cầu khác (không bắt buộc)" maxlength="300">
+				        <input type="text" class="note" id="OrderNote" name="OrderNote" placeholder="Yêu cầu khác (không bắt buộc)" maxlength="300">
 				    </div>
+				</div>
+				<div class="area_other">
+					<div class="textnote">
+						<b>Để được phục vụ nhanh hơn,</b> hãy chọn thêm:
+					</div>
+					<div class="ship_address show">
+						<label><input type="radio" name="ship" value="true" checked="checked"><span>Địa chỉ giao hàng</span></label>
+						<label><input type="radio" name="ship" value="false"><span>Nhận tại siêu thị</span></label>
+					</div>
+					<div class="area_address">
+						<div class="grid4">
+							<div id="citys" class="dropdown">
+								<div class="pseudo" id="default" value="1">Hồ Chí Minh</div>
+								<div class="layer grid2 city">
+									<?php $province = select_province(); foreach ($province as $value) { ?>
+									<div class="list province" value="<?php echo $value['id']; ?>" ><?php echo $value['_name']; ?></div> 
+									<?php } ?>
+								</div>
+							</div>
+							<div id="district" class="dropdown">
+								<div class="pseudo" id="districtvalue" value="0">Chọn quận, huyện</div>
+								<div class="layer grid2 district">
+									<?php $district = get_district(); foreach ($district as $value) { ?>
+									<div class="list listdist" value="<?php echo $value['_prefix'].$value['id']; ?>"><?php echo $value['_name']; ?></div> 
+									<?php } ?>
+								</div>
+								<div class="error" id="nulldistrict"></div>
+							</div>
+							<div id="ward" class="dropdown">
+								<div class="pseudo" id="wardvalue" value="0">Chọn phường, xã</div>
+								<div class="layer grid2 ward">
+									<div class="list listward" value=""></div> 
+								</div>
+								<div class="error" id="nullward"></div>
+							</div>
+							<div class="billaddress">
+								<input type="text" placeholder="Số nhà, tên đường" id="BillingAddress_Address" name="BillingAddress" maxlength="200" class="ShipAtHome homenumber saveinfo dropdown" value="" width="100%">
+								<div class="error" id="address" style="line-height: 30px;"></div>
+							</div>
+						</div>
+						<input type="hidden" name="province" value="">
+						<input type="hidden" name="district" value="">
+						<input type="hidden" name="ward" value="">
+						<p class="introduction" style="margin-top:20px;color: #fb6e2e;display: block"><b>Hướng dẫn: </b>Chọn địa chỉ để biết chính xác thời gian giao hàng</p>
+						<div class="timeblock" style="display: none">
+							<div class="tit">Miễn phí giao hàng</div>
+							<div class="time">Thời gian nhận hàng muộn nhất dự kiến:
+								<b> Trước <?php $currenttime = date('l, yy-m-d H:i:s');
+									$date = new DateTime($currenttime);
+									$date->add(new DateInterval('P2D'));
+									echo $date->format('H')."h "." Ngày ".$date->format('d/m');?>	
+								</b>
+							</div>
+						</div>
+					</div>
+					
 				</div>
 				<div class="new-follow">
                     <div class="choosepayment">
@@ -208,6 +266,96 @@
 	        </div>
 	    </div>
 	</section>
+	<script type="text/javascript" charset="utf-8" async defer>
+		$(document).ready(function($) {
+			$('.city,.district,.ward').hide();
+			$('#citys').click(function(event) {
+				$('.city').slideToggle(300);
+				$('.city').css('overflow-y','scroll');
+				$('#citys').toggleClass('show');
+				$('.district').css('overflow','hidden');
+			});
+			$('.list.province').click(function(event) {
+				city = $(this).html();
+				index = $(this).attr('value');
+				$('#default').html(city);
+				$('#default').attr('value',index);
+			});
+			$('#district').click(function(event) {
+				$('.district').slideToggle(300);
+				$('.district').css('overflow-y','scroll');
+				$('#district').toggleClass('show');
+				$('.ward').css('overflow','hidden');
+			});
+
+			$('.listdist').live('click',function(event) {
+				listdist = $(this).html();
+				index = $(this).attr('value');
+				$('#districtvalue').html(listdist);
+				$('#districtvalue').attr('value',index);
+			});
+			$('#ward').live('click',function(event) {
+				$('.ward').slideToggle(300);
+				$('.ward').css('overflow-y','scroll');
+				$('#ward').toggleClass('show');
+			})
+			$('.listward').live('click',function(event) {
+				listward = $(this).html();
+				index = $(this).attr('value');
+				$('#wardvalue').html(listward);
+				$('#wardvalue').attr('value',index);
+			});
+			$('.province').click(function(event) {
+				ProvinceID = $('#default').attr('value');
+				$.post('get_district.php', {'ID': ProvinceID}, function(data) {
+					$('#district').html(data);
+				});
+			});
+			$('.listdist').live('click',function(event) {
+				DistrictID = $('#districtvalue').attr('value');
+				$.post('get_ward.php', {'ID': DistrictID}, function(data) {
+					$('#ward').html(data);
+				});
+				listdist = $('#districtvalue').html();
+				$('input[name="district"]').val(listdist)
+			});
+			$('.listward').live('click', function(event) {
+				listprovince = $('#default').html()
+				listward = $('#wardvalue').html();
+				$('input[name="province"]').val(listprovince)
+				$('input[name="ward"]').val(listward)
+			});
+			$('input[type="radio"]').change(function(event) {
+				$('#errorgender').html('')
+			});
+			$('input.saveinfo').change(function(event) {
+				$(this).removeClass('error')
+				$('#errorFullName').html('')
+			});
+			$('input[name="PhoneNumber"]').change(function(event) {
+				$('#errorPhoneNumber').html('')
+			});
+			$('input[name="BillingAddress"]').change(function(event) {
+				$('#address').html('')
+			});
+			function delay(){
+				$('.overlay').css('display','none')
+			}
+			function timing(){
+				$('.overlay').css('display','block')
+				setTimeout(delay,300)
+			}
+			$('.augment,.abate,.province,.listdist,.listward').live('click', function(event) {
+				timing()
+			});
+			$('.listward').live('click', function(event) {
+				$('.introduction').css('display','none')
+				$('.timeblock').css('display','block')
+			});
+			
+
+		});
+	</script>
 	<script type="text/javascript" charset="utf-8">
 		function checkInforUser(){
 			var male = document.getElementById('male');
@@ -216,29 +364,37 @@
 				document.getElementById('errorgender').innerHTML = "Mời quý khách chọn danh xưng";
 				document.getElementById('errorgender').style.marginTop = "5px";
 			}
-			var fullname = document.getElementById('fullname').value;
-			var phonenumber = document.getElementById('phonenumber').value;
-
-			if (fullname=='' && phonenumber=='') {
-				document.getElementById('fullname').style.border = '1px solid #dd4b39';
-				document.getElementById('phonenumber').style.border = '1px solid #dd4b39';
+			var fullname = document.querySelector('input[name="FullName"]').value;
+			var phonenumber = document.querySelector('input[name="PhoneNumber"]').value;
+			var address = document.querySelector('input[name="BillingAddress"]').value;
+			if (fullname=='' && phonenumber=='' && address=='') {
+				var error = document.querySelectorAll('.saveinfo')
+				for (i = 0; i < error.length; i++) {
+					error[i].classList.add('error')
+				}
 				document.getElementById('errorFullName').innerHTML = "Quý khách cần điền tên";
 				document.getElementById('errorPhoneNumber').innerHTML = "Quý khách cần điền số điện thoại";
+				document.getElementById('address').innerHTML = "Quý khách vui lòng điền số nhà, tên đường";
 				return false;
 			}else if(fullname==''){
-				document.getElementById('fullname').style.border = '1px solid #dd4b39';
+				document.querySelector('input[name="FullName"]').classList.add('error')
 				document.getElementById('errorFullName').innerHTML = "Quý khách cần điền tên";
 				return false;
 			}else if(phonenumber==''){
-				document.getElementById('phonenumber').style.border = '1px solid #dd4b39';
+				document.querySelector('input[name="PhoneNumber"]').classList.add('error')
 				document.getElementById('errorPhoneNumber').innerHTML = "Quý khách cần điền số điện thoại";
 				return false;
 			}else if(isNaN(phonenumber)||phonenumber.length<10){
-				document.getElementById('phonenumber').style.border = '1px solid #dd4b39';
+				document.querySelector('input[name="PhoneNumber"]').classList.add('error')
 				document.getElementById('errorPhoneNumber').innerHTML = "Số điện thoại không hợp lệ";
+				return false;
+			}else if (address=='') {
+				document.querySelector('input[name="BillingAddress"]').classList.add('error')
+				document.getElementById('address').innerHTML = "Quý khách vui lòng điền số nhà, tên đường";
 				return false;
 			}
 			else return true;
+			
 		}
 		var pay = document.getElementById("pay").innerHTML 
 		if (pay == "0₫") {
@@ -320,7 +476,6 @@
 			document.querySelectorAll('.abate').forEach( item => {
 				item.addEventListener('click',function() {
 					var indexNumber = Array.from(abate).indexOf(event.target)
-					console.log(indexNumber)
 					var valueNumber = number[indexNumber].innerHTML
 					valueNumber = parseInt(valueNumber)
 					valueNumber-=1

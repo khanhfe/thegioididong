@@ -1,4 +1,4 @@
-<?php session_start();
+<?php session_start();date_default_timezone_set("Asia/Ho_Chi_Minh");
 if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
 <!DOCTYPE html>
 <html>
@@ -25,8 +25,8 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
 		$_SESSION['gender'] = $gender;
 		$_SESSION['fullname'] = $_POST['FullName'];
 		$_SESSION['email'] = '';
-		$_SESSION['address'] ='';
 		$_SESSION['pay'] = $_POST['pay'];
+		$_SESSION['address'] = $_POST['BillingAddress'].", ".$_POST['ward'].", ".$_POST['district'].", ".$_POST['province'];
 	}
 	?>
 	<header id="header" class="">
@@ -98,8 +98,14 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
         	<div class="titlebill">Thông tin đặt hàng:</div>
         	<div class="infoorder">
 				<div>Người nhận: <b><?php echo $_SESSION['fullname'].", ".$_SESSION['phonenumber']; ?></b></div>
-				<div>Nhận hàng tại siêu thị: <b></b> </div>
-				<div>Thời gian nhận  hàng dự kiến: <b></b></div>
+				<div>Địa chỉ nhận hàng: <b><?php echo $_SESSION['address'] ?></b> </div>
+				<div>Thời gian nhận hàng dự kiến: 
+					<b> Trước <?php $currenttime = date('l, yy-m-d H:i:s');
+							$date = new DateTime($currenttime);
+							$date->add(new DateInterval('P1D'));
+							echo $date->format('H')." giờ 00 phút "." Ngày mai ".$date->format('d/m'); ?>	
+					</b>
+				</div>
 				<div>Tổng tiền: <strong><?php echo number_format($_SESSION['pay'],0,"","."); ?>₫</strong></div>
         	</div>
         	<div class="mess-payment" id="mess-payment">
@@ -154,7 +160,7 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
         	</div>
         	<div class="titlebill">Sản phẩm đã mua:</div>
         	<ul class="list_order">
-        		<?php $src = "../";
+        		<?php $src = "../";$i=0;
 					if(isset($_SESSION['infoProduct'])){foreach($_SESSION['infoProduct'] as $cart) {
     			?>
     			<li>
@@ -166,6 +172,13 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
     				<div class="colinfo">
 	    				<strong><?php echo number_format($cart['priceunit'],0,"","."); ?>₫</strong>
 	    				<a href="../product/?id=<?php echo $cart['id'] ?>"><?php echo $cart['nameproduct']; ?></a>
+	    				<div class="onecolor">
+                            <span>Màu:</span> Đen                         
+                        </div>
+                        <div class="quan">
+                            <span>Số lượng:</span><?php echo $cart['quantity'] = $_POST['amount'][$i];$i++ ?>
+                        </div>
+                        <div class="clr"></div>
 	    				<div class="promotion  webnote ">
 							<span class="notnull"><?php echo $cart['promo1']; ?></span>
 						    <span class="notnull"><?php echo $cart['promo2']; ?></span>
@@ -176,7 +189,7 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
     			</li>
     			<?php } } ?>
     		</ul>
-        	<a href="add_database.php" class="buyother">Về trang chủ	</a>
+        	<a href="add_database.php" class="buyother">Về trang chủ</a>
 		</div>
 	</section>
 	<div class="popup" id="popup">

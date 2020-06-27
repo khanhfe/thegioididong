@@ -38,24 +38,24 @@
 		}
 		return $result;
 	}
-	function add_customer($fullname,$gender,$phonenumber,$email,$address,$note,$pay){
+	function add_customer($fullname,$gender,$phonenumber,$email,$address,$note,$pay,$date){
 		global $conn;
 		connect_db();
-		$sql = "INSERT INTO customer(FullName,Gender,PhoneNumber,Email,Address,NoteCart,TotalPay) VALUES ('$fullname','$gender','$phonenumber','$email','$address','$note','$pay')";
+		$sql = "INSERT INTO customer(FullName,Gender,PhoneNumber,Email,Address,NoteCart,TotalPay,CreateTime) VALUES ('$fullname','$gender','$phonenumber','$email','$address','$note','$pay','$date')";
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}
-	function add_orders($product,$image,$priceunit,$pricepromote,$quantity,$pay,$phonenumber){
+	function add_orders($product,$image,$priceunit,$pricepromote,$quantity,$pay,$date,$time,$phonenumber){
 		global $conn;
 		connect_db();
-		$sql = "INSERT INTO orders(Product,Image,PriceUnit,PricePromote,Quantity,TotalPay,CustomID) VALUES ('$product','$image','$priceunit','$pricepromote','$quantity','$pay',(SELECT customer.CustomID From customer WHERE customer.PhoneNumber = '$phonenumber'))";
+		$sql = "INSERT INTO orders(Product,Image,PriceUnit,PricePromote,Quantity,TotalPay,OrderDate,CustomID) VALUES ('$product','$image','$priceunit','$pricepromote','$quantity','$pay','$date','$time',(SELECT customer.CustomID From customer WHERE customer.PhoneNumber = '$phonenumber'))";
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}
-	function add_orders_exist($product,$image,$priceunit,$pricepromote,$quantity,$pay,$count){
+	function add_orders_exist($product,$image,$priceunit,$pricepromote,$quantity,$pay,$date,$time,$count){
 		global $conn;
 		connect_db();
-		$sql = "INSERT INTO orders(Product,Image,PriceUnit,PricePromote,Quantity,TotalPay,CustomID) VALUES ('$product','$image','$priceunit','$pricepromote','$quantity','$pay',(SELECT customer.CustomID From customer WHERE customer.CustomID = '$count'))";
+		$sql = "INSERT INTO orders(Product,Image,PriceUnit,PricePromote,Quantity,TotalPay,OrderDate,EstimatedDeliveryTime,CustomID) VALUES ('$product','$image','$priceunit','$pricepromote','$quantity','$pay','$date','$time',(SELECT customer.CustomID From customer WHERE customer.CustomID = '$count'))";
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}
