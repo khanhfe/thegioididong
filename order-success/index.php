@@ -20,6 +20,7 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
     foreach ($_SESSION['infoProduct'] as $cart) {};
 	if (isset($_POST['submit'])) {
 		$_SESSION['quantity'] = $_POST['amount'];
+		$_SESSION['color'] = $_POST['color'];
  		$_SESSION['phonenumber'] = $_POST['PhoneNumber'];
 		$_SESSION['note'] = $_POST['OrderNote'];
 		$_SESSION['gender'] = $gender;
@@ -173,7 +174,7 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
 	    				<strong><?php echo number_format($cart['priceunit'],0,"","."); ?>₫</strong>
 	    				<a href="../product/?id=<?php echo $cart['id'] ?>"><?php echo $cart['nameproduct']; ?></a>
 	    				<div class="onecolor">
-                            <span>Màu:</span> Đen                         
+                            <span>Màu:</span> <?php echo $cart['color'] = $_POST['color'][$i]; ?>                         
                         </div>
                         <div class="quan">
                             <span>Số lượng:</span><?php echo $cart['quantity'] = $_POST['amount'][$i];$i++ ?>

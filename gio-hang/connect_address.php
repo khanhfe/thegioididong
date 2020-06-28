@@ -1,17 +1,5 @@
 <?php 
-	global $conn;
-	function connect_db(){
-		global $conn;
-		if(!$conn){
-			$conn = mysqli_connect('localhost:3306', 'root', '', 'danhmucxahuyentinhtp') or die("Khong the ket noi!");
-		}
-	}
-	function disconnect_db(){
-		global $conn;
-		if($conn){
-			mysqli_close($conn);
-		}
-	}
+	require '../libs/function.php';
 	function select_province(){
 		global $conn;
 		connect_db();

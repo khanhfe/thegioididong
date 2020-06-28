@@ -74,7 +74,13 @@
         	<div class="yourcart">Giỏ hàng của bạn</div>
     	</div>
     	<div class="wrap_cart">
-    		<div class="overlay"></div>
+    		<div class="overlay">
+    			<span class="cswrap">
+    				<span class="dot"></span>
+    				<span class="dot"></span>
+    				<span class="dot"></span>
+    			</span>
+    		</div>
     		<form action="../order-success/" method="post" accept-charset="utf-8">
     			<div class="detail_cart">
     				<ul class="list_order">
@@ -91,7 +97,7 @@
     					<li>
     						<div class="colimg">
     							<a href="../dtdd/?id=<?php echo $infoProduct['id'] ?>">
-    								<img src="<?php echo $src.$infoProduct['image'] ?>">
+    								<img data-value="<?php echo $infoProduct['id'] ?>" src="<?php echo $src.$infoProduct['image'] ?>">
     							</a>
     							<a class="delete" href="delete.php?id=<?php echo $infoProduct['id'] ?>"><span></span>Xóa</a>
     						</div>
@@ -107,16 +113,30 @@
 						        <?php if($infoProduct['pricepromo']!=0) { ?>
 						        <div>
 						        	<span>Giảm 
-						        		<strong style="float: none; margin-right: 0;"><?php echo number_format($infoProduct['priceunit']-$infoProduct['pricepromo'],0,"",".").'₫'; ?></strong>
-						        		còn
-						        		<strong style="float: none;"><?php echo number_format($infoProduct['pricepromo']).'₫'; ?></strong>
+						        		<strong style="float: none; margin-right: 0;"><?php echo number_format($infoProduct['priceunit']-$infoProduct['pricepromo'],0,"",".").'₫'; ?>
+						        			
+						        		</strong>còn
+						        		<strong style="float: none;"><?php echo number_format($infoProduct['pricepromo'],0,"",".").'₫'; ?></strong>
 						        	</span>
 						        </div>
 						        <input type="hidden" name="saleoff" value="<?php echo $saleoff ?>">
 						    	<?php } else{ ?>
 						    	<input type="hidden" name="saleoff" value="0"> <?php } ?>
 						        <div class="choosecolor">
-						        	<span>Màu: đen</span>
+						        	<div class="pseudocolor"></div>
+						        	<span class="color">Màu: </span>
+						        	<div class="listcolor">
+						        	<?php 
+						        		foreach ($infoProduct['color'] as $color) {
+											foreach ($color as $codecolor ) {
+						        	?>
+						        		<div class="blockcolor"  data-color="<?php echo $codecolor['Color'];?>">
+						        			<img src="<?php echo '../'.$codecolor['image_product']; ?>" >
+						        			<span> <?php echo " ".$codecolor['Color']; ?></span>
+						        		</div>
+						        	<?php } } ?>
+						        	</div>
+						        	<input type="hidden" name="color[]" value="">
 						        </div>
 						        <div class="choosenumber">
 						        	<div class="abate"></div>
@@ -126,6 +146,8 @@
 						        	<?php $getvalue = ''; echo $getvalue; ?>
 						        	<input type="hidden" name="price" value="<?php echo $infoProduct['priceunit'] ?>">
 						        </div>
+						        <div class="clr"></div>
+						        <div class="error" style="margin-left: 1px;"></div>
     						</div>
     					</li>
     					<?php } } ?>
@@ -162,14 +184,14 @@
 			                </div>
 			            </div>
 			            <div class="boxCouponCode">
-			                <div class="textcode">
-			                    Sử dụng mã giảm giá
-			                </div>
+			                <div class="textcode">Sử dụng mã giảm giá</div>
 			                <div class="inputcode " style="display:none;">
 			                    <button type="button">Áp dụng</button>
+			                    <input name="CouponCode" id="CouponCode" placeholder="Nhập mã giảm giá" maxlength="20">
 			                    <label id="CouponCode-error" class="error" for="CouponCode" style="display: none;"></label>
 			                </div>
 			            </div>
+			            <div class="clr"></div>
         			</div>
     			</div>
     			<div class="infouser ">
@@ -243,6 +265,24 @@
 								</b>
 							</div>
 						</div>
+						<div class="ol ol1" style="margin-top: 10px;">
+							<label>
+								<input type="checkbox" name="" value="Gọi người khác nhận hàng (Nếu có)">
+								<span> Gọi người khác nhận hàng (Nếu có)</span>
+							</label>
+						</div>
+						<div class="ol">
+							<label>
+								<input type="checkbox" name="" value="Chuyển danh bạ, dữ liệu qua máy mới">
+								<span> Chuyển danh bạ, dữ liệu qua máy mới</span>
+							</label>
+						</div>
+						<div class="ol ol3">
+							<label>
+								<input type="checkbox" name="" value="Mang thêm điện thoại khác để bạn xem">
+								<span> Mang thêm điện thoại khác để bạn xem</span>
+							</label>
+						</div>
 					</div>
 					
 				</div>
@@ -268,12 +308,48 @@
 	</section>
 	<script type="text/javascript" charset="utf-8" async defer>
 		$(document).ready(function($) {
+			$('.promotion span').each(function() {
+				if($(this).html()==="Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)"){
+					$(this).append(" <a href='#'>(click xem chi tiết)</a>")
+				}
+			});
+			$('.choosecolor').each(function() {
+				$('.color',this).append($('.blockcolor',this).attr('data-color'))
+				var img = $(this).children('img')
+				console.log(img.attr('src','1'));
+			});
+			$('.choosecolor').click(function(event) {
+				$('.listcolor', this).slideToggle(200)
+				$('.pseudocolor', this).toggleClass('act');
+			});
+			$('.blockcolor').click(function(event) {
+				color = $(this).attr('data-color');
+				console.log(color);
+				$(this).closest('.choosecolor').find('span.color').text("Màu: "+color);
+				inputcolor = $(this).closest('.choosecolor').find('input')
+				src = $(this).find('img').attr('src')
+				$(this).closest('.list_order li').find('.colimg a img').attr('src',src)
+				$('.colinfo .error').html('')
+			});
+
+			$('.textcode').click( function(event) {
+				$('.inputcode').css('display','block')
+			});
+
 			$('.city,.district,.ward').hide();
 			$('#citys').click(function(event) {
 				$('.city').slideToggle(300);
 				$('.city').css('overflow-y','scroll');
 				$('#citys').toggleClass('show');
-				$('.district').css('overflow','hidden');
+				if($('.district').css('display')=='grid'){
+					$('.district').slideToggle(100)
+					$('#district').toggleClass('show');
+				}
+				if($('.ward').css('display')=='grid'){
+					$('.ward').slideToggle(100)
+					$('#ward').toggleClass('show');
+				}
+
 			});
 			$('.list.province').click(function(event) {
 				city = $(this).html();
@@ -286,6 +362,14 @@
 				$('.district').css('overflow-y','scroll');
 				$('#district').toggleClass('show');
 				$('.ward').css('overflow','hidden');
+				if($('.city').css('display')=='grid'){
+					$('.city').slideToggle(100)
+					$('#citys').toggleClass('show');
+				}
+				if($('.ward').css('display')=='grid'){
+					$('.ward').slideToggle(100)
+					$('#ward').toggleClass('show');
+				}
 			});
 
 			$('.listdist').live('click',function(event) {
@@ -298,6 +382,14 @@
 				$('.ward').slideToggle(300);
 				$('.ward').css('overflow-y','scroll');
 				$('#ward').toggleClass('show');
+				if($('.city').css('display')=='grid'){
+					$('.city').slideToggle(100)
+					$('#citys').toggleClass('show');
+				}
+				if($('.district').css('display')=='grid'){
+					$('.district').slideToggle(100)
+					$('#district').toggleClass('show');
+				}
 			})
 			$('.listward').live('click',function(event) {
 				listward = $(this).html();
@@ -338,6 +430,16 @@
 			$('input[name="BillingAddress"]').change(function(event) {
 				$('#address').html('')
 			});
+			$('input[value="false"]').click(function(event) {
+				$('#ward, #BillingAddress_Address,.ol1,.ol3').css('display','none')
+				$('.introduction').text("Quý khách vui lòng đến siêu thị gần nhất nhận máy trong 24h, hết 24h đơn hàng sẽ tự động hủy!")
+				$('.introduction').css('margin-bottom','20px')
+			});
+			$('input[value="true"]').click(function(event) {
+				$('#ward, #BillingAddress_Address,.ol1,.ol3').css('display','block')
+				$('.introduction').html("<b>Hướng dẫn: </b>Chọn địa chỉ để biết chính xác thời gian giao hàng")
+				
+			});
 			function delay(){
 				$('.overlay').css('display','none')
 			}
@@ -345,19 +447,37 @@
 				$('.overlay').css('display','block')
 				setTimeout(delay,300)
 			}
-			$('.augment,.abate,.province,.listdist,.listward').live('click', function(event) {
-				timing()
+			$('.blockcolor,.augment,.abate,.province,.listdist,.listward,.delete').live('click', function(event) {
+				timing();
+				$('.dot').addClass('active')
 			});
 			$('.listward').live('click', function(event) {
 				$('.introduction').css('display','none')
 				$('.timeblock').css('display','block')
 			});
-			
+			$('.payoffline').click(function(){
+		        var val = []
+		        $(':checkbox:checked').each(function(i){
+		          val[i] = $(this).val();
+		          console.log(val[i]);
+		        });
+		    });
 
 		});
 	</script>
 	<script type="text/javascript" charset="utf-8">
 		function checkInforUser(){
+			var color = document.querySelectorAll('.color')
+			errorcolor = document.querySelectorAll('.colinfo .error')
+			for (var i = 0; i < color.length; i++) {
+				if (color[i].innerHTML.localeCompare("Màu: ")) {
+					
+				}else {
+					errorcolor[i].innerHTML = "Quý khách cần chọn màu!"
+					return false
+				}
+				
+			}
 			var male = document.getElementById('male');
 			var female = document.getElementById('female');
 			if (!male.checked&&!female.checked) {

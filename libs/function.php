@@ -28,7 +28,7 @@
 	function show_all(){
 		global $conn;
 		connect_db();
-		$sql = 'SELECT * FROM smartphone JOIN promotion ON smartphone.ProductId = promotion.ProductId';
+		$sql = 'SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId';
 		$query = mysqli_query($conn, $sql);
 		$result = array();
 		if($query) {
@@ -45,17 +45,17 @@
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}
-	function add_orders($product,$image,$priceunit,$pricepromote,$quantity,$pay,$date,$time,$phonenumber){
+	function add_orders($product,$image,$priceunit,$pricepromote,$color,$quantity,$pay,$date,$time,$phonenumber){
 		global $conn;
 		connect_db();
-		$sql = "INSERT INTO orders(Product,Image,PriceUnit,PricePromote,Quantity,TotalPay,OrderDate,CustomID) VALUES ('$product','$image','$priceunit','$pricepromote','$quantity','$pay','$date','$time',(SELECT customer.CustomID From customer WHERE customer.PhoneNumber = '$phonenumber'))";
+		$sql = "INSERT INTO orders(Product,Image,PriceUnit,PricePromote,Color,Quantity,TotalPay,OrderDate,CustomID) VALUES ('$product','$image','$priceunit','$pricepromote','$color','$quantity','$pay','$date','$time',(SELECT customer.CustomID From customer WHERE customer.PhoneNumber = '$phonenumber'))";
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}
-	function add_orders_exist($product,$image,$priceunit,$pricepromote,$quantity,$pay,$date,$time,$count){
+	function add_orders_exist($product,$image,$priceunit,$pricepromote,$color,$quantity,$pay,$date,$time,$count){
 		global $conn;
 		connect_db();
-		$sql = "INSERT INTO orders(Product,Image,PriceUnit,PricePromote,Quantity,TotalPay,OrderDate,EstimatedDeliveryTime,CustomID) VALUES ('$product','$image','$priceunit','$pricepromote','$quantity','$pay','$date','$time',(SELECT customer.CustomID From customer WHERE customer.CustomID = '$count'))";
+		$sql = "INSERT INTO orders(Product,Image,PriceUnit,PricePromote,Color,Quantity,TotalPay,OrderDate,EstimatedDeliveryTime,CustomID) VALUES ('$product','$image','$priceunit','$pricepromote','$color','$quantity','$pay','$date','$time',(SELECT customer.CustomID From customer WHERE customer.CustomID = '$count'))";
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}

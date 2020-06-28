@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Đăng nhập trang quản trị</title>
-	<link href="../img/favicon.ico" rel="shortcut icon" type="image/x-icon">
+	<link href="../img/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
 	<style type="text/css" media="screen">
 		*{
 			padding: 0;
@@ -84,7 +84,7 @@
 </head>
 <body>
 	<?php 
- 		require'../libs/all_function.php';
+ 		require'../libs/function.php';
 		connect_db();
 
 		if (isset($_POST['btn-submit'])) 
@@ -98,13 +98,13 @@
 			$error = '';
 			
 			if ($username != "" || $password !="") {
-				$sql = "SELECT username,password FROM user WHERE username = '$username' AND password = '$password' ";
+				$sql = "SELECT username.*,password.* FROM account WHERE username = '$username' AND password = '$password' ";
 				$query = mysqli_query($conn,$sql);
 				$num_rows = mysqli_num_rows($query);
 				if ($num_rows!=0) {
 					$password = md5($password);
 					$_SESSION['username'] = $username;
-                	header('Location: trangchu/');
+                	header('Location: admin/');
 				}else{
 					$error = "Tên đăng nhập hoặc mật khẩu không chính xác!";
 				}

@@ -24,12 +24,13 @@
 	$i=0;
 	$row[0]+=1;
 	foreach ($_SESSION['infoProduct'] as $data) {
-		$data['quantity'] = $_SESSION['quantity'][$i];$i++;
+		$data['quantity'] = $_SESSION['quantity'][$i];
+		$data['color'] = $_SESSION['color'][$i];$i++;
 		if($row[0]>=1){
-			add_orders_exist($data['nameproduct'],$data['image'],$data['priceunit'],$data['pricepromo'],$data['quantity'],$_SESSION['pay'],date('l, Y-m-d'),$EstimatedDeliveryTime,$row[0]);
+			add_orders_exist($data['nameproduct'],$data['image'],$data['priceunit'],$data['pricepromo'],$data['color'],$data['quantity'],$_SESSION['pay'],date('l, Y-m-d'),$EstimatedDeliveryTime,$row[0]);
 		}
 		else{
-			add_orders($data['nameproduct'],$data['image'],$data['priceunit'],$data['pricepromo'],$data['quantity'],$_SESSION['pay'],date('l, Y-m-d'),$EstimatedDeliveryTime,$_SESSION['phonenumber']);
+			add_orders($data['nameproduct'],$data['image'],$data['priceunit'],$data['pricepromo'],$data['color'],$data['quantity'],$_SESSION['pay'],date('l, Y-m-d'),$EstimatedDeliveryTime,$_SESSION['phonenumber']);
 		}
 	}
 	

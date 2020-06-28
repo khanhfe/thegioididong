@@ -1,5 +1,5 @@
 <?php
- 	require'../../libs/all_function.php';
+ 	require'../../libs/function.php';
  	connect_db();
 	global $conn;
 	$data = array();

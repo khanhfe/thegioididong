@@ -129,6 +129,9 @@ label.installment {
     float: left;
     margin-top: 2px;
 }
+.infopromo span.notnull a{
+    color: #288ad6
+}
 .area_promotion .vipservice {
     border: none;
     margin: 10px 12px 0 12px;
@@ -139,13 +142,15 @@ label.installment {
 .vipservice>* {
     margin-bottom: 10px;
 }
-.ol{
+.ol label{
     display: flex;
     align-items: center;
     line-height: 19px;
+    cursor: pointer;
 }
 .ol input{
     margin-right: 5px;
+    cursor: pointer;
 }
 .area_order{
 	margin: 10px;

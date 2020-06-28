@@ -70,6 +70,36 @@ a{
     text-align: center;
     overflow: hidden;
 }
+.overlay .cswrap{
+    position: absolute;
+    top: 50%;
+}
+.overlay .cswrap span.dot.active{
+   width: 8px;
+    height: 8px;
+    border: 1px solid #288ad6;
+    background: #288ad6;
+    border-radius: 50%;
+    float: left;
+    margin: 0 2px;
+    transform: scale(0);
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.1);
+    animation: fx 1s ease infinite;
+}
+@keyframes fx{
+    0%{
+        opacity: 0;
+        transform: scale(0);
+    }
+    50%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    100%{
+        opacity: 0;
+        transform: scale(0);
+    }
+}
 .list_order {
     display: block;
     overflow: visible;
@@ -195,6 +225,7 @@ a{
 }
 .choosecolor {
     float: left;
+    cursor: pointer;
     position: relative;
     width: 140px;
     border: 1px solid #dfdfdf;
@@ -207,7 +238,6 @@ a{
     margin: 5px 10px 0 0;
 }
 .choosecolor span {
-    display: block;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -227,6 +257,49 @@ a{
     float: right;
     position: absolute;
     top: 0;
+}
+.choosecolor .listcolor{
+    display: none;
+    padding: 0 10px;
+    position: absolute;
+    top: 36px;
+    left: 0;
+    z-index: 99;
+    border-radius: 4px;
+    background: #fff;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0 10px 10px 0 rgba(0,0,0,.1);
+    width: 100%;
+    overflow:visible; 
+}
+.choosecolor .pseudocolor.act:before, .choosecolor .pseudocolor.act:after{
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50px;
+    width: 0;
+    height: 0;
+    border-bottom: 10px solid #ccc;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+}
+.choosecolor .pseudocolor.act:after{
+    border-width: 9px;
+    margin-left: 1px;
+    border-bottom-color: #fff;
+    z-index: 100;
+}
+.blockcolor{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding:7px 0 10px 0;
+    border-bottom: 1px solid #eee; 
+}
+.choosecolor .listcolor img{
+    width: 30px;
+    height: 30px;
+    margin: 0;
 }
 .choosenumber {
     float: right;
@@ -323,6 +396,31 @@ a{
     color: #288ad6 !important;
     cursor: pointer;
     text-align: right;
+}
+.inputcode{
+    margin:10px 0;
+}
+.inputcode input#CouponCode {
+    display: block;
+    width: 40%;
+    border: 1px solid #d9d9d9;
+    border-radius: 4px;
+    padding: 9px;
+    height: 40px;
+    float: right;
+    margin-right: 10px;
+}
+.inputcode button {
+    float: right;
+    background: #288ad6;
+    border-radius: 4px;
+    border: 0;
+    height: 40px;
+    font-size: 14px;
+    color: #fff;
+    width: 90px;
+    text-align: center;
+    cursor: pointer;
 }
 .infouser {
     display: block;
@@ -524,6 +622,17 @@ input#BillingAddress_Address {
     margin-bottom: 5px;
     font-weight: bold;
     color: #00af1d
+}
+.ol label{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    line-height: 19px;
+    margin-bottom: 10px;
+}
+.ol input{
+    margin-right: 5px;
+    cursor: pointer;
 }
 .new-follow .choosepayment a {
     margin-bottom: 10px;

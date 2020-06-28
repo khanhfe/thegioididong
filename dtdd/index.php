@@ -4,7 +4,7 @@
  	$id = $_GET['id'];
  	connect_db();
 	global $conn;
-	$sql = "SELECT * FROM smartphone JOIN promotion ON smartphone.ProductId = promotion.PromotionId JOIN detail ON smartphone.ProductId = detail.ProductId WHERE smartphone.ProductId = '$id'";
+	$sql = "SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId JOIN detail ON product.ProductId = detail.ProductId WHERE product.ProductId = '$id'";
 	$query = mysqli_query($conn, $sql);	
 	$product = mysqli_fetch_assoc($query);
  	disconnect_db();
@@ -21,6 +21,7 @@
 	<title><?php echo $product['ProductName']; ?> | Trả góp 0%</title>
 	<link href="../img/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
 	<header>
@@ -115,13 +116,22 @@
 								<b>Chọn thêm các dịch vụ<b style="color: #ff0011;"> miễn phí chỉ có ở TGDD</b></b>
 							</div>
 							<div class="ol">
-								<input type="checkbox" name="" checked="checked"><span> Giao ngay từ cửa hàng gần bạn nhất</span>
+								<label>
+									<input type="checkbox" name="" value="" checked="checked">
+									<span> Giao ngay từ cửa hàng gần bạn nhất</span>
+								</label>
 							</div>
 							<div class="ol">
-								<input type="checkbox" name=""><span> Chuyển danh bạ, dữ liệu qua máy mới</span>
+								<label>
+									<input type="checkbox" name="" value="">
+									<span> Chuyển danh bạ, dữ liệu qua máy mới</span>
+								</label>
 							</div>
 							<div class="ol">
-								<input type="checkbox" name=""><span> Mang thêm điện thoại khác để bạn xem</span>
+								<label>
+									<input type="checkbox" name="" value="">
+									<span> Mang thêm điện thoại khác để bạn xem</span>
+								</label>
 							</div>		
 						</div>
 					</div>
@@ -169,6 +179,13 @@
 		for (var i = 0; i < notnull.length; i++) {
 			if(notnull[i].innerHTML=='') notnull[i].classList.remove('notnull')
 		}
+		jQuery(document).ready(function($) {
+			$('.infopromo .notnull').each(function() {
+				if($(this).html()==="Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)"){
+					$(this).append(" <a href='#'>(click xem chi tiết)</a>")
+				}
+			});
+		});
 	</script>	
 </body>
 </html>
