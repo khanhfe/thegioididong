@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 28, 2020 lúc 09:42 PM
+-- Thời gian đã tạo: Th6 29, 2020 lúc 09:31 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.6
 
@@ -133,13 +133,6 @@ CREATE TABLE `customer` (
   `TotalPay` int(11) NOT NULL,
   `CreateTime` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `customer`
---
-
-INSERT INTO `customer` (`CustomID`, `FullName`, `Gender`, `PhoneNumber`, `Email`, `Address`, `NoteCart`, `TotalPay`, `CreateTime`) VALUES
-(1, 'Nguyễn Văn Khảnh', 'Nam', 389021327, '', 'xóm Giếng, thôn Hạ Hòa, Xã Tân Phú, Huyện Quốc Oai, Hà Nội', '', 139340000, '22:57:00, 2020-06-28 ');
 
 -- --------------------------------------------------------
 
@@ -923,14 +916,6 @@ CREATE TABLE `orders` (
   `EstimatedDeliveryTime` varchar(225) NOT NULL,
   `CustomID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `orders`
---
-
-INSERT INTO `orders` (`OrderID`, `Product`, `Image`, `PriceUnit`, `PricePromote`, `Color`, `Quantity`, `TotalPay`, `OrderDate`, `EstimatedDeliveryTime`, `CustomID`) VALUES
-(1, 'iPhone 11 Pro Max 64GB', 'img/product/smartphones/iphone-11-pro-max-green-400x400.jpg', 33990000, 31990000, 'Xanh lá', 4, 139340000, 'Sunday, 2020-06-28', '22:57:00 , Monday, 2020-06-29', 1),
-(2, 'Realme 6 (4GB/128GB)', 'img/product/smartphones/realme-6-xanh-600x600-400x400.jpg', 5990000, 5690000, 'Trắng', 2, 139340000, 'Sunday, 2020-06-28', '22:57:00 , Monday, 2020-06-29', 1);
 
 -- --------------------------------------------------------
 
@@ -44157,7 +44142,7 @@ ALTER TABLE `color_product`
 -- AUTO_INCREMENT cho bảng `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `CustomID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `detail`
@@ -44169,7 +44154,7 @@ ALTER TABLE `detail`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
