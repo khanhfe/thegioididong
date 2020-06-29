@@ -45,17 +45,29 @@ for (var i = 0; i < arraysync2.length; i++) {
 }
 document.querySelector('#sync2 .owl-wrapper').style.width = 158*arraysync2.length+'px'
 
+document.getElementById('next').addEventListener("click", Next);
 
-document.getElementById('next').addEventListener("click", carouselNext);
-var li = document.getElementById('carousel').offsetWidth ;
-li = parseInt(li);
-function carouselNext() {
-	console.log(li);
-	document.getElementById("carousel").style.transition = "all 200ms ease 0s"
-	document.getElementById("carousel").style.transform = "translateX(-"+li+"px)";
+document.getElementById('prev').addEventListener("click", Prev);
+function Next(){
+	matrix.m41-=1200
+	if ((-matrix.m41)>=widthcarousel) {
+		matrix.m41 = 0
+		document.querySelector('.owl-wrapper').style.transition = "all 800ms ease 0s"
+		document.querySelector('.owl-wrapper').style.transform = 'translate3d('+matrix.m41+'px, 0, 0)'
+	}else{
+		document.querySelector('.owl-wrapper').style.transition = "all 500ms ease 0s"
+		document.querySelector('.owl-wrapper').style.transform = 'translate3d('+matrix.m41+'px, 0, 0)'
+	}		
 }
-document.getElementById('prev').addEventListener("click", carouselPrev);
-function carouselPrev() {
-	console.log(li);
-	document.getElementById("carousel").style.transform = "translateX(0px)";
+function Prev(){
+	console.log(matrix.m41)
+	if ((matrix.m41)==0) {
+		matrix.m41 = -widthcarousel +790
+		document.querySelector('.owl-wrapper').style.transition = "all 800ms ease 0s"
+		document.querySelector('.owl-wrapper').style.transform = 'translate3d('+matrix.m41+'px, 0, 0)'
+	}else{
+		matrix.m41+=790
+		document.querySelector('.owl-wrapper').style.transition = "all 500ms ease 0s"
+		document.querySelector('.owl-wrapper').style.transform = 'translate3d('+matrix.m41+'px, 0, 0)'
+	}
 }

@@ -17,7 +17,7 @@
 	$data['phonenumber'] = $_SESSION['phonenumber'];
 	$data['email'] = $_SESSION['email'];
 	$data['address'] = $_SESSION['address'];
-	$data['note'] = $_SESSION['note'];
+	$data['note'] = implode(", ", $_SESSION['note']);
 	$data['pay'] = $_SESSION['pay'];
 	$data['date'] = $currenttime;
 	add_customer($data['fullname'],$data['gender'],$data['phonenumber'],$data['email'],$data['address'],$data['note'],$data['pay'],$data['date']);

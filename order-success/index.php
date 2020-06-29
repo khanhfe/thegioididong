@@ -22,7 +22,7 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
 		$_SESSION['quantity'] = $_POST['amount'];
 		$_SESSION['color'] = $_POST['color'];
  		$_SESSION['phonenumber'] = $_POST['PhoneNumber'];
-		$_SESSION['note'] = $_POST['OrderNote'];
+		$_SESSION['note'] = $_POST['serviceother'];
 		$_SESSION['gender'] = $gender;
 		$_SESSION['fullname'] = $_POST['FullName'];
 		$_SESSION['email'] = '';
@@ -87,6 +87,7 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
 		</div>
 	</header>
 	<section>
+		<?php echo implode($_SESSION['note']); ?>
 		<div class="container">
 			<div class="picsuccess">
                 <div class="notistatus">
@@ -98,7 +99,7 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
         	</div>
         	<div class="titlebill">Thông tin đặt hàng:</div>
         	<div class="infoorder">
-				<div>Người nhận: <b><?php echo $_SESSION['fullname'].", ".$_SESSION['phonenumber']; ?></b></div>
+				<div>Người nhận: <b><?php echo $_POST['FullName']; ?>,<?php echo $_POST['PhoneNumber']; ?></b></div>
 				<div>Địa chỉ nhận hàng: <b><?php echo $_SESSION['address'] ?></b> </div>
 				<div>Thời gian nhận hàng dự kiến: 
 					<b> Trước <?php $currenttime = date('l, yy-m-d H:i:s');

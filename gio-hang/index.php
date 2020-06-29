@@ -147,7 +147,6 @@
 						        	<input type="hidden" name="price" value="<?php echo $infoProduct['priceunit'] ?>">
 						        </div>
 						        <div class="clr"></div>
-						        <div class="error" style="margin-left: 1px;"></div>
     						</div>
     					</li>
     					<?php } } ?>
@@ -267,21 +266,41 @@
 						</div>
 						<div class="ol ol1" style="margin-top: 10px;">
 							<label>
-								<input type="checkbox" name="" value="Gọi người khác nhận hàng (Nếu có)">
+								<input type="checkbox" name="serviceother[]" value="Gọi người khác nhận hàng (Nếu có)">
 								<span> Gọi người khác nhận hàng (Nếu có)</span>
 							</label>
 						</div>
+						<div class="infocontact">
+							<div class="malefemale">
+						        <label><input type="radio" name="serviceother[]" value="anh" id="male"><span>Anh</span></label>
+						        <label><input type="radio" name="serviceother[]" value="chị" id="female"><span>Chị</span></label>
+						    </div>
+						    <div class="clr"></div>
+						    <div class="areainfo">
+						        <div class="left">
+						            <input type="text" class="saveinfo" name="serviceother[]" placeholder="Họ và tên" maxlength="50" value="">
+						        </div>
+						        <div class="right">
+						            <input type="tel" class="saveinfo" name="serviceother[]" placeholder="Số điện thoại" maxlength="10" value="">
+						        </div>
+						        <div class="clr"></div>
+						    </div>
+						</div>
+					    <div class="clr"></div>
 						<div class="ol">
 							<label>
-								<input type="checkbox" name="" value="Chuyển danh bạ, dữ liệu qua máy mới">
+								<input type="checkbox" name="serviceother[]" value="Chuyển danh bạ, dữ liệu qua máy mới">
 								<span> Chuyển danh bạ, dữ liệu qua máy mới</span>
 							</label>
 						</div>
 						<div class="ol ol3">
 							<label>
-								<input type="checkbox" name="" value="Mang thêm điện thoại khác để bạn xem">
+								<input type="checkbox" name="serviceother[]" value="Mang thêm điện thoại khác để bạn xem">
 								<span> Mang thêm điện thoại khác để bạn xem</span>
 							</label>
+						</div>
+						<div class="deviceother">
+							<input type="text" class="saveinfo" name="serviceother[]" placeholder="Nhập tên điện thoại bạn muốn xem" maxlength="50" value="">
 						</div>
 					</div>
 					
@@ -315,6 +334,7 @@
 			});
 			$('.choosecolor').each(function() {
 				$('.color',this).append($('.blockcolor',this).attr('data-color'))
+				$('input[name="color[]"]',this).val($('.blockcolor',this).attr('data-color'))
 				var img = $(this).children('img')
 				console.log(img.attr('src','1'));
 			});
@@ -324,12 +344,11 @@
 			});
 			$('.blockcolor').click(function(event) {
 				color = $(this).attr('data-color');
-				console.log(color);
 				$(this).closest('.choosecolor').find('span.color').text("Màu: "+color);
 				inputcolor = $(this).closest('.choosecolor').find('input')
+				inputcolor.val(color)
 				src = $(this).find('img').attr('src')
 				$(this).closest('.list_order li').find('.colimg a img').attr('src',src)
-				$('.colinfo .error').html('')
 			});
 
 			$('.textcode').click( function(event) {
@@ -431,9 +450,10 @@
 				$('#address').html('')
 			});
 			$('input[value="false"]').click(function(event) {
-				$('#ward, #BillingAddress_Address,.ol1,.ol3').css('display','none')
-				$('.introduction').text("Quý khách vui lòng đến siêu thị gần nhất nhận máy trong 24h, hết 24h đơn hàng sẽ tự động hủy!")
-				$('.introduction').css('margin-bottom','20px')
+				$('#ward, #BillingAddress_Address,.ol1,.ol3,.infocontact,.deviceother').css('display','none')
+				$('.introduction').html("Chúng tôi sẽ sớm cập nhật các siêu thị gần nhất đến quý khách.<br>Quý khách vui lòng đến các siêu thị thuộc hệ thống <b>thegioididong.com</b> để nhận máy trong 24h, hết 24h đơn hàng sẽ tự động hủy!")
+				$('.introduction').css('margin','10px 0 20px ')
+				$('.introduction').css('line-height','22px')
 			});
 			$('input[value="true"]').click(function(event) {
 				$('#ward, #BillingAddress_Address,.ol1,.ol3').css('display','block')
@@ -455,6 +475,13 @@
 				$('.introduction').css('display','none')
 				$('.timeblock').css('display','block')
 			});
+			$('.ol1 label input').change(function(event) {
+				$('.infocontact').slideToggle(400)
+				$('.infocontact').css('overflow','hidden')
+			});
+			$('.ol3 label input').change(function(event) {
+				$('.deviceother').slideToggle(400)
+			});
 			$('.payoffline').click(function(){
 		        var val = []
 		        $(':checkbox:checked').each(function(i){
@@ -467,17 +494,6 @@
 	</script>
 	<script type="text/javascript" charset="utf-8">
 		function checkInforUser(){
-			var color = document.querySelectorAll('.color')
-			errorcolor = document.querySelectorAll('.colinfo .error')
-			for (var i = 0; i < color.length; i++) {
-				if (color[i].innerHTML.localeCompare("Màu: ")) {
-					
-				}else {
-					errorcolor[i].innerHTML = "Quý khách cần chọn màu!"
-					return false
-				}
-				
-			}
 			var male = document.getElementById('male');
 			var female = document.getElementById('female');
 			if (!male.checked&&!female.checked) {
@@ -494,7 +510,8 @@
 				}
 				document.getElementById('errorFullName').innerHTML = "Quý khách cần điền tên";
 				document.getElementById('errorPhoneNumber').innerHTML = "Quý khách cần điền số điện thoại";
-				document.getElementById('address').innerHTML = "Quý khách vui lòng điền số nhà, tên đường";
+				if(document.getElementById('BillingAddress_Address').style.display=='')
+					document.getElementById('address').innerHTML = "Quý khách vui lòng điền số nhà, tên đường";
 				return false;
 			}else if(fullname==''){
 				document.querySelector('input[name="FullName"]').classList.add('error')
@@ -508,7 +525,7 @@
 				document.querySelector('input[name="PhoneNumber"]').classList.add('error')
 				document.getElementById('errorPhoneNumber').innerHTML = "Số điện thoại không hợp lệ";
 				return false;
-			}else if (address=='') {
+			}else if (address==''&&(document.getElementById('BillingAddress_Address').style.display=='')) {
 				document.querySelector('input[name="BillingAddress"]').classList.add('error')
 				document.getElementById('address').innerHTML = "Quý khách vui lòng điền số nhà, tên đường";
 				return false;
