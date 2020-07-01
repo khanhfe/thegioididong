@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th6 29, 2020 lúc 09:31 AM
+-- Thời gian đã tạo: Th7 01, 2020 lúc 10:08 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.6
 
@@ -31,8 +31,8 @@ CREATE TABLE `account` (
   `AccountID` int(11) NOT NULL,
   `FirstName` varchar(50) NOT NULL,
   `Lastname` varchar(50) NOT NULL,
-  `usename` varchar(25) NOT NULL,
-  `password` varchar(25) NOT NULL,
+  `username` varchar(25) NOT NULL,
+  `password` varchar(32) NOT NULL,
   `Birthday` date NOT NULL,
   `PhoneNumber` int(11) DEFAULT NULL,
   `email` varchar(225) DEFAULT NULL
@@ -42,8 +42,8 @@ CREATE TABLE `account` (
 -- Đang đổ dữ liệu cho bảng `account`
 --
 
-INSERT INTO `account` (`AccountID`, `FirstName`, `Lastname`, `usename`, `password`, `Birthday`, `PhoneNumber`, `email`) VALUES
-(1, 'Nguyễn Văn ', 'Khảnh', 'adminkhanh', 'Khanhnguyen2001', '2001-03-28', 389021327, 'khanhr.fe@gmail.com');
+INSERT INTO `account` (`AccountID`, `FirstName`, `Lastname`, `username`, `password`, `Birthday`, `PhoneNumber`, `email`) VALUES
+(1, 'Nguyễn Văn ', 'Khảnh', 'adminkhanh', '9b2beca231e962dc022f3ac7ec9f48ee', '2001-03-28', 389021327, 'khanhr.fe@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -142,7 +142,7 @@ CREATE TABLE `customer` (
 
 CREATE TABLE `detail` (
   `DetailId` int(11) NOT NULL,
-  `Display` varchar(50) DEFAULT NULL,
+  `Display` varchar(225) DEFAULT NULL,
   `OS` varchar(50) DEFAULT NULL,
   `RearCamera` varchar(225) DEFAULT NULL,
   `FrontCamera` varchar(225) DEFAULT NULL,
@@ -167,7 +167,8 @@ INSERT INTO `detail` (`DetailId`, `Display`, `OS`, `RearCamera`, `FrontCamera`, 
 (7, 'IPS LCD, 6.5\", Full HD+', 'Android 10', 'Chính 64 MP & Phụ 8 MP, 2 MP, 2 MP', '16 MP', 'Mediatek Helio G90T 8 nhân', '4GB', '128GB', '4300 mAh, có sạc nhanh', 7),
 (8, 'IPS LCD, 6.35\", HD+', 'Android 9.0 (Pie)', 'Chính 13 MP & Phụ 8 MP, 2 MP', '8MP', 'Snapdragon 665 8 nhân', '4GB', '64GB', '5000 mAh, có sạc nhanh', 8),
 (9, 'LED-backlit IPS LCD, 5.5\", Retina HD', 'iOS 12', 'Chính 12 MP & Phụ 12 MP', '7 MP', 'Apple A11 Bionic 6 nhân', '3GB', '64GB', '2691 mAh, có sạc nhanh', 9),
-(10, 'AMOLED, 6.4\", Full HD+', 'ColorOS 6.1 (Android 9.0)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio P70 8 nhân', '8GB', '128GB', '4025 mAh, có sạc nhanh', 10);
+(10, 'AMOLED, 6.4\", Full HD+', 'ColorOS 6.1 (Android 9.0)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio P70 8 nhân', '8GB', '128GB', '4025 mAh, có sạc nhanh', 10),
+(11, 'Chính: Dynamic AMOLED, phụ: Super AMOLED, Chính 7.3\" & Phụ 4.6\", Quad HD (2K)', 'Android 9.0 (Pie)', 'Chính 12 MP & Phụ 12 MP, 16 MP', 'Trong: 10 MP, 8 MP; Ngoài: 10 MP', 'Snapdragon 855 8 nhân', '12GB', '512GB', '4380 mAh, có sạc nhanh', 11);
 
 -- --------------------------------------------------------
 
@@ -939,16 +940,18 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`ProductId`, `ProductName`, `ProductImage`, `PriceCurrent`, `PricePromo`, `Brand`, `Quantity`, `GroupProduct`) VALUES
-(1, 'Samsung Galaxy A51 (8GB/128GB)', 'img/product/smartphones/samsung-galaxy-a51-8gb-blue-600x600-400x400.jpg', 8390000, '7790000', 'Samsung', 999, 'Điện thoại'),
-(2, 'OPPO Reno3', 'img/product/smartphones/oppo-reno3-trang-600x600-400x400.jpg', 8990000, '8490000', 'OPPO', 999, 'Điện thoại'),
-(3, 'iPhone 11 Pro Max 64GB', 'img/product/smartphones/iphone-11-pro-max-green-400x400.jpg', 33990000, '31990000', 'iPhone (Apple)', 999, 'Điện thoại'),
-(4, 'Vsmart Joy 3 (4GB/64GB)', 'img/product/smartphones/vsmart-joy-3-4gb-den-600x600-400x400.jpg', 3290000, '3090000', 'Vsmart', 999, 'Điện thoại'),
-(5, 'OPPO Reno2 F', 'img/product/smartphones/oppo-reno2-f-600x600-200x200.jpg', 8990000, '0', 'OPPO', 999, 'Điện thoại'),
-(6, 'Samsung Galaxy S10 Lite', 'img/product/smartphones/samsung-galaxy-s10-lite-blue-thumb-400x400.jpg', 14990000, '12990000', 'Samsung', 999, 'Điện thoại'),
-(7, 'Realme 6 (4GB/128GB)', 'img/product/smartphones/realme-6-xanh-600x600-400x400.jpg', 5990000, '5690000', 'Realme', 999, 'Điện thoại'),
-(8, 'Vivo U10', 'img/product/smartphones/vivo-u10-1-400x400.jpg', 3990000, '3790000', 'Vivo', 999, 'Điện thoại'),
-(9, 'iPhone 8 Plus 64GB', 'img/product/smartphones/iphone-8-plus-hh-600x600-400x400.jpg', 15990000, '0', 'iPhone (Apple)', 999, 'Điện thoại'),
-(10, 'OPPO A91', 'img/product/smartphones/oppo-a91-trang-600x600-600x600.jpg', 6990000, '5990000', 'OPPO', 999, 'Điện thoại');
+(1, 'Samsung Galaxy A51(8GB/128GB) ', 'img/product/samsung-galaxy-a51-8gb-blue-600x600-400x400.jpg', 8990000, '8490000', 'Samsung', 999, 'Điện Thoại'),
+(2, 'OPPO Reno3', 'img/product/oppo-reno3-trang-600x600-400x400.jpg', 8990000, '8490000', 'OPPO', 999, 'Điện Thoại'),
+(3, 'iPhone 11 Pro Max 64GB', 'img/product/iphone-11-pro-max-green-400x400.jpg', 33990000, '31990000', 'iPhone (Apple)', 999, 'Điện thoại'),
+(4, 'Vsmart Joy 3 (4GB/64GB)', 'img/product/vsmart-joy-3-4gb-den-600x600-400x400.jpg', 3290000, '3090000', 'Vsmart', 999, 'Điện thoại'),
+(5, 'OPPO Reno2 F', 'img/product/oppo-reno2-f-600x600-200x200.jpg', 8990000, '7990000', 'OPPO', 999, 'Điện thoại'),
+(6, 'Samsung Galaxy S10 Lite', 'img/product/samsung-galaxy-s10-lite-blue-thumb-400x400.jpg', 14990000, '12990000', 'Samsung', 999, 'Điện thoại'),
+(7, 'Realme 6 (4GB/128GB)', 'img/product/realme-6-xanh-600x600-400x400.jpg', 5990000, '5690000', 'Realme', 999, 'Điện thoại'),
+(8, 'Vivo U10', 'img/product/vivo-u10-1-400x400.jpg', 3990000, '3790000', 'Vivo', 999, 'Điện thoại'),
+(9, 'iPhone 8 Plus 64GB', 'img/product/iphone-8-plus-hh-600x600-400x400.jpg', 15990000, '13990000', 'iPhone (Apple)', 999, 'Điện thoại'),
+(10, 'OPPO A91', 'img/product/oppo-a91-trang-600x600-600x600.jpg', 6990000, '5990000', 'OPPO', 999, 'Điện thoại'),
+(11, 'Samsung Galaxy Fold', 'img/product/samsung-galaxy-fold-black-400x400.jpg', 50000000, '0', 'Samsung', 999, 'Điện thoại'),
+(12, 'Samsung Galaxy Z Flip', 'img/product/samsung-galaxy-z-flip-den-600x600-400x400.jpg', 36000000, '0', 'Samsung', 999, 'Điện thoại');
 
 -- --------------------------------------------------------
 
@@ -980,7 +983,8 @@ INSERT INTO `promotion` (`PromotionId`, `Promo1`, `Promo2`, `Promo3`, `Promo4`, 
 (7, 'Tặng tiền cước 300.000đ (áp dụng đặt và nhận hàng từ 17 - 30/6) (đã trừ vào giá)', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', NULL, NULL, NULL, 7),
 (8, 'Tặng tiền cước 200.000đ (đã trừ vào giá)', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', NULL, NULL, NULL, 8),
 (9, 'Giảm ngay 500.000đ *', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', NULL, NULL, NULL, 9),
-(10, 'Tặng tiền cước 1 triệu (đã trừ vào giá)', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', NULL, NULL, NULL, 10);
+(10, 'Tặng tiền cước 1 triệu (đã trừ vào giá)', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', NULL, NULL, NULL, 10),
+(11, 'Trả góp 0% thẻ tín dụng', 'Bảo hiểm thay màn hình lần đầu trong vòng 1 năm', 'Ưu đãi phòng chờ hạng thương gia và Ưu đãi Samsung Pay tại Starbucks.', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Tặng suất mua đồng hồ Samsung Active 2 giảm đến 3.000.000đ (Đồng hồ mua kèm không áp dụng KM khác)', 11);
 
 -- --------------------------------------------------------
 
@@ -44148,7 +44152,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT cho bảng `detail`
 --
 ALTER TABLE `detail`
-  MODIFY `DetailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `DetailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
@@ -44160,13 +44164,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `ProductId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ProductId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT cho bảng `promotion`
 --
 ALTER TABLE `promotion`
-  MODIFY `PromotionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `PromotionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
