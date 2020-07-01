@@ -141,6 +141,22 @@ nav a.gameapp {
     width: 79px;
     height: 43px;
 }
+nav a.account{
+    width: 110px;
+    height: 35px;
+    text-align: center;
+    border-left: 1px solid rgba(0,0,0,.1);
+}
+.icon-account{
+    background-image: url(../img/icon/account.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 23px;
+    display: block;
+    line-height: 25px;
+    vertical-align: middle;
+    margin: auto;
+}
 .icon-mobile {
     background-position: -190px 0;
     width: 16px;

@@ -521,6 +521,9 @@ span.error, div.error{
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
 }
+.area_address.supermarket:before{
+    left:210px;
+}
 .area_address input{
     text-indent: 10px;
     cursor: text;

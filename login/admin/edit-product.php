@@ -1,30 +1,30 @@
 <?php
 	require'../../libs/function.php';
 	$id = $_GET['id'];
-	connect_db();
 	global $conn;
-	$sql = "SELECT * FROM product WHERE id = '$id'";
+	connect_db();
+	$sql = "SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId JOIN detail ON product.ProductId = detail.ProductId WHERE product.ProductId = '$id'";
 	$query = mysqli_query($conn, $sql);	
 	$data = mysqli_fetch_assoc($query);
-	$src = "anh1/";
-	if(isset($_POST['edit'])){
-		$data['id'] = $id;
-		$data['name'] = $_POST['name'];
-		$data['image'] = isset($_POST['image']) ? $src.$_POST['image'] : ' ';
-		$data['price'] = ($_POST['price']) ? $_POST['price'] : ' ';
-		$data['content'] = ($_POST['content']) ? $_POST['content'] : ' ';
-		$data['created_time'] = ($_POST['created_time']) ? $_POST['created_time'] : ' ';
-		$data['last_updated'] = ($_POST['last_updated']) ? $_POST['last_updated'] : ' ';
-		edit_product($data['id'], $data['name'], $data['image'], $data['price'],$data['content'],$data['created_time'],$data['last_updated']);
-		header('location:index.php');		
+	if(isset($_POST['submit'])){
+		$data['ProductId'] = $id;
+		$data['ProductName'] = $_POST['ProductName'];
+		$data['ProductImage'] = $_POST['ProductImage'];
+		$data['PricePromo'] = $_POST['PricePromo'];
+		$data['PriceCurrent'] = $_POST['PriceCurrent'];
+		$data['Brand'] = $_POST['Brand'];
+		$data['Quantity'] = $_POST['Quantity'];
+		$data['GroupProduct'] = $_POST['GroupProduct'];
+		edit_product($data['ProductId'], $data['ProductName'], $data['ProductImage'], $data['PricePromo'],$data['PriceCurrent'],$data['Brand'],$data['Quantity'],$data['GroupProduct']);
+		header('location:index.php');	
 	}
-
 	disconnect_db();
 ?>
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Sửa sản phẩm</title>
+	<script type="text/javascript" src="../../js/jquery.min.js"></script>
 	<style type="text/css">
 		*{
 			padding: 0;
@@ -52,36 +52,33 @@
 			border: 1px solid #fff;
 		}
 		th{
-			padding:12px;
+			width:300px;
 			color: #768192;
 		    background-color: #d8dbe0;
-		    border:1px solid #d8dbe0;
 		}
 		td{
-			padding: .75rem;
-		    border-top: 1px solid #fff;
-		    text-align: center;
+		    text-align: left;
 		}
 		table input{
 			margin: auto;
 			padding: 0.7em;
-			width: 75%;
+			width: 100%;
 		}
-		td .btn-edit{
-			width: fit-content;
-			padding: 1em;
-			background: #ccc;
-			border: 1px solid #ccc;
-			outline: none;
-			color: #333;
-			margin: auto;
-			cursor: pointer;
+		input:focus{
+			outline: none
 		}
-		td .btn-edit:hover{
-			color: #fff;
-			background: #007bff;
-			border: 1px solid #007bff;
+		input[type="submit"]{
+			display: block;
+			padding: 15px;
 			transition: all 0.5s;
+			cursor: pointer;
+			background-color: #00a88a;
+			border: #00a88a 1px solid;
+			outline: none;
+		}
+		input[type="submit"]:hover{
+			background-color: #fed700;
+			border: #fed700 1px solid;
 		}
 	</style>
 </head>
@@ -106,53 +103,156 @@
 		</nav>		
 	</header>
 	<div class="main-body">
+		<div class="back"><a href="index.php">Quay lại</a></div>
 		<div class="container">
 			<form action="#" method="post">
-				<table cellspacing="0">
+				<table>
+					<caption>Bảng thông tin chung về sản phẩm</caption>
 					<tr>
-						<th>Product</th>
+						<th>Tên sản phẩm</th>
 						<td>
-							<input type="text" name="name" value="<?php echo !empty($data['name']) ? $data['name'] : ' '  ; ?>" required>
+							<input class="able" type="text" name="ProductName" value="<?php echo !empty($data['ProductName']) ? $data['ProductName'] : ''; ?>"  disabled='disabled'>
 						</td>				
 					</tr>
 					<tr>
-						<th>Image</th>
+						<th>Hình ảnh</th>
 						<td>
-							<input type="file" name="image" value="<?php echo !empty($data['image']) ? $data['image'] : ' '  ; ?>" required>
+							<input class="able" type="text" name="ProductImage" value="<?php echo !empty($data['ProductImage']) ? $data['ProductImage'] : ''; ?>" required disabled='disabled'>
 						</td>				
 					</tr>
 					<tr>
-						<th>Price</th>
+						<th>Giá khuyến mãi(Nếu có)</th>
 						<td>
-							<input type="text" name="price" value="<?php echo !empty($data['price']) ? $data['price'] : ''; ?>" required>
+							<input class="able" type="number" name="PricePromo" value="<?php echo !empty($data['PricePromo']) ? $data['PricePromo'] : '0'; ?>" required disabled='disabled'>
 						</td>				
 					</tr>
 					<tr>
-						<th>Content</th>
+						<th>Giá gốc</th>
 						<td>
-							<input type="text" name="content" value="<?php echo !empty($data['content']) ? $data['content'] : ''; ?>" required>
+							<input class="able" type="number" name="PriceCurrent" value="<?php echo !empty($data['PriceCurrent']) ? $data['PriceCurrent'] : ''; ?>" required disabled='disabled'>
 						</td>				
 					</tr>
 					<tr>
-						<th>Create Time</th>
+						<th>Thương hiệu</th>
 						<td>
-							<input type="text" name="created_time" value="<?php echo !empty($data['created_time']) ? $data['created_time'] : ''; ?>" required>
+							<input class="able" type="text" name="Brand" value="<?php echo !empty($data['Brand']) ? $data['Brand'] : ''; ?>" required disabled='disabled'>
 						</td>				
 					</tr>
 					<tr>
-						<th>Last Updated</th>
+						<th>Số lượng tồn kho</th>
 						<td>
-							<input type="text" name="last_updated" value="<?php echo !empty($data['last_updated']) ? $data['last_updated'] : ''; ?>" required>
+							<input class="able" type="number" name="Quantity" value="<?php echo !empty($data['Quantity']) ? $data['Quantity'] : ''; ?>" required disabled='disabled'>
 						</td>				
 					</tr>
 					<tr>
-						<td colspan="2" align="center">
-							<input type="submit" name="edit" value="Sửa" class="btn-edit">
-						</td>
+						<th>Nhóm sản phẩm</th>
+						<td>
+							<input class="able" type="text" name="GroupProduct" value="<?php echo !empty($data['GroupProduct']) ? $data['GroupProduct'] : ''; ?>" required disabled='disabled'>
+						</td>				
 					</tr>
 				</table>
+				<table>
+					<caption>Bảng thông tin khuyến mãi của sản phẩm</caption>
+					<tbody>
+						<tr>
+							<th>Khuyến mãi 1</th>
+							<td>
+								<input class="able" type="text" name="Promo1" value="<?php echo !empty($data['Promo1']) ? $data['Promo1'] : ' '  ; ?>"  disabled='disabled'>
+							</td>				
+						</tr>
+						<tr>
+							<th>Khuyến mãi 2</th>
+							<td>
+								<input class="able" type="text" name="Promo2" value="<?php echo !empty($data['Promo2']) ? $data['Promo2'] : ' '  ; ?>" disabled='disabled'>
+							</td>				
+						</tr>
+						<tr>
+							<th>Khuyến mãi 3</th>
+							<td>
+								<input class="able" type="text" name="Promo3" value="<?php echo !empty($data['Promo3']) ? $data['Promo3'] : ' '  ; ?>" disabled='disabled'>
+							</td>				
+						</tr>
+						<tr>
+							<th>Khuyến mãi 4</th>
+							<td>
+								<input class="able" type="text" name="Promo4" value="<?php echo !empty($data['Promo4']) ? $data['Promo4'] : ' '  ; ?>" disabled='disabled'>
+							</td>				
+						</tr>
+						<tr>
+							<th>Khuyến mãi 5</th>
+							<td>
+								<input class="able" type="text" name="Promo5" value="<?php echo !empty($data['Promo5']) ? $data['Promo5'] : ' '  ; ?>" disabled='disabled'>
+							</td>				
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<caption>Bảng thông số kỹ thuật của sản phẩm</caption>
+					<tbody>
+						<tr>
+							<th>Màn hình</th>
+							<td>
+								<input class="able" type="text" name="Display" value="<?php echo !empty($data['Display']) ? $data['Display'] : ''; ?>" disabled='disabled'>
+							</td>				
+						</tr>
+						<tr>
+							<th>Hệ điều hành</th>
+							<td>
+								<input class="able" type="text" name="OS" value="<?php echo !empty($data['OS']) ? $data['OS'] : '' ; ?>" disabled='disabled'>
+							</td>				
+						</tr>
+						<tr>
+							<th>Camera sau</th>
+							<td>
+								<input class="able" type="text" name="RearCamera" value="<?php echo !empty($data['RearCamera']) ? $data['RearCamera'] : ''; ?>" disabled='disabled'>
+							</td>				
+						</tr>
+						<tr>
+							<th>Camera trước</th>
+							<td>
+								<input class="able" type="text" name="FrontCamera" value="<?php echo !empty($data['FrontCamera']) ? $data['FrontCamera'] : ''; ?>" disabled='disabled'>
+							</td>				
+						</tr>
+						<tr>
+							<th>CPU</th>
+							<td>
+								<input class="able" type="text" name="CPU" value="<?php echo !empty($data['CPU']) ? $data['CPU'] : ''; ?>" disabled='disabled'>
+							</td>				
+						</tr>
+						<tr>
+							<th>RAM</th>
+							<td>
+								<input class="able" type="text" name="RAM" value="<?php echo !empty($data['RAM']) ? $data['RAM'] : ''; ?>" disabled='disabled'>
+							</td>				
+						</tr>
+						<tr>
+							<th>ROM</th>
+							<td>
+								<input class="able" type="text" name="ROM" value="<?php echo !empty($data['ROM']) ? $data['ROM'] : ''; ?>" disabled='disabled'>
+							</td>				
+						</tr>
+						<tr>
+							<th>Dung lượng pin</th>
+							<td>
+								<input class="able" type="text" name="battery" value="<?php echo !empty($data['battery']) ? $data['battery'] : ''; ?>" disabled='disabled'>
+							</td>				
+						</tr>
+					</tbody>
+				</table>
+				<div class="btn-edit"><input type="submit" name="submit" value="Sửa"></div>
 			</form>
 		</div>
 	</div>
+	<script type="text/javascript" charset="utf-8" async defer>
+		$(document).ready(function() {
+			$('input[type="submit"]').removeAttr('disabled')
+			$('td').click(function(event) {
+				$('input',this).removeAttr('disabled')
+			});
+			$('form').submit(function(event) {
+				$('input').removeAttr('disabled')
+			});
+		});
+	</script>
 </body>
 </html>

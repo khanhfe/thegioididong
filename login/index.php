@@ -4,153 +4,79 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Đăng nhập trang quản trị</title>
+	<title>Đăng nhập / Đăng ký tài khoản</title>
 	<link href="../img/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
-	<style type="text/css" media="screen">
-		*{
-			padding: 0;
-			margin: 0;
-			box-sizing: border-box; 
-		}
-		body{
-			font: 14px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
-		    color: #333;
-		    background: #f0f0f0;
-		    outline: none;
-		    position: relative;
-		}
-		.formlogin{
-			width:fit-content;
-			background: #fff;
-			text-align: center;
-			position: absolute;
-			left: 25%;
-			transform: translate(50%,50%);
-			border-radius: 15px;
-			box-shadow: 0 1px 7px 1px rgba(60, 75, 100, .6)
-		}
-		.content{
-			padding: 15px;
-			margin: 0 auto;
-		}
-		.content h3{
-			font-size: 23px;
-			padding: 15px;
-			margin:15px;
-		}
-		input{
-			outline: none;
-			border: 1px solid #ccc;
-			border-radius: 7px;
-			padding: 12px;
-			margin: 20px auto;
-			display: block;
-		}
-		input[value=""]{
-			text-indent: 3px;
-			width: 70%;
-		}
-		input[value=""]:focus{
-			border:1px solid #feb000;
-		}
-		input[type="submit"]{
-			background: 0;
-		}
-		input[type="submit"]:hover{
-			background: #feb000;
-			border:1px solid #feb000;
-			transition: all 0.5s;
-		}
-		.content a{
-			text-decoration: none;
-			color: #007bff;
-		}
-		.content a:hover{
-			color:#feb000;
-			text-decoration: underline;
-		}
-		.error{
-			position: absolute;
-			top: 28%;
-			left: 20%;
-			background: #fff;
-			padding:0 3px;
-			color: #d93025; 
-		}
-		#errorpass{
-			top:48%;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="../js/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
-	<?php 
- 		require'../libs/function.php';
-		connect_db();
-
-		if (isset($_POST['btn-submit'])) 
-		{
-			$username = $_POST['username'];
-			$password = $_POST['password'];
-			if(!isset($_SESSION['infouser'])){
-				$_SESSION['infouser'] = array( 'username' => $username,'password' => $password);
-			}
-
-			$error = '';
-			
-			if ($username != "" || $password !="") {
-				$sql = "SELECT username.*,password.* FROM account WHERE username = '$username' AND password = '$password' ";
-				$query = mysqli_query($conn,$sql);
-				$num_rows = mysqli_num_rows($query);
-				if ($num_rows!=0) {
-					$password = md5($password);
-					$_SESSION['username'] = $username;
-                	header('Location: admin/');
-				}else{
-					$error = "Tên đăng nhập hoặc mật khẩu không chính xác!";
-				}
-			}
-		}
-		mysqli_close($conn);
-	?>
 	<div class="container">
-		<div class="formlogin">
-			<form action="" method="POST" onsubmit="return checkFormLogin()" accept-charset="utf-8">
-				<div class="content">
-					<h3>Đăng nhập vào hệ thống website:</h3>
-					<div style="color:#d93025"><?php if (isset($_POST['btn-submit'])) echo $error; ?></div>
-					<input type="text" name="username" id="username" placeholder="Tên đăng nhập" value="<?php if(isset($_SESSION['infouser'])) echo $_SESSION['infouser']['username'] ?>">
-					<div class="error" id="erroruser"></div>
-					<input type="password" name="password" id="password" placeholder="Mật khẩu" value="<?php if(isset($_SESSION['infouser'])) echo $_SESSION['infouser']['password'] ?>">
-					<div class="error" id="errorpass"></div>
-					<input type="submit" name="btn-submit" value="Đăng nhập">
-					<a href="#" title="">Quên mật khẩu</a>
+		<div class="left">
+			
+		</div>
+		<div class="right">
+			<div class="form">
+				<div class="tit">
+					<h3>Đăng nhập</h3><br>
+					<img src="../img/icon/account.jpg" height="45">
 				</div>
-			</form>
+				<div class="error"><?php if(isset($_SESSION['error'])) echo $_SESSION['error']; ?></div>
+				<form action="check.php" method="post" >
+					<div class="user">
+						<input class="input check" type="text" name="username" value="<?php if(isset($_SESSION['username'])) echo $_SESSION['username']; ?>" placeholder="Tài khoản">	
+					</div>
+					<div class="pass">
+						<input class="input check" type="password" name="password" value="" placeholder="Mật khẩu">
+						<div class="togglepass">Ẩn/Hiện</div>	
+					</div>
+					<div class="remember_forgot">
+						<label><input type="checkbox" name="remember" value="save"> Ghi nhớ đăng nhập</label>
+						<a href="#" title="">Quên mật khẩu?</a>
+					</div>
+					<div class="btn-submit">
+						<input class="input" type="submit" name="submit" value="Đăng nhập" disabled>
+					</div>
+				</form>
+				<div class="note">Hiện tại hệ thống chưa có chức năng đăng nhập và tạo tài khoản dành cho người dùng!
+					<a href="../" title="">Quay lại trang chủ</a></div>
+			</div>
 		</div>
 	</div>
 	<script type="text/javascript" charset="utf-8" async defer>
-		function checkFormLogin(){
-
-			var username = document.getElementById('username').value;
-			var password = document.getElementById('password').value;
-
-			if (username=='' && password=='') {
-				document.getElementById('username').style.border = '1px solid #d93025';
-				document.getElementById('password').style.border = '1px solid #d93025';
-				document.getElementById('erroruser').innerHTML = "Hãy nhập tên đăng nhập của bạn";
-				document.getElementById('errorpass').innerHTML = "Hãy nhập mật khẩu của bạn";
-				return false;
-			}else if(username==''){
-				document.getElementById('username').style.border = '1px solid #d93025';
-				document.getElementById('erroruser').innerHTML = "Hãy nhập tên đăng nhập của bạn";
-				return false;
-			}else if(password==''){
-				document.getElementById('password').style.border = '1px solid #d93025';
-				document.getElementById('errorpass').innerHTML = "Hãy nhập mật khẩu của bạn";
-				return false;
-			}
-			else return true;
-		}
+		$(document).ready(function() {
+			$('.togglepass').click(function(event) {
+				if($('input[name="password"]').attr('type') ==="password")
+					$('input[name="password"]').attr('type','text')
+				else $('input[name="password"]').attr('type','password')
+			});
+			$('.check').keyup(function(event) {
+				username = $('input[name="username"]').val()
+				password = $('input[name="password"]').val()
+				if(username!=''&&password!=''&&username.length>4&&password.length>7){
+					$('input[type="submit"]').removeAttr('disabled');
+					$('input[type="submit"]').hover(function() {
+						$('input[type="submit"]').css({
+						'cursor': 'pointer',
+						'color': '#000',
+						'background' : 'rgba(254,215,0,1)',
+						'border' : '1px solid #fed700'
+						});
+					}, function() {
+						$('input[type="submit"]').css({
+						'cursor': 'auto',
+						'color': '#000',
+						'background' : '#00a88a',
+						'border' : '1px solid #00a88a'
+						});
+					});
+				}
+				else{
+					$('input[type="submit"]').css('cursor', 'not-allowed');
+					$('input[type="submit"]').attr('disabled','disable');
+				}
+			});
+			
+		});
 	</script>
 </body>
 </html>

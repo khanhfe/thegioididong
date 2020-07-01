@@ -3,16 +3,15 @@
  	connect_db();
 	global $conn;
 	$data = array();
-	$src = "anh1/";
 	if (isset($_POST['add'])) {
-		$data['name'] = $_POST['name'];
-		$data['image'] = $src.$_POST['image'];
-		$data['price'] = $_POST['price'];
-		$data['content'] = $_POST['content'];
-		$data['created_time'] = $_POST['created_time'];
-		$data['last_updated'] = $_POST['last_updated'];
-		add_product($data['name'],$data['image'],$data['price'],$data['content'],$data['created_time'],$data['last_updated']);
-		header('location:index.php');
+		$data['productname'] = $_POST['productname'];
+		$data['image'] = 'img/product/smartphones/'.$_POST['image'];
+		$data['pricepromo'] = $_POST['pricepromo'];
+		$data['pricecurrent'] = $_POST['pricecurrent'];
+		$data['brand'] = $_POST['brand'];
+		$data['quantity'] = $_POST['quantity'];
+		$data['group'] = $_POST['group'];
+		add_product($data['productname'],$data['image'],$data['pricepromo'],$data['pricecurrent'],$data['brand'],$data['quantity'],$data['group']);
 	}
  	disconnect_db();
 ?>
@@ -46,39 +45,36 @@
 		}
 		table{
 			width: 100%;
-			border: 1px solid #fff;
+			border: 1px solid #f0f0f0;
 		}
 		th{
-			padding:12px;
+			width: 300px;
 			color: #768192;
 		    background-color: #d8dbe0;
-		    border:1px solid #d8dbe0;
 		}
 		td{
-			padding: .75rem;
-		    border-top: 1px solid #fff;
 		    text-align: center;
 		}
 		table input{
 			margin: auto;
 			padding: 0.7em;
-			width: 75%;
+			width: 100%;
 		}
-		td .btn-add{
-			width: fit-content;
-			padding: 1em;
-			background: #ccc;
-			border: 1px solid #ccc;
-			outline: none;
-			color: #333;
-			margin: auto;
-			cursor: pointer;
+		input:focus{
+			outline: none
 		}
-		td .btn-add:hover{
-			color: #fff;
-			background: #28a745;
-			border: 1px solid #28a745;
+		input[type="submit"]{
+			display: block;
+			padding: 15px;
 			transition: all 0.5s;
+			cursor: pointer;
+			background-color: #00a88a;
+			border: #00a88a 1px solid;
+			outline: none;
+		}
+		input[type="submit"]:hover{
+			background-color: #fed700;
+			border: #fed700 1px solid;
 		}
 	</style>
 </head>
@@ -104,51 +100,143 @@
 		</nav>		
 	</header>
 	<div class="main-body">
+		<div class="back"><a href="index.php">Quay lại</a></div>
 		<div class="container">
 			<form action="#" method="post">
-				<table cellspacing="0">
+				<table>
+					<caption>Bảng thông tin chung của sản phẩm</caption>
 					<tr>
-						<th>Product</th>
+						<th>Tên sản phẩm</th>
 						<td>
-							<input type="text" name="name" value="" required>
+							<input type="text" name="productname" value="" required>
 						</td>				
 					</tr>
 					<tr>
-						<th>Image</th>
+						<th>Hình ảnh</th>
 						<td>
 							<input type="file" name="image" value="" required>
 						</td>				
 					</tr>
 					<tr>
-						<th>Price</th>
+						<th>Giá khuyến mãi(Nếu có)</th>
 						<td>
-							<input type="text" name="price" value="" required>
+							<input type="number" name="pricepromo" value="" required>
 						</td>				
 					</tr>
 					<tr>
-						<th>Content</th>
+						<th>Giá gốc</th>
 						<td>
-							<input type="text" name="content" value="" required>
+							<input type="number" name="pricecurrent" value="" required>
 						</td>				
 					</tr>
 					<tr>
-						<th>Create Time</th>
+						<th>Thương hiệu</th>
 						<td>
-							<input type="text" name="created_time" value="" required>
+							<input type="text" name="brand" value="" required>
 						</td>				
 					</tr>
 					<tr>
-						<th>Last Updated</th>
+						<th>Số lượng</th>
 						<td>
-							<input type="text" name="last_updated" value="" required>
+							<input type="number" name="quantity" value="" required>
 						</td>				
 					</tr>
 					<tr>
-						<td colspan="2" align="center">
-							<input type="submit" name="add" value="Thêm" class="btn-add">
-						</td>
+						<th>Nhóm sản phẩm</th>
+						<td>
+							<input type="text" name="group" value="" required>
+						</td>				
 					</tr>
 				</table>
+				<table>
+					<caption>Bảng thông tin khuyến mãi của sản phẩm</caption>
+					<tbody>
+						<tr>
+							<th>Khuyến mãi 1</th>
+							<td>
+								<input class="able" type="text" name="Promo1" value="">
+							</td>				
+						</tr>
+						<tr>
+							<th>Khuyến mãi 2</th>
+							<td>
+								<input class="able" type="text" name="Promo2" value="">
+							</td>				
+						</tr>
+						<tr>
+							<th>Khuyến mãi 3</th>
+							<td>
+								<input class="able" type="text" name="Promo3" value="">
+							</td>				
+						</tr>
+						<tr>
+							<th>Khuyến mãi 4</th>
+							<td>
+								<input class="able" type="text" name="Promo4" value="" >
+							</td>				
+						</tr>
+						<tr>
+							<th>Khuyến mãi 5</th>
+							<td>
+								<input class="able" type="text" name="Promo5" value="">
+							</td>				
+						</tr>
+					</tbody>
+				</table>
+				<table>
+					<caption>Bảng thông số kỹ thuật của sản phẩm</caption>
+					<tbody>
+						<tr>
+							<th>Màn hình</th>
+							<td>
+								<input class="able" type="text" name="Display" value="">
+							</td>				
+						</tr>
+						<tr>
+							<th>Hệ điều hành</th>
+							<td>
+								<input class="able" type="text" name="OS" value="">
+							</td>				
+						</tr>
+						<tr>
+							<th>Camera sau</th>
+							<td>
+								<input class="able" type="text" name="RearCamera" value="">
+							</td>				
+						</tr>
+						<tr>
+							<th>Camera trước</th>
+							<td>
+								<input class="able" type="text" name="FrontCamera" value="">
+							</td>				
+						</tr>
+						<tr>
+							<th>CPU</th>
+							<td>
+								<input class="able" type="text" name="CPU" value="">
+							</td>				
+						</tr>
+						<tr>
+							<th>RAM</th>
+							<td>
+								<input class="able" type="text" name="RAM" value="">
+							</td>				
+						</tr>
+						<tr>
+							<th>ROM</th>
+							<td>
+								<input class="able" type="text" name="ROM" value="">
+							</td>				
+						</tr>
+						<tr>
+							<th>Dung lượng pin</th>
+							<td>
+								<input class="able" type="text" name="battery" value="">
+							</td>				
+						</tr>
+					</tbody>
+				</table>
+				<div class="btn-add"><input type="submit" name="submit" value="Thêm"></div>
 			</form>
 		</div>
 	</div>

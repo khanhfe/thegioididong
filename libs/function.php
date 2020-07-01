@@ -4,6 +4,7 @@
 		global $conn;
 		if(!$conn){
 			$conn = mysqli_connect('localhost:3306', 'root', '', 'project_db') or die("Khong the ket noi!");
+			mysqli_set_charset($conn, 'UTF8');
 		}
 	}
 	function disconnect_db(){
@@ -25,10 +26,23 @@
 		}
 		return $result;
 	}
+	function product_promo(){
+		global $conn;
+		connect_db();
+		$sql = 'SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId WHERE product.PricePromo>0';
+		$query = mysqli_query($conn, $sql);
+		$result = array();
+		if($query) {
+			while($row = mysqli_fetch_assoc($query)){
+				$result[] = $row;
+			}
+		}
+		return $result;
+	}
 	function show_all(){
 		global $conn;
 		connect_db();
-		$sql = 'SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId';
+		$sql = 'SELECT * FROM product';
 		$query = mysqli_query($conn, $sql);
 		$result = array();
 		if($query) {
@@ -56,6 +70,21 @@
 		global $conn;
 		connect_db();
 		$sql = "INSERT INTO orders(Product,Image,PriceUnit,PricePromote,Color,Quantity,TotalPay,OrderDate,EstimatedDeliveryTime,CustomID) VALUES ('$product','$image','$priceunit','$pricepromote','$color','$quantity','$pay','$date','$time',(SELECT customer.CustomID From customer WHERE customer.CustomID = '$count'))";
+		$query = mysqli_query($conn, $sql);
+		return $query;
+	}
+	function add_product($product,$image,$pricepromo,$pricecurrent,$brand,$quantity,$group){
+		global $conn;
+		connect_db();
+		$sql = "INSERT INTO product(ProductName,ProductImage,PriceCurrent,PricePromo,Brand,Quantity,GroupProduct) VALUES ('$product','$image','$pricecurrent','$pricepromo','$brand','$quantity','$group')";
+		$query = mysqli_query($conn, $sql);
+		return $query;
+	}
+	function edit_product($id,$product,$image,$pricepromo,$pricecurrent,$brand,$quantity,$group)
+	{
+		global $conn;
+		connect_db();
+		$sql = "UPDATE product SET ProductName = '$product', ProductImage = '$image', PricePromo = '$pricepromo',PriceCurrent = '$pricecurrent',Brand = '$brand',Quantity = '$quantity',GroupProduct ='$group' WHERE ProductId = '$id'";
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}

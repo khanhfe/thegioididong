@@ -254,50 +254,36 @@
     text-transform: uppercase;
 }
 .product{
-    width: 100%;
-    overflow: hidden;
-    display: block;
-    position: relative;
+    min-height: 360px;
     border-top: 1px solid #eee;
+    margin-bottom: 15px;
 }
-.carousel{
-    position: inherit;
-    text-align: center;
-    margin: auto;
-}
-#carousel {
-    transition: all 200ms ease 0s;
-}
-.carousel ul {
-    display: flex;
-}
-.carousel ul li{
-    display:inline-flex;
-    list-style: none;
-    width: 240px;
-    padding: 20px
-}
-.carousel ul li a{
+.product a{
+    background: #fff;
+    padding: 10px 0;
     text-align: left;
     text-decoration: none;
     display: block;
     color: #333;
+    margin: auto;
 }
-.carousel ul li a img{
-    padding: 0.5em;
+.product a img{
+    margin: 15px 30px;
     transition: all 300ms ease;
 }
-.carousel h5,.price,.promo{
-    padding: 3px 0;
-}
-.carousel h5{
+.product h5{
     font-size: 14px;
+    margin:0 10px ;
     font-weight: unset;
 }
-.carousel .promo{
+.product .promo{
     font-size: 12px;
+    padding: 0 10px;
+    margin-right: 10px;
+    position: relative;
 }
-.carousel .price{
+.product .price{
+    padding:5px 10px 10px 10px;
     color: #e10c00;
     font-family: 18px;
 }
@@ -307,17 +293,18 @@
     color: #222;
     text-decoration: line-through;
 }
-.carousel ul li a:hover img{
+.product a:hover img{
     transform: translateY(-10px);    
 }
-.carousel ul li a:hover h5{
+.product a:hover h5{
     color: #288ad6;
 }
-label {
+label{
 	width: fit-content;
     display: inline-block;
     position: absolute;
-    top: 195px;
+    top: 186px;
+    margin-left: 10px;
     font-size: 11px;
     color: #fff;
     font-weight: 600;

@@ -1,6 +1,6 @@
 <?php 
  	require'libs/function.php';
- 	$product = show_all();
+ 	$product = product_promo();
  	$banner = show_banner();
  	disconnect_db();
 ?>
@@ -52,21 +52,12 @@
                 <a href="#" class="ask" title="Hỏi đáp">
                     <i class="icon-ask"></i>Hỏi đáp
                 </a>
-
 	            <a href="#" class="gameapp" title="Game app">
 	                <i class="icon-gameapp"></i>Game App
 	            </a>
-	            <div id="utility-cardsim" class="utility">
-                Sim, thẻ cào<br>
-                Đóng tiền
-                <div class="mix-menu">
-                    <a href="#" class="cardsim">
-                        Sim số, thẻ cào
-                    </a>
-                    <a href="#">
-                        Đóng tiền điện, <br> nước, trả góp
-                    </a>
-                </div>
+	            <a href="login/" class="account" title="Đăng nhập">
+	            	<i class="icon-account"></i> Đăng nhập
+	            </a>
             </div>
         	</nav>
 		</div>
@@ -138,34 +129,36 @@
 		</div>
 		<div class="container">
 			<h2>10 Khuyễn mãi hot nhất</h2>
-			<div class="product" id="product">
-				<div class="carousel">
-					<ul class="list" id="carousel" >
+			<div class="owl-carousel product" id="owl-promo">
+				<div class="owl-wrapper-out">
+					<div class="owl-wrapper">
 						<?php
 						foreach ($product as $item) {  $_SESSION['id'] = $item['ProductImage'];$_SESSION['ProdcutName'] = $item['ProductName'];?>
-						<li >
-							<a href="dtdd/?id=<?= $item['ProductId'] ?>">
-								<img src="<?php echo $item['ProductImage'] ?>" width="200" height="200">	
-								<h5><?php echo $item['ProductName']; ?></h5>
-								<div class="price">
-									<strong><?php if($item['PricePromo']==0) echo number_format($item['PriceCurrent'],0,"","."); else echo number_format($item['PricePromo'],0,"","."); ?>₫</strong>
-									<span><?php  if($item['PricePromo']!=0) echo number_format($item['PriceCurrent'],0,"",".") .'₫'; ?></span>
-								</div>
-								<div class="promo">
-									<?php echo $item['Promo2'] ?>
-								</div>
-								<?php if($item['PricePromo'] != 0){ ?>
-								<label class="discount">GIẢM <?php echo number_format($item['PriceCurrent']-$item['PricePromo'],0,"",".").'₫'?> </label>
-								<?php }?>
-							</a>
-						</li> <?php } ?>
-					</ul>	
+						<div class="owl-item">
+							<div class="item">
+								<a href="dtdd/?id=<?= $item['ProductId'] ?>">
+									<img src="<?php echo $item['ProductImage'] ?>" width="180" height="180">	
+									<h5><?php echo $item['ProductName']; ?></h5>
+									<div class="price">
+										<strong><?php if($item['PricePromo']==0) echo number_format($item['PriceCurrent'],0,"","."); else echo number_format($item['PricePromo'],0,"","."); ?>₫</strong>
+										<span><?php  if($item['PricePromo']!=0) echo number_format($item['PriceCurrent'],0,"",".") .'₫'; ?></span>
+									</div>
+									<div class="promo">
+										<?php echo $item['Promo2'] ?>
+									</div>
+									<?php if($item['PricePromo'] != 0){ ?>
+									<label class="discount">GIẢM <?php echo number_format($item['PriceCurrent']-$item['PricePromo'],0,"",".").'₫'?> </label>
+									<?php }?>
+								</a>
+							</div>
+						</div> <?php } ?>
+					</div>	
 				</div>
 				<div class="control">					
 					<div class="btn prev" id="prev">‹</div>
 					<div class="btn next" id="next">›</div>
 				</div>
-			</div>		
+			</div>
 		</div>
 	</section>
 	<script type="text/javascript" src="js/javascript.js">

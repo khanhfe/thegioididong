@@ -30,14 +30,14 @@
 				<div class="navright">
 					<div class="notification">
 						<div class="notificationdot">1</div>
-						<img src="anh1/icon/icons8-notification-50.png" width="25">
+						<!-- <img src="anh1/icon/icons8-notification-50.png" width="25"> -->
 					</div>
 					<div class="email">
 						<div class="notificationdot">5</div>
-						<img src="anh1/icon/77987835-email-or-mail-symbol-icon-vector-illustration-graphic-design.png" width="25">
+						<!-- <img src="anh1/icon/77987835-email-or-mail-symbol-icon-vector-illustration-graphic-design.png" width="25"> -->
 					</div>
 					<div class="avatar">
-						<img src="anh1/icon/Speaker-Unknown.jpg" width="35">
+						<!-- <img src="anh1/icon/Speaker-Unknown.jpg" width="35"> -->
 					</div>
 				</div>
 			</nav>
@@ -58,14 +58,14 @@
 			<table cellspacing="0">
 				<tr>
 					<th>ID</th>
-					<th>Name Product</th>
-					<th>Image</th>
-					<th>Price Promotion</th>
-					<th>Price Current</th>
-					<th>Brand</th>
-					<th>Quantity in Stock</th>
-					<th>Group Product</th>
-					<th>Tool</th>
+					<th>Tên sản phẩm</th>
+					<th>Hình ảnh</th>
+					<th>Giá khuyến mãi(Nếu có)</th>
+					<th>Giá gốc</th>
+					<th>Thương hiệu</th>
+					<th>Số lượng tồn kho</th>
+					<th>Nhóm sản phẩm</th>
+					<th>Công cụ</th>
 				</tr>
 				<tr>
 					<?php

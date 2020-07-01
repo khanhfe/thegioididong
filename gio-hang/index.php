@@ -450,12 +450,14 @@
 				$('#address').html('')
 			});
 			$('input[value="false"]').click(function(event) {
+				$('.area_address').addClass('supermarket');
 				$('#ward, #BillingAddress_Address,.ol1,.ol3,.infocontact,.deviceother').css('display','none')
 				$('.introduction').html("Chúng tôi sẽ sớm cập nhật các siêu thị gần nhất đến quý khách.<br>Quý khách vui lòng đến các siêu thị thuộc hệ thống <b>thegioididong.com</b> để nhận máy trong 24h, hết 24h đơn hàng sẽ tự động hủy!")
 				$('.introduction').css('margin','10px 0 20px ')
 				$('.introduction').css('line-height','22px')
 			});
 			$('input[value="true"]').click(function(event) {
+				$('.area_address').removeClass('supermarket');
 				$('#ward, #BillingAddress_Address,.ol1,.ol3').css('display','block')
 				$('.introduction').html("<b>Hướng dẫn: </b>Chọn địa chỉ để biết chính xác thời gian giao hàng")
 				
@@ -537,6 +539,7 @@
 		if (pay == "0₫") {
 			document.getElementById('nullcart').style.display = 'block'
 			document.getElementById('cart').style.display = 'none'
+			document.querySelector('body').style.background = '#fff' 
 		} else {
 			document.getElementById('nullcart').style.display = 'none'
 			document.getElementById('cart').style.display = 'block'

@@ -1,0 +1,110 @@
+*{
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box; 
+}
+body{
+	font: 16px/18px Helvetica,Arial,'DejaVu Sans','Liberation Sans',Freesans,sans-serif;
+    color: #333;
+    background: #00E2C0;
+    outline: none;
+    position: relative;
+}
+.container{
+	position: absolute;
+	width: 1000px;
+	height: 600px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,25%);
+	background:#fff;
+	border-radius: 15px;
+	box-shadow: 5px 3px 10px 5px #00A88A;
+	background-image:url("../img/background.jpg");
+	background-size:cover;
+}
+.left{
+	vertical-align: middle;
+	width: 50%;
+	height: 100%;
+	float: left;
+	border-radius: 15px 0 0 15px;
+}
+.right{
+	background-color: rgba(225,225,225,0.6);
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 50%;
+	height: 100%;
+	float: right;
+	border-radius: 0 15px 15px 0;
+}
+.tit{
+	display: block;
+}
+.tit h3{
+	font-size: 26px;
+	font-weight: 100;
+}
+.error{
+	color: #f44336
+}
+.pass{
+	position: relative;
+}
+.togglepass{
+	position: absolute;
+	top: 50px;
+	transform: translateX(-50%);
+	right:0;
+	cursor: pointer;
+	color: #333;
+	font-size: 14px;
+}
+input{
+	outline: none;
+	color: #000;
+	background:none;
+	border: 1px solid #00a88a;
+	padding:1em 0;
+	text-indent: 10px;
+	margin-top: 2em;
+	transition: all 0.3s ease;
+	font-size: 16px;
+}
+::placeholder{
+	font-size: 16px;
+	color: #444;
+}
+.input{
+	width: 300px;
+}
+input[type="submit"]{
+	cursor: pointer;
+	background-color: #00a88a;
+	cursor: not-allowed;
+}
+.check:hover,.check:focus{
+	color: #000;
+	background:rgba(254,215,0,1);
+	border: 1px solid #fed700;
+}
+label{
+	cursor: pointer;
+}
+a{
+	text-decoration: none;
+	color: #00a88a;
+	display: inline-block;
+}
+.note{
+	width: 70%;
+	margin: 25px auto 0;
+}
+.note a{
+	color: #000;
+	display: block;
+	padding: 10px;
+}
