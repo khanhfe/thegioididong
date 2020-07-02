@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 01, 2020 lúc 10:08 AM
+-- Thời gian đã tạo: Th7 02, 2020 lúc 08:30 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.6
 
@@ -63,12 +63,12 @@ CREATE TABLE `banner` (
 --
 
 INSERT INTO `banner` (`BannerId`, `image`, `content`, `link`) VALUES
-(1, 'img/banner/S20-800-300-800x300-3.png', 'Galaxy S20 series<br>Giảm Ngay 4 Triệu', '#'),
+(1, 'img/banner/S20-800-300-800x300-3.png', 'Galaxy S20 series<br>Giảm Ngay 3 Triệu', '#'),
 (2, 'img/banner/reno3-800-300-800x300.png', 'Mua OPPO Reno3<br>Tặng Tiền Cước 500.000đ', '#'),
-(3, 'img/banner/60749522-6C82-4FF3-BEF0-76FD21BB4D25-800x300.png', 'iPhone 7 Plus<br>Giảm Online 3 Triệu', '#'),
+(3, 'img/banner/60749522-6C82-4FF3-BEF0-76FD21BB4D25-800x300.png', 'Sắm iPhone 11<br>Trả Góp 0%', '#'),
 (4, 'img/banner/800-300-800x300-27.png', 'Redmi 9 4GB|64GB<br>Giảm Ngay 300 Ngàn', '#'),
 (5, 'img/banner/800-300-800x300-18.png', 'Đồng Hồ Thời Trang<br> Giảm Ngay 20%', '#'),
-(6, 'img/banner/800-300-800x300-15.png', 'Realme 6 4GB|128GB<br>Tặng Cước 300 Ngàn', '#'),
+(6, 'img/banner/800-300-800x300-15.png', 'Realme 6|6 Pro <br>Giá Tốt Trả Góp 0%', '#'),
 (7, 'img/banner/800-300-800x300-12.png', 'Lễ Hội SmartWatch<br>Giảm Đến 40%', '#'),
 (8, 'img/banner/800-300-800x300-1.png', 'Phụ Kiện Online<br>Đồng Giá 199.000đ', '#');
 
@@ -114,7 +114,29 @@ INSERT INTO `color_product` (`ColorID`, `Color`, `image_product`, `ProductId`) V
 (22, 'Xám', 'img/product/color/iphone-8-plus-h-0-180x125.png', 9),
 (23, 'Vàng đồng', 'img/product/color/iphone-8-plus-h14-180x125.png', 9),
 (24, 'Đen', 'img/product/color/oppo-a91-den-200x200-180x125.png', 10),
-(25, 'Trắng', 'img/product/color/oppo-a91-trang-200x200-180x125.png', 10);
+(25, 'Trắng', 'img/product/color/oppo-a91-trang-200x200-180x125.png', 10),
+(26, 'Đen', 'img/product/color/samsung-galaxy-fold-black-200-180x125.png', 11),
+(27, 'Đen', 'img/product/color/samsung-galaxy-z-flip-den-200x200-180x125.png', 12),
+(28, 'Tím', 'img/product/color/samsung-galaxy-z-flip-tim-200x200-180x125.png', 12),
+(30, 'Xám', 'img/product/color/xiaomi-redmi-9-xam-200-180x125.png', 14),
+(32, 'Xanh lá', 'img/product/color/xiaomi-redmi-9-xanh-200-180x125.png', 14),
+(33, 'Tím', 'img/product/color/xiaomi-redmi-9-tim-200-180x125.png', 14),
+(34, 'Đỏ', 'img/product/color/iphone-11-red-200-180x125.png', 15),
+(35, 'Đen', 'img/product/color/iphone-11-black-200-180x125.png', 15),
+(36, 'Trắng', 'img/product/color/iphone-11-white-200-180x125.png', 15),
+(37, 'Vàng', 'img/product/color/iphone-11-yellow-200-180x125.png', 15),
+(38, 'Xanh lá', 'img/product/color/iphone-11-green-200-180x125.png', 15),
+(39, 'Tím', 'img/product/color/iphone-11-purple-200-180x125.png', 15),
+(40, 'Trắng', 'img/product/color/trang-200-180x125.png', 16),
+(41, 'Đỏ', 'img/product/color/do-200-180x125.png', 16),
+(42, 'Đen', 'img/product/color/thumb-black-iphonese-2020-200x200-180x125.png', 16),
+(43, 'Bạc', 'img/product/color/iphone-xs-max-silver-200-180x125.png', 17),
+(44, 'Vàng đồng', 'img/product/color/iphone-xs-max-gold-200-1-180x125.png', 17),
+(45, 'Trắng', 'img/product/color/samsung-galaxy-a31-trang-200x200-2-180x125.png', 18),
+(46, 'Xanh dương', 'img/product/color/samsung-galaxy-a31-xanh-200x200-1-180x125.png', 18),
+(47, 'Đen', 'img/product/color/samsung-galaxy-a31-den-200x200-1-180x125.png', 18),
+(48, 'Xám', 'img/product/color/ipad-pro-12-9-inch-wifi-128gb-2020-xam-200x200-1-180x125.png', 19),
+(49, 'Bạc', 'img/product/color/ipad-pro-12-9-inch-wifi-128gb-2020-bac-200x200-180x125.png', 19);
 
 -- --------------------------------------------------------
 
@@ -158,17 +180,24 @@ CREATE TABLE `detail` (
 --
 
 INSERT INTO `detail` (`DetailId`, `Display`, `OS`, `RearCamera`, `FrontCamera`, `CPU`, `RAM`, `ROM`, `battery`, `ProductId`) VALUES
-(1, 'Super AMOLED, 6.5\", Full HD+', 'Android 10', 'Chính 48 MP & Phụ 12 MP, 5 MP, 5 MP', '32 MP', 'Exynos 9611 8 nhân', '8GB', '128GB', '4000 mAh, có sạc nhanh', 1),
-(2, 'AMOLED, 6.4\", Full HD+', 'Android 10', 'Chính 48 MP & Phụ 13 MP, 8 MP, 2 MP', '44 MP', 'MediaTek Helio P90 8 nhân', '8 GB', '128 GB', '4025 mAh, có sạc nhanh', 2),
-(3, 'OLED, 6.5\", Super Retina XDR', 'iOS 13', '3 camera 12 MP', '12 MP', 'Apple A13 Bionic 6 nhân', '4GB', '64GB', '3969 mAh, có sạc nhanh', 3),
+(1, 'Super AMOLED, 6.5', 'Android 10', 'Chính 48 MP & Phụ 12 MP, 5 MP, 5 MP', '32 MP', 'Exynos 9611 8 nhân', '8GB', '128GB', '4000 mAh, có sạc nhanh', 1),
+(2, 'AMOLED, 6.4', 'Android 10', 'Chính 48 MP & Phụ 13 MP, 8 MP, 2 MP', '44 MP', 'MediaTek Helio P90 8 nhân', '8 GB', '128 GB', '4025 mAh, có sạc nhanh', 2),
+(3, 'OLED, 6.5', 'iOS 13', '3 camera 12 MP', '12 MP', 'Apple A13 Bionic 6 nhân', '4GB', '64GB', '3969 mAh, có sạc nhanh', 3),
 (4, 'IPS LCD, 6.5\", HD+', 'Android 9.0 (Pie)', 'Chính 13 MP & Phụ 8 MP, 2 MP', '8MP', 'Snapdragon 632 8 nhân', '4GB', '64GB', '5000 mAh, có sạc nhanh', 4),
-(5, '	AMOLED, 6.5\", Full HD+', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio P70 8 nhân', '8GB', '128GB', '4000 mAh, có sạc nhanh', 5),
+(5, '	AMOLED, 6.5', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio P70 8 nhân', '8GB', '128GB', '4000 mAh, có sạc nhanh', 5),
 (6, 'Super AMOLED, 6.7\", Full HD+', 'Android 10', 'Chính 48 MP & Phụ 12 MP, 5 MP', '32 MP', 'Snapdragon 855 8 nhân', '8GB', '128GB', '4500 mAh, có sạc nhanh', 6),
 (7, 'IPS LCD, 6.5\", Full HD+', 'Android 10', 'Chính 64 MP & Phụ 8 MP, 2 MP, 2 MP', '16 MP', 'Mediatek Helio G90T 8 nhân', '4GB', '128GB', '4300 mAh, có sạc nhanh', 7),
-(8, 'IPS LCD, 6.35\", HD+', 'Android 9.0 (Pie)', 'Chính 13 MP & Phụ 8 MP, 2 MP', '8MP', 'Snapdragon 665 8 nhân', '4GB', '64GB', '5000 mAh, có sạc nhanh', 8),
-(9, 'LED-backlit IPS LCD, 5.5\", Retina HD', 'iOS 12', 'Chính 12 MP & Phụ 12 MP', '7 MP', 'Apple A11 Bionic 6 nhân', '3GB', '64GB', '2691 mAh, có sạc nhanh', 9),
-(10, 'AMOLED, 6.4\", Full HD+', 'ColorOS 6.1 (Android 9.0)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio P70 8 nhân', '8GB', '128GB', '4025 mAh, có sạc nhanh', 10),
-(11, 'Chính: Dynamic AMOLED, phụ: Super AMOLED, Chính 7.3\" & Phụ 4.6\", Quad HD (2K)', 'Android 9.0 (Pie)', 'Chính 12 MP & Phụ 12 MP, 16 MP', 'Trong: 10 MP, 8 MP; Ngoài: 10 MP', 'Snapdragon 855 8 nhân', '12GB', '512GB', '4380 mAh, có sạc nhanh', 11);
+(8, 'IPS LCD, 6.35', 'Android 9.0 (Pie)', 'Chính 13 MP & Phụ 8 MP, 2 MP', '8MP', 'Snapdragon 665 8 nhân', '4GB', '64GB', '5000 mAh, có sạc nhanh', 8),
+(9, 'LED-backlit IPS LCD, 5.5', 'iOS 12', 'Chính 12 MP & Phụ 12 MP', '7 MP', 'Apple A11 Bionic 6 nhân', '3GB', '64GB', '2691 mAh, có sạc nhanh', 9),
+(10, 'AMOLED, 6.4', 'ColorOS 6.1 (Android 9.0)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio P70 8 nhân', '8GB', '128GB', '4025 mAh, có sạc nhanh', 10),
+(11, 'Chính: Dynamic AMOLED, phụ: Super AMOLED, Chính 7.3', 'Android 9.0 (Pie)', 'Chính 12 MP & Phụ 12 MP, 16 MP', 'Trong: 10 MP, 8 MP; Ngoài: 10 MP', 'Snapdragon 855 8 nhân', '12GB', '512GB', '4380 mAh, có sạc nhanh', 11),
+(12, 'Chính: Dynamic AMOLED, phụ: Super AMOLED, 6.7', 'Android 10', 'Chính 12 MP & Phụ 12 MP', '10MP', 'Snapdragon 855+ 8 nhân', '8GB', '256GB', '3300 mAh, có sạc nhanh', 12),
+(13, 'IPS LCD, 6.53', 'Android 10', 'Chính 13 MP & Phụ 8 MP, 5 MP, 2 MP', '8 MP', 'MediaTek Helio G80 8 nhân', '4 GB', '64GB', '5020 mAh, có sạc nhanh', 14),
+(14, 'IPS LCD, 6.1', 'iOS 13', 'Chính 12 MP & Phụ 12 MP', '12 MP', 'Apple A13 Bionic 6 nhân', '4 GB', '64 GB', '3110 mAh, có sạc nhanh', 15),
+(15, 'IPS LCD, 4.7', 'iOS 13', '12 MP', '7 MP', 'Apple A13 Bionic 6 nhân', '3 GB', '128 GB', '1821 mAh, có sạc nhanh', 16),
+(16, 'OLED, 6.5\", Super Retina', 'iOS 12', 'Chính 12 MP & Phụ 12 MP', '7 MP', 'Apple A12 Bionic 6 nhân', '4 GB', '64GB', '3174 mAh, có sạc nhanh', 17),
+(17, 'Super AMOLED, 6.4\", Full HD+', 'Android 10', 'Chính 48 MP & Phụ 8 MP, 5 MP, 5 MP', '20 MP', 'MediaTek MT6768 8 nhân (Helio P65)', '6 GB', '128 GB', '5000 mAh, có sạc nhanh', 18),
+(18, 'Liquid Retina, 12.9', 'iPadOS 13', 'Chính 12 MP & Phụ 10 MP, TOF 3D LiDAR', '7 MP', 'Apple A12Z Bionic, 4 nhân 2.5 GHz & 4 nhân 1.6 GHz', '6 GB', '128 GB', '36.71 Wh, Pin Lithium Polymer', 19);
 
 -- --------------------------------------------------------
 
@@ -950,8 +979,14 @@ INSERT INTO `product` (`ProductId`, `ProductName`, `ProductImage`, `PriceCurrent
 (8, 'Vivo U10', 'img/product/vivo-u10-1-400x400.jpg', 3990000, '3790000', 'Vivo', 999, 'Điện thoại'),
 (9, 'iPhone 8 Plus 64GB', 'img/product/iphone-8-plus-hh-600x600-400x400.jpg', 15990000, '13990000', 'iPhone (Apple)', 999, 'Điện thoại'),
 (10, 'OPPO A91', 'img/product/oppo-a91-trang-600x600-600x600.jpg', 6990000, '5990000', 'OPPO', 999, 'Điện thoại'),
-(11, 'Samsung Galaxy Fold', 'img/product/samsung-galaxy-fold-black-400x400.jpg', 50000000, '0', 'Samsung', 999, 'Điện thoại'),
-(12, 'Samsung Galaxy Z Flip', 'img/product/samsung-galaxy-z-flip-den-600x600-400x400.jpg', 36000000, '0', 'Samsung', 999, 'Điện thoại');
+(11, 'Samsung Galaxy Fold', 'img/product/samsung-galaxy-fold-black-400x400.jpg', 50000000, '45000000', 'Samsung', 999, 'Điện thoại'),
+(12, 'Samsung Galaxy Z Flip', 'img/product/samsung-galaxy-z-flip-den-600x600-400x400.jpg', 36000000, '34000000', 'Samsung', 999, 'Điện thoại'),
+(14, 'Xiaomi Redmi 9 4GB/64GB', 'img/product/xiaomi-redmi-9-114620-094644-400x400.jpg', 3990000, '3690000', 'Xiaomi', 999, 'Điện thoại'),
+(15, 'iPhone 11 64GB', 'img/product/iphone-11-red-600x600.jpg', 21990000, '20990000', 'iPhone (Apple)', 999, 'Điện thoại'),
+(16, 'iPhone SE 128GB (2020)', 'img/product/iphone-se-128gb-2020-261820-101803-200x200.jpg', 14990000, '14490000', 'iPhone (Apple)', 999, 'Điện thoại'),
+(17, 'iPhone Xs Max 64GB', 'img/product/iphone-xs-max-256gb-white-600x600.jpg', 25990000, '23990000', 'iPhone (Apple)', 999, 'Điện thoại'),
+(18, 'Samsung Galaxy A31', 'img/product/samsung-galaxy-a31-055720-045750-600x600.jpg', 6490000, '5840000', 'Samsung', 999, 'Điện thoại'),
+(19, 'iPad Pro 12.9 inch Wifi 128GB (2020)', 'img/product/ipad-pro-12-9-inch-wifi-128gb-2020-xam-400x460-1-400x460.png', 27990000, '27490000', 'iPad (Apple)', 999, 'Máy tính bảng');
 
 -- --------------------------------------------------------
 
@@ -974,17 +1009,24 @@ CREATE TABLE `promotion` (
 --
 
 INSERT INTO `promotion` (`PromotionId`, `Promo1`, `Promo2`, `Promo3`, `Promo4`, `Promo5`, `ProductId`) VALUES
-(1, 'Tặng tiền cước 400.000đ (áp dụng đặt và nhận hàng từ 16 - 30/6) (đã trừ vào giá)', 'Phiếu mua hàng Samsung 250.000đ (áp dụng đặt và nhận hàng từ 16 - 30/6)', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', NULL, NULL, 1),
-(2, 'Tặng tiền cước 500.000đ (đã trừ vào giá)', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', NULL, NULL, NULL, 2),
-(3, 'Giảm ngay 2 triệu *', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', NULL, NULL, NULL, 3),
+(1, 'Tặng tiền cước 400.000đ (áp dụng đặt và nhận hàng từ 16 - 30/6) (đã trừ vào giá)', 'Phiếu mua hàng Samsung 250.000đ (áp dụng đặt và nhận hàng từ 16 - 30/6)', ' ', ' ', ' ', 1),
+(2, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Tặng tiền cước 500.000đ (đã trừ vào giá)', ' ', ' ', ' ', 2),
+(3, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 2 triệu *', ' ', ' ', ' ', 3),
 (4, 'Tặng tiền cước 200.000đ (áp dụng đặt và nhận hàng từ 20 - 30/6) (đã trừ vào giá)', 'Tặng thêm 01 tháng bảo hành chính hãng', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', NULL, NULL, 4),
-(5, 'Tặng tiền cước 1.5 triệu', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', NULL, NULL, NULL, 5),
+(5, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Tặng tiền cước 1.5 triệu', ' ', ' ', ' ', 5),
 (6, 'Tặng tiền cước 1.5 triệu (áp dụng đặt và nhận hàng từ 22 - 25/6) (đã trừ vào giá)', 'Trả góp 0% thẻ tín dụng', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Tặng suất mua đồng hồ Samsung Active 2 giảm đến 3.000.000đ (Đồng hồ mua kèm không áp dụng KM khác)', NULL, 6),
 (7, 'Tặng tiền cước 300.000đ (áp dụng đặt và nhận hàng từ 17 - 30/6) (đã trừ vào giá)', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', NULL, NULL, NULL, 7),
-(8, 'Tặng tiền cước 200.000đ (đã trừ vào giá)', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', NULL, NULL, NULL, 8),
-(9, 'Giảm ngay 500.000đ *', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', NULL, NULL, NULL, 9),
-(10, 'Tặng tiền cước 1 triệu (đã trừ vào giá)', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', NULL, NULL, NULL, 10),
-(11, 'Trả góp 0% thẻ tín dụng', 'Bảo hiểm thay màn hình lần đầu trong vòng 1 năm', 'Ưu đãi phòng chờ hạng thương gia và Ưu đãi Samsung Pay tại Starbucks.', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Tặng suất mua đồng hồ Samsung Active 2 giảm đến 3.000.000đ (Đồng hồ mua kèm không áp dụng KM khác)', 11);
+(8, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Tặng tiền cước 200.000đ (đã trừ vào giá)', ' ', ' ', ' ', 8),
+(9, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 500.000đ *', ' ', ' ', ' ', 9),
+(10, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Tặng tiền cước 1 triệu (đã trừ vào giá)', ' ', ' ', ' ', 10),
+(11, 'Tặng suất mua đồng hồ Samsung Active 2 giảm đến 3.000.000đ (Đồng hồ mua kèm không áp dụng KM khác)', 'Bảo hiểm thay màn hình lần đầu trong vòng 1 năm', 'Ưu đãi phòng chờ hạng thương gia và Ưu đãi Samsung Pay tại Starbucks.', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Trả góp 0% thẻ tín dụng', 11),
+(12, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Trả góp 0% thẻ tín dụng', 'Ưu đãi phòng chờ thương gia', 'Phiếu mua hàng Samsung 2.7 triệu', ' ', 12),
+(13, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', ' ', ' ', ' ', ' ', 14),
+(14, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác) ', 'Giảm ngay 1 triệu (đã trừ vào giá) *', ' ', ' ', ' ', 15),
+(15, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác) ', 'Giảm ngay 500.000đ (đã trừ vào giá)', ' ', ' ', ' ', 16),
+(16, 'Giảm ngay 2 triệu (đã trừ vào giá) *', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', '', '', '', 17),
+(17, 'Giảm ngay 10% (650.000đ) (áp dụng đặt và nhận hàng từ 1 - 15/7) (đã trừ vào giá)', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', '', '', '', 18),
+(18, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 500.000đ (đã trừ vào giá) *', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', ' ', ' ', 19);
 
 -- --------------------------------------------------------
 
@@ -44140,7 +44182,7 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT cho bảng `color_product`
 --
 ALTER TABLE `color_product`
-  MODIFY `ColorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ColorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT cho bảng `customer`
@@ -44152,7 +44194,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT cho bảng `detail`
 --
 ALTER TABLE `detail`
-  MODIFY `DetailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `DetailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
@@ -44164,13 +44206,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `ProductId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `ProductId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT cho bảng `promotion`
 --
 ALTER TABLE `promotion`
-  MODIFY `PromotionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `PromotionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Các ràng buộc cho các bảng đã đổ
