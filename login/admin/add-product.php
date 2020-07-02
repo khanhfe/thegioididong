@@ -3,15 +3,50 @@
  	connect_db();
 	global $conn;
 	$data = array();
-	if (isset($_POST['add'])) {
+	function addpromo($Promo1,$Promo2,$Promo3,$Promo4,$Promo5,$productname)
+	{
+		global $conn;
+		connect_db();
+		$sql = "INSERT INTO promotion(Promo1,Promo2,Promo3,Promo4,Promo5,ProductId) VALUES ('$Promo1','$Promo2','$Promo3','$Promo4','$Promo5',(SELECT product.ProductId FROM product WHERE product.ProductName='$productname'))";
+		$query = mysqli_query($conn, $sql);
+		return $query;
+	}
+	function adddetail($Display,$OS,$RearCamera,$FrontCamera,$CPU,$RAM,$ROM,$battery,$productname)
+	{
+		global $conn;
+		connect_db();
+		$sql = "INSERT INTO detail(Display,OS,RearCamera,FrontCamera,CPU,RAM,ROM,battery,ProductId) VALUES ('$Display','$OS','$RearCamera','$FrontCamera','$CPU','$RAM','$ROM','$battery',(SELECT product.ProductId FROM product WHERE product.ProductName='$productname'))";
+		$query = mysqli_query($conn, $sql);
+		return $query;
+	}
+	if (isset($_POST['submit'])) {
 		$data['productname'] = $_POST['productname'];
-		$data['image'] = 'img/product/smartphones/'.$_POST['image'];
+		$data['image'] = 'img/product/'.$_POST['image'];
 		$data['pricepromo'] = $_POST['pricepromo'];
 		$data['pricecurrent'] = $_POST['pricecurrent'];
 		$data['brand'] = $_POST['brand'];
 		$data['quantity'] = $_POST['quantity'];
 		$data['group'] = $_POST['group'];
+
+		$data['Promo1'] = $_POST['Promo1'];
+		$data['Promo2'] = $_POST['Promo2'];
+		$data['Promo3'] = $_POST['Promo3'];
+		$data['Promo4'] = $_POST['Promo4'];
+		$data['Promo5'] = $_POST['Promo5'];
+
+		$data['Display'] = $_POST['Display'];
+		$data['OS'] = $_POST['OS'];
+		$data['RearCamera'] = $_POST['RearCamera'];
+		$data['FrontCamera'] = $_POST['FrontCamera'];
+		$data['CPU'] = $_POST['CPU'];
+		$data['RAM'] = $_POST['RAM'];
+		$data['ROM'] = $_POST['ROM'];
+		$data['battery'] = $_POST['battery'];
+
 		add_product($data['productname'],$data['image'],$data['pricepromo'],$data['pricecurrent'],$data['brand'],$data['quantity'],$data['group']);
+		addpromo($data['Promo1'],$data['Promo2'],$data['Promo3'],$data['Promo4'],$data['Promo5'],$data['productname']);
+		adddetail($data['Display'],$data['OS'],$data['RearCamera'],$data['FrontCamera'],$data['CPU'],$data['RAM'],$data['ROM'],$data['battery'],$data['productname']);
+		header('location: addcolor.php');
 	}
  	disconnect_db();
 ?>
@@ -79,7 +114,6 @@
 	</style>
 </head>
 <body>
-	
 	<header id="header" class="">
 		<nav>
 			<ul>

@@ -107,9 +107,10 @@
 						<strong>Khuyến mãi</strong>
 						<div class="infopromo">
 							<span class="notnull"><?php echo $product['Promo1']; ?></span>
-							<span class="notnull"><?php echo $product['Promo2']; ?></span>
-							<span class="notnull"><?php if($product['Promo3']!=null) echo $product['Promo3']; ?></span>
-							<span class="notnull"><?php if($product['Promo4']!=null) echo $product['Promo4'].'<a href="" style="color:#288ad6"> (click xem chi tiết)</a>' ?></span>
+							<span class="notnull"><?php if($product['Promo2']!=null || $product['Promo2']!='') echo $product['Promo2']; ?></span>
+							<span class="notnull"><?php if($product['Promo3']!=null || $product['Promo3']!='') echo $product['Promo3']; ?></span>
+							<span class="notnull"><?php if($product['Promo4']!=null || $product['Promo4']!='') echo $product['Promo4'] ?></span>
+							<span class="notnull"><?php if($product['Promo5']!=null || $product['Promo5']!='') echo $product['Promo5'] ?></span>
 						</div>
 						<div class="vipservice">
 							<div>
@@ -177,7 +178,9 @@
 	<script type="text/javascript" charset="utf-8" async defer>
 		var notnull = document.querySelectorAll('.infopromo span')
 		for (var i = 0; i < notnull.length; i++) {
-			if(notnull[i].innerHTML=='') notnull[i].classList.remove('notnull')
+			if(notnull[i].innerHTML.trim()==='') {
+				notnull[i].classList.remove('notnull')
+			}
 		}
 		jQuery(document).ready(function($) {
 			$('.infopromo .notnull').each(function() {

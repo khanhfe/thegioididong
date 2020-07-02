@@ -80,12 +80,5 @@
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}
-	function edit_product($id,$product,$image,$pricepromo,$pricecurrent,$brand,$quantity,$group)
-	{
-		global $conn;
-		connect_db();
-		$sql = "UPDATE product SET ProductName = '$product', ProductImage = '$image', PricePromo = '$pricepromo',PriceCurrent = '$pricecurrent',Brand = '$brand',Quantity = '$quantity',GroupProduct ='$group' WHERE ProductId = '$id'";
-		$query = mysqli_query($conn, $sql);
-		return $query;
-	}
- ?>
+	
+?>

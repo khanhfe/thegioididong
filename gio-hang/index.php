@@ -547,7 +547,7 @@
 
 		var notnull = document.querySelectorAll('.promotion span')
 		for (var i = 0; i < notnull.length; i++) {
-			if(notnull[i].innerHTML=='') notnull[i].classList.remove('notnull')
+			if(notnull[i].innerHTML.trim()==='') notnull[i].classList.remove('notnull')
 		}
 
 		if (pay != "0₫"){

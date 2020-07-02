@@ -55,6 +55,7 @@
 	<div class="main-body">
 		<div class="container">
 			<a href="add-product.php" class="add">Thêm mới sản phẩm</a>
+			<a href="addcolor.php" class="add">Thêm tùy chọn màu sắc cho sản phẩm</a>
 			<table cellspacing="0">
 				<tr>
 					<th>ID</th>

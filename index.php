@@ -13,6 +13,7 @@
 	<title>Thegioididong.com - Điện thoại, Tablet, Laptop, Phụ kiện chính hãng</title>
 	<link href="img/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
 	<link rel="stylesheet" href="css/style.css">
+	<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
 	<header>
@@ -25,6 +26,9 @@
 				<button class="btntop" type="submit">
 					<i class="icon-topsearch"></i>
 				</button>
+				<ul class="wrap-suggestion">
+					
+				</ul>
 			</form>
 			<nav>
 	            <a href="#" class="mobile" title="Điện thoại di động, smartphone">
@@ -144,7 +148,7 @@
 										<span><?php  if($item['PricePromo']!=0) echo number_format($item['PriceCurrent'],0,"",".") .'₫'; ?></span>
 									</div>
 									<div class="promo">
-										<?php echo $item['Promo2'] ?>
+										<?php echo $item['Promo1'] ?>
 									</div>
 									<?php if($item['PricePromo'] != 0){ ?>
 									<label class="discount">GIẢM <?php echo number_format($item['PriceCurrent']-$item['PricePromo'],0,"",".").'₫'?> </label>

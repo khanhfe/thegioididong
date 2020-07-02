@@ -94,6 +94,72 @@ header{
     display: block;
     margin: 1px auto 0;
 }
+ul.wrap-suggestion{
+    display: block;
+    border: 1px solid #e2e2e2;
+    background: #fff;
+    position: absolute;
+    left: 0;
+    width: 345px;
+    top: 45px;
+    z-index: 9;
+}
+.wrap-suggestion:after, .wrap-suggestion:before {
+    bottom: 100%;
+    left: 80px;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+}
+.wrap-suggestion:after {
+    border-color: rgba(255,255,255,0);
+    border-bottom-color: #fff;
+    border-width: 8px;
+    margin-left: -8px;
+}
+.wrap-suggestion li {
+    display: block;
+    background: #fff;
+    overflow: hidden;
+    list-style: none;
+    border-bottom: 1px dotted #ccc;
+}
+.wrap-suggestion li:last-child{
+    border-bottom: none
+}
+.wrap-suggestion li a {
+    display: block;
+    overflow: hidden;
+    padding: 6px;
+    color: #333;
+    font-size: 12px;
+}
+.wrap-suggestion li a img {
+    float: left;
+    width: 50px;
+    height: auto;
+    margin: 0 6px 0 0;
+}
+.wrap-suggestion li a h3 {
+    display: block;
+    width: auto;
+    color: #333;
+    font-size: 14px;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.wrap-suggestion li a span.price {
+    font-size: 12px;
+    color: #c70100;
+    float: none;
+}
+.wrap-suggestion li a cite {
+    font-size: 12px;
+}
 nav{
     width: 780px;
     background: #fed700;

@@ -6,6 +6,31 @@
 	$sql = "SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId JOIN detail ON product.ProductId = detail.ProductId WHERE product.ProductId = '$id'";
 	$query = mysqli_query($conn, $sql);	
 	$data = mysqli_fetch_assoc($query);
+	function edit_product($product,$image,$pricepromo,$pricecurrent,$brand,$quantity,$group,$id)
+	{
+		global $conn;
+		connect_db();
+		$sql = "UPDATE product SET ProductName = '$product', ProductImage = '$image', PricePromo = '$pricepromo',PriceCurrent = '$pricecurrent',Brand = '$brand',Quantity = '$quantity',GroupProduct ='$group' WHERE ProductId = '$id'";
+		$query = mysqli_query($conn, $sql);
+		return $query;
+	}
+	function editpromo($Promo1,$Promo2,$Promo3,$Promo4,$Promo5,$id)
+	{
+		global $conn;
+		connect_db();
+		$sql = "UPDATE promotion SET Promo1 = '$Promo1', Promo2 = '$Promo2', Promo3 = '$Promo3',Promo4 = '$Promo4',Promo5 = '$Promo5' WHERE ProductId = '$id'";
+		$query = mysqli_query($conn, $sql);
+		return $query;
+	}
+	function editdetail($Display,$OS,$RearCamera,$FrontCamera,$CPU,$RAM,$ROM,$battery,$id)
+	{
+		global $conn;
+		connect_db();
+		$sql = "UPDATE detail SET Display = '$Display', OS = '$OS', RearCamera = '$RearCamera',FrontCamera = '$FrontCamera',CPU = '$CPU',RAM = '$RAM',ROM ='$ROM',battery = '$battery' WHERE ProductId = '$id'";
+		$query = mysqli_query($conn, $sql);
+		return $query;
+	}
+
 	if(isset($_POST['submit'])){
 		$data['ProductId'] = $id;
 		$data['ProductName'] = $_POST['ProductName'];
@@ -15,8 +40,27 @@
 		$data['Brand'] = $_POST['Brand'];
 		$data['Quantity'] = $_POST['Quantity'];
 		$data['GroupProduct'] = $_POST['GroupProduct'];
-		edit_product($data['ProductId'], $data['ProductName'], $data['ProductImage'], $data['PricePromo'],$data['PriceCurrent'],$data['Brand'],$data['Quantity'],$data['GroupProduct']);
-		header('location:index.php');	
+
+		$data['Promo1'] = $_POST['Promo1'];
+		$data['Promo2'] = $_POST['Promo2'];
+		$data['Promo3'] = $_POST['Promo3'];
+		$data['Promo4'] = $_POST['Promo4'];
+		$data['Promo5'] = $_POST['Promo5'];
+
+		$data['Display'] = $_POST['Display'];
+		$data['OS'] = $_POST['OS'];
+		$data['RearCamera'] = $_POST['RearCamera'];
+		$data['FrontCamera'] = $_POST['FrontCamera'];
+		$data['CPU'] = $_POST['CPU'];
+		$data['RAM'] = $_POST['RAM'];
+		$data['ROM'] = $_POST['ROM'];
+		$data['battery'] = $_POST['battery'];
+
+		edit_product($data['ProductName'], $data['ProductImage'], $data['PricePromo'],$data['PriceCurrent'],$data['Brand'],$data['Quantity'],$data['GroupProduct'],$data['ProductId']);
+		editpromo($data['Promo1'],$data['Promo2'],$data['Promo3'],$data['Promo4'],$data['Promo5'],$data['ProductId']);
+		editdetail($data['Display'],$data['OS'],$data['RearCamera'],$data['FrontCamera'],$data['CPU'],$data['RAM'],	$data['ROM'], $data['battery'], $data['ProductId']);
+
+		// header('location:index.php');	
 	}
 	disconnect_db();
 ?>
