@@ -27,20 +27,19 @@
 					<i class="icon-topsearch"></i>
 				</button>
 				<ul class="wrap-suggestion">
-					
 				</ul>
 			</form>
 			<nav>
-	            <a href="#" class="mobile" title="Điện thoại di động, smartphone">
+	            <a href="dtdd/" class="mobile" title="Điện thoại di động, smartphone">
 	                <i class="icon-mobile"></i>Điện thoại
 	            </a>
-	            <a href="#" class="laptop" title="Máy tính xách tay, Laptop">
+	            <a href="laptop/" class="laptop" title="Máy tính xách tay, Laptop">
 	                <i class="icon-laptop"></i>Laptop
 	            </a>
-	            <a href="#" class="tablet" title="Máy tính bảng, tablet">
+	            <a href="may-tinh-bang/" class="tablet" title="Máy tính bảng, tablet">
 	                <i class="icon-tablet"></i>Tablet
 	            </a>
-	            <a href="#" class="phukien" title="Phụ kiện điện thoại di động, phụ kiện tablet, phụ kiện lapto">
+	            <a href="phukien/" class="phukien" title="Phụ kiện điện thoại di động, phụ kiện tablet, phụ kiện lapto">
 	                <i class="icon-phukien"></i>Phụ kiện
 	            </a>
 	            <a href="#" class="smartwatch" title="Đồng hồ">
@@ -109,7 +108,7 @@
         	</figure>
         	<ul>
                 <li>
-                    <a href="#">
+                    <a href="https://khanh-nguyen28.github.io/technews/">
                         <img width="100" height="70" src="img/news/gismochina1_800x448-100x100.jpg" alt="Chơi lớn như Samsung, tiếp tục giảm sốc 2 triệu đồng cho Galaxy S10 Lite, Samfans không nên bỏ qua lần này">
                         <h3>Vivo X50 Pro và X50 Pro Plus với khả năng chống rung như Gimbal, sắp sửa lên kệ toàn cầu. Tín đồ thích quay video hẳn sẽ phải để ý</h3>
                         <span>56 phút trước</span>
@@ -140,7 +139,7 @@
 						foreach ($product as $item) {  $_SESSION['id'] = $item['ProductImage'];$_SESSION['ProdcutName'] = $item['ProductName'];?>
 						<div class="owl-item">
 							<div class="item">
-								<a href="dtdd/?id=<?= $item['ProductId'] ?>">
+								<a href="<?php echo $item['folder']; ?>/detail/?id=<?= $item['ProductId'] ?>">
 									<img src="<?php echo $item['ProductImage'] ?>" width="180" height="180">	
 									<h5><?php echo $item['ProductName']; ?></h5>
 									<div class="price">
@@ -148,7 +147,7 @@
 										<span><?php  if($item['PricePromo']!=0) echo number_format($item['PriceCurrent'],0,"",".") .'₫'; ?></span>
 									</div>
 									<div class="promo">
-										<?php echo $item['Promo1'] ?>
+										
 									</div>
 									<?php if($item['PricePromo'] != 0){ ?>
 									<label class="discount">GIẢM <?php echo number_format($item['PriceCurrent']-$item['PricePromo'],0,"",".").'₫'?> </label>
@@ -166,6 +165,8 @@
 		</div>
 	</section>
 	<script type="text/javascript" src="js/javascript.js">
+	</script>
+	<script type="text/javascript" src="js/searching.js">
 	</script>
 </body>
 </html>

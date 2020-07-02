@@ -1,6 +1,6 @@
 <?php 
 	session_start();
- 	require'../libs/function.php';
+ 	require'../../libs/function.php';
  	$id = $_GET['id'];
  	connect_db();
 	global $conn;
@@ -45,5 +45,5 @@
 		} 
 	}
 	disconnect_db();
-	header('Location: ../gio-hang/');
+	header('Location: ../../gio-hang/');
 ?>

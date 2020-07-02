@@ -53,17 +53,9 @@
 	            <a href="#" class="gameapp" title="Game app">
 	                <i class="icon-gameapp"></i>Game App
 	            </a>
-	            <div id="utility-cardsim" class="utility">
-                Sim, thẻ cào<br>
-                Đóng tiền
-                <div class="mix-menu">
-                    <a href="#" class="cardsim">
-                        Sim số, thẻ cào
-                    </a>
-                    <a href="#">
-                        Đóng tiền điện, <br> nước, trả góp
-                    </a>
-                </div>
+	            <a href="../login/" class="account" title="Đăng nhập">
+	            	<i class="icon-account"></i> Đăng nhập
+	            </a>
             </div>
         	</nav>
 		</div>

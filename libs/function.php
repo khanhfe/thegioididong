@@ -52,6 +52,19 @@
 		}
 		return $result;
 	}
+	function group_product($group){
+		global $conn;
+		connect_db();
+		$sql = "SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId WHERE product.GroupProduct = '$group'";
+		$query = mysqli_query($conn,$sql);
+		$result = array();
+		if($query) {
+			while($row = mysqli_fetch_assoc($query)){
+				$result[] = $row;
+			}
+		}
+		return $result;
+	}
 	function add_customer($fullname,$gender,$phonenumber,$email,$address,$note,$pay,$date){
 		global $conn;
 		connect_db();

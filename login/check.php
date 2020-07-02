@@ -5,6 +5,7 @@
 	{
 		$username = $_POST['username'];
 		$password = $_POST['password'];
+		$password = strtolower($password);
 		$username = strip_tags($username);
 		$username = addslashes($username);
 		$password = strip_tags($password);

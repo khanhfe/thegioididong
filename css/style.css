@@ -258,7 +258,7 @@
     border-top: 1px solid #eee;
     margin-bottom: 15px;
 }
-.product a{
+.product a,.item a{
     background: #fff;
     padding: 10px 0;
     text-align: left;
@@ -267,22 +267,22 @@
     color: #333;
     margin: auto;
 }
-.product a img{
+.product a img,.item a img{
     margin: 15px 30px;
     transition: all 300ms ease;
 }
-.product h5{
+.product h5,.item h3{
     font-size: 14px;
     margin:0 10px ;
     font-weight: unset;
 }
-.product .promo{
+.promo{
     font-size: 12px;
     padding: 0 10px;
     margin-right: 10px;
     position: relative;
 }
-.product .price{
+.price{
     padding:5px 10px 10px 10px;
     color: #e10c00;
     font-family: 18px;
@@ -293,10 +293,10 @@
     color: #222;
     text-decoration: line-through;
 }
-.product a:hover img{
+.product a:hover img,.item a:hover img{
     transform: translateY(-10px);    
 }
-.product a:hover h5{
+.product a:hover h5,.item a:hover h3{
     color: #288ad6;
 }
 label{
