@@ -55,7 +55,7 @@
 	function group_product($group){
 		global $conn;
 		connect_db();
-		$sql = "SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId WHERE product.GroupProduct = '$group'";
+		$sql = "SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId WHERE product.GroupProduct = '$group' LIMIT 10";
 		$query = mysqli_query($conn,$sql);
 		$result = array();
 		if($query) {
@@ -86,10 +86,10 @@
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}
-	function add_product($product,$image,$pricepromo,$pricecurrent,$brand,$quantity,$group){
+	function add_product($product,$image,$pricepromo,$pricecurrent,$brand,$quantity,$group,$folder){
 		global $conn;
 		connect_db();
-		$sql = "INSERT INTO product(ProductName,ProductImage,PriceCurrent,PricePromo,Brand,Quantity,GroupProduct) VALUES ('$product','$image','$pricecurrent','$pricepromo','$brand','$quantity','$group')";
+		$sql = "INSERT INTO product(ProductName,ProductImage,PriceCurrent,PricePromo,Brand,Quantity,GroupProduct,folder) VALUES ('$product','$image','$pricecurrent','$pricepromo','$brand','$quantity','$group','$folder')";
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}

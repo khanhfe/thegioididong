@@ -11,10 +11,9 @@
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
 </head>
 <body>
-	<?php $src = "../";?>
 	<header id="header" class="">
 		<div class="wrap-main">
-			<a href="#" title="Về trang chủ Thegioididong.com" class="logo">
+			<a href="../" title="Về trang chủ Thegioididong.com" class="logo">
 				<i class="icon-logo"></i>
 			</a>
 			<form id="search-site" action="#" method="get" accept-charset="utf-8" autocomplete="off">
@@ -24,16 +23,16 @@
 				</button>
 			</form>
 			<nav>
-	            <a href="#" class="mobile" title="Điện thoại di động, smartphone">
+	            <a href="../dtdd/" class="mobile" title="Điện thoại di động, smartphone">
 	                <i class="icon-mobile"></i>Điện thoại
 	            </a>
-	            <a href="#" class="laptop" title="Máy tính xách tay, Laptop">
+	            <a href="../laptop/" class="laptop" title="Máy tính xách tay, Laptop">
 	                <i class="icon-laptop"></i>Laptop
 	            </a>
-	            <a href="#" class="tablet" title="Máy tính bảng, tablet">
+	            <a href="../may-tinh-bang/" class="tablet" title="Máy tính bảng, tablet">
 	                <i class="icon-tablet"></i>Tablet
 	            </a>
-	            <a href="#" class="phukien" title="Phụ kiện điện thoại di động, phụ kiện tablet, phụ kiện lapto">
+	            <a href="../phu-kien/" class="phukien" title="Phụ kiện điện thoại di động, phụ kiện tablet, phụ kiện lapto">
 	                <i class="icon-phukien"></i>Phụ kiện
 	            </a>
 	            <a href="#" class="smartwatch" title="Đồng hồ">
@@ -89,7 +88,7 @@
     					<li>
     						<div class="colimg">
     							<a href="../dtdd/?id=<?php echo $infoProduct['id'] ?>">
-    								<img data-value="<?php echo $infoProduct['id'] ?>" src="<?php echo $src.$infoProduct['image'] ?>">
+    								<img data-value="<?php echo $infoProduct['id'] ?>" src="<?php echo '../'.$infoProduct['image'] ?>">
     							</a>
     							<a class="delete" href="delete.php?id=<?php echo $infoProduct['id'] ?>"><span></span>Xóa</a>
     						</div>

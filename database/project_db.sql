@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 02, 2020 lúc 08:30 PM
+-- Thời gian đã tạo: Th7 04, 2020 lúc 10:25 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.6
 
@@ -135,8 +135,38 @@ INSERT INTO `color_product` (`ColorID`, `Color`, `image_product`, `ProductId`) V
 (45, 'Trắng', 'img/product/color/samsung-galaxy-a31-trang-200x200-2-180x125.png', 18),
 (46, 'Xanh dương', 'img/product/color/samsung-galaxy-a31-xanh-200x200-1-180x125.png', 18),
 (47, 'Đen', 'img/product/color/samsung-galaxy-a31-den-200x200-1-180x125.png', 18),
-(48, 'Xám', 'img/product/color/ipad-pro-12-9-inch-wifi-128gb-2020-xam-200x200-1-180x125.png', 19),
-(49, 'Bạc', 'img/product/color/ipad-pro-12-9-inch-wifi-128gb-2020-bac-200x200-180x125.png', 19);
+(48, 'Xám', 'img/product/color/s20-ultra-gray-180x125.png', 19),
+(49, 'Đen', 'img/product/color/s20-ultra-black-180x125.png', 19),
+(50, 'Trắng', 'img/product/color/realme-6i-trang-200x200-180x125.png', 13),
+(51, 'Xanh lá', 'img/product/color/realme-6i-xanh-200x200-180x125.png', 13),
+(52, 'Xám', 'img/product/color/s20-ultra-gray-180x125.png', NULL),
+(53, 'Đen', 'img/product/color/s20-ultra-black-180x125.png', NULL),
+(54, 'Xanh dương', 'img/product/color/samsung-galaxy-note-10-plus-blue-200-180x125.png', 20),
+(55, 'Đen', 'img/product/color/samsung-galaxy-note-10-plus-black-200-180x125.png', 20),
+(56, 'Xanh dương', 'img/product/color/oppo-find-x2-blue-200x200-1-180x125.png', 21),
+(57, 'Đen', 'img/product/color/oppo-find-x2-black-180x125.png', 21),
+(58, 'Xanh dương', 'img/product/color/samsung-galaxy-s20-plus-200x200-xanh-180x125.png', 22),
+(59, 'Xám', 'img/product/color/samsung-galaxy-s20-plus-200x200-xam--180x125.png', 22),
+(60, 'Đen', 'img/product/color/samsung-galaxy-s20-plus-200x200-xam--180x125.png', 22),
+(61, 'Bạc', 'img/product/color/huawei-p40-pro-bac-200x200-re-up-180x125.png', 23),
+(62, 'Xanh Dương', 'img/product/color/huawei-p40-pro-xanh-200x200-re-up-180x125.png', 23),
+(63, 'Trắng', 'img/product/color/xiaomi-redmi-note-9-pro-128gb-white-200x200-180x125.png', 24),
+(64, 'Xám', 'img/product/color/xiaomi-redmi-note-9-pro-gray-200x200-180x125.png', 24),
+(65, 'Xanh lá', 'img/product/color/xiaomi-redmi-note-9-pro-xanh-la-200x200-180x125.png', 24),
+(66, 'Tím', 'img/product/color/vsmart-active-3-tim-thumb-mau-180x125.png', 25),
+(67, 'Xanh lá', 'img/product/color/vsmart-active-3-6gb-emerald-green-thumb-mau-180x125.png', 25),
+(68, 'Xanh dương', 'img/product/color/vsmart-active-200x200-180x125.png', 25),
+(69, 'Đen', 'img/product/color/vsmart-active-3-black-thumb-mau-180x125.png', 25),
+(70, 'Xanh dương', 'img/product/color/vsmart-star-3-xanh-200x200-180x125.png', 26),
+(71, 'Đen', 'img/product/color/vsmart-star-3-den-200x200-180x125.png', 26),
+(72, 'Bạc', 'img/product/color/vivo-v19-bac-200x200-180x125.png', 27),
+(73, 'Đen', 'img/product/color/vivo-v19-den-200x200-180x125.png', 27),
+(74, 'Trắng', 'img/product/color/vivo-s1-pro-white-200-180x125.png', 28),
+(75, 'Đen', 'img/product/color/vivo-s1-pro-black-200-180x125.png', 28),
+(76, 'Đen', 'img/product/color/xiaomi-mi-note-10-pro-black-200-180x125.png', 29),
+(77, 'Xanh lá', 'img/product/color/xiaomi-mi-note-10-pro-green-200-180x125.png', 29),
+(78, 'Xanh dương', 'img/product/color/huawei-nova-5t-blue-200x200-180x125.png', 30),
+(79, 'Xanh lá', 'img/product/color/huawei-nova-5t-green-200x200-180x125.png', 30);
 
 -- --------------------------------------------------------
 
@@ -165,6 +195,8 @@ CREATE TABLE `customer` (
 CREATE TABLE `detail` (
   `DetailId` int(11) NOT NULL,
   `Display` varchar(225) DEFAULT NULL,
+  `Card` varchar(225) NOT NULL,
+  `gateway` varchar(225) NOT NULL,
   `OS` varchar(50) DEFAULT NULL,
   `RearCamera` varchar(225) DEFAULT NULL,
   `FrontCamera` varchar(225) DEFAULT NULL,
@@ -172,6 +204,7 @@ CREATE TABLE `detail` (
   `RAM` varchar(50) DEFAULT NULL,
   `ROM` varchar(50) DEFAULT NULL,
   `battery` varchar(50) DEFAULT NULL,
+  `design` varchar(225) NOT NULL,
   `ProductId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -179,25 +212,37 @@ CREATE TABLE `detail` (
 -- Đang đổ dữ liệu cho bảng `detail`
 --
 
-INSERT INTO `detail` (`DetailId`, `Display`, `OS`, `RearCamera`, `FrontCamera`, `CPU`, `RAM`, `ROM`, `battery`, `ProductId`) VALUES
-(1, 'Super AMOLED, 6.5', 'Android 10', 'Chính 48 MP & Phụ 12 MP, 5 MP, 5 MP', '32 MP', 'Exynos 9611 8 nhân', '8GB', '128GB', '4000 mAh, có sạc nhanh', 1),
-(2, 'AMOLED, 6.4', 'Android 10', 'Chính 48 MP & Phụ 13 MP, 8 MP, 2 MP', '44 MP', 'MediaTek Helio P90 8 nhân', '8 GB', '128 GB', '4025 mAh, có sạc nhanh', 2),
-(3, 'OLED, 6.5', 'iOS 13', '3 camera 12 MP', '12 MP', 'Apple A13 Bionic 6 nhân', '4GB', '64GB', '3969 mAh, có sạc nhanh', 3),
-(4, 'IPS LCD, 6.5\", HD+', 'Android 9.0 (Pie)', 'Chính 13 MP & Phụ 8 MP, 2 MP', '8MP', 'Snapdragon 632 8 nhân', '4GB', '64GB', '5000 mAh, có sạc nhanh', 4),
-(5, '	AMOLED, 6.5', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio P70 8 nhân', '8GB', '128GB', '4000 mAh, có sạc nhanh', 5),
-(6, 'Super AMOLED, 6.7\", Full HD+', 'Android 10', 'Chính 48 MP & Phụ 12 MP, 5 MP', '32 MP', 'Snapdragon 855 8 nhân', '8GB', '128GB', '4500 mAh, có sạc nhanh', 6),
-(7, 'IPS LCD, 6.5\", Full HD+', 'Android 10', 'Chính 64 MP & Phụ 8 MP, 2 MP, 2 MP', '16 MP', 'Mediatek Helio G90T 8 nhân', '4GB', '128GB', '4300 mAh, có sạc nhanh', 7),
-(8, 'IPS LCD, 6.35', 'Android 9.0 (Pie)', 'Chính 13 MP & Phụ 8 MP, 2 MP', '8MP', 'Snapdragon 665 8 nhân', '4GB', '64GB', '5000 mAh, có sạc nhanh', 8),
-(9, 'LED-backlit IPS LCD, 5.5', 'iOS 12', 'Chính 12 MP & Phụ 12 MP', '7 MP', 'Apple A11 Bionic 6 nhân', '3GB', '64GB', '2691 mAh, có sạc nhanh', 9),
-(10, 'AMOLED, 6.4', 'ColorOS 6.1 (Android 9.0)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio P70 8 nhân', '8GB', '128GB', '4025 mAh, có sạc nhanh', 10),
-(11, 'Chính: Dynamic AMOLED, phụ: Super AMOLED, Chính 7.3', 'Android 9.0 (Pie)', 'Chính 12 MP & Phụ 12 MP, 16 MP', 'Trong: 10 MP, 8 MP; Ngoài: 10 MP', 'Snapdragon 855 8 nhân', '12GB', '512GB', '4380 mAh, có sạc nhanh', 11),
-(12, 'Chính: Dynamic AMOLED, phụ: Super AMOLED, 6.7', 'Android 10', 'Chính 12 MP & Phụ 12 MP', '10MP', 'Snapdragon 855+ 8 nhân', '8GB', '256GB', '3300 mAh, có sạc nhanh', 12),
-(13, 'IPS LCD, 6.53', 'Android 10', 'Chính 13 MP & Phụ 8 MP, 5 MP, 2 MP', '8 MP', 'MediaTek Helio G80 8 nhân', '4 GB', '64GB', '5020 mAh, có sạc nhanh', 14),
-(14, 'IPS LCD, 6.1', 'iOS 13', 'Chính 12 MP & Phụ 12 MP', '12 MP', 'Apple A13 Bionic 6 nhân', '4 GB', '64 GB', '3110 mAh, có sạc nhanh', 15),
-(15, 'IPS LCD, 4.7', 'iOS 13', '12 MP', '7 MP', 'Apple A13 Bionic 6 nhân', '3 GB', '128 GB', '1821 mAh, có sạc nhanh', 16),
-(16, 'OLED, 6.5\", Super Retina', 'iOS 12', 'Chính 12 MP & Phụ 12 MP', '7 MP', 'Apple A12 Bionic 6 nhân', '4 GB', '64GB', '3174 mAh, có sạc nhanh', 17),
-(17, 'Super AMOLED, 6.4\", Full HD+', 'Android 10', 'Chính 48 MP & Phụ 8 MP, 5 MP, 5 MP', '20 MP', 'MediaTek MT6768 8 nhân (Helio P65)', '6 GB', '128 GB', '5000 mAh, có sạc nhanh', 18),
-(18, 'Liquid Retina, 12.9', 'iPadOS 13', 'Chính 12 MP & Phụ 10 MP, TOF 3D LiDAR', '7 MP', 'Apple A12Z Bionic, 4 nhân 2.5 GHz & 4 nhân 1.6 GHz', '6 GB', '128 GB', '36.71 Wh, Pin Lithium Polymer', 19);
+INSERT INTO `detail` (`DetailId`, `Display`, `Card`, `gateway`, `OS`, `RearCamera`, `FrontCamera`, `CPU`, `RAM`, `ROM`, `battery`, `design`, `ProductId`) VALUES
+(1, 'Super AMOLED, 6.5', '', '', 'Android 10', 'Chính 48 MP & Phụ 12 MP, 5 MP, 5 MP', '32 MP', 'Exynos 9611 8 nhân', '8GB', '128GB', '4000 mAh, có sạc nhanh', '', 1),
+(2, 'AMOLED, 6.4', '', '', 'Android 10', 'Chính 48 MP & Phụ 13 MP, 8 MP, 2 MP', '44 MP', 'MediaTek Helio P90 8 nhân', '8 GB', '128 GB', '4025 mAh, có sạc nhanh', '', 2),
+(3, 'OLED, 6.5', '', '', 'iOS 13', '3 camera 12 MP', '12 MP', 'Apple A13 Bionic 6 nhân', '4GB', '64GB', '3969 mAh, có sạc nhanh', '', 3),
+(4, 'IPS LCD, 6.5\", HD+', '', '', 'Android 9.0 (Pie)', 'Chính 13 MP & Phụ 8 MP, 2 MP', '8MP', 'Snapdragon 632 8 nhân', '4GB', '64GB', '5000 mAh, có sạc nhanh', '', 4),
+(5, '	AMOLED, 6.5', '', '', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio P70 8 nhân', '8GB', '128GB', '4000 mAh, có sạc nhanh', '', 5),
+(6, 'Super AMOLED, 6.7\", Full HD+', '', '', 'Android 10', 'Chính 48 MP & Phụ 12 MP, 5 MP', '32 MP', 'Snapdragon 855 8 nhân', '8GB', '128GB', '4500 mAh, có sạc nhanh', '', 6),
+(7, 'IPS LCD, 6.5\", Full HD+', '', '', 'Android 10', 'Chính 64 MP & Phụ 8 MP, 2 MP, 2 MP', '16 MP', 'Mediatek Helio G90T 8 nhân', '4GB', '128GB', '4300 mAh, có sạc nhanh', '', 7),
+(8, 'IPS LCD, 6.35', '', '', 'Android 9.0 (Pie)', 'Chính 13 MP & Phụ 8 MP, 2 MP', '8MP', 'Snapdragon 665 8 nhân', '4GB', '64GB', '5000 mAh, có sạc nhanh', '', 8),
+(9, 'LED-backlit IPS LCD, 5.5', '', '', 'iOS 12', 'Chính 12 MP & Phụ 12 MP', '7 MP', 'Apple A11 Bionic 6 nhân', '3GB', '64GB', '2691 mAh, có sạc nhanh', '', 9),
+(10, 'AMOLED, 6.4', '', '', 'ColorOS 6.1 (Android 9.0)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio P70 8 nhân', '8GB', '128GB', '4025 mAh, có sạc nhanh', '', 10),
+(11, 'Chính: Dynamic AMOLED, phụ: Super AMOLED, Chính 7.3', '', '', 'Android 9.0 (Pie)', 'Chính 12 MP & Phụ 12 MP, 16 MP', 'Trong: 10 MP, 8 MP; Ngoài: 10 MP', 'Snapdragon 855 8 nhân', '12GB', '512GB', '4380 mAh, có sạc nhanh', '', 11),
+(12, 'Chính: Dynamic AMOLED, phụ: Super AMOLED, 6.7', '', '', 'Android 10', 'Chính 12 MP & Phụ 12 MP', '10MP', 'Snapdragon 855+ 8 nhân', '8GB', '256GB', '3300 mAh, có sạc nhanh', '', 12),
+(13, 'IPS LCD, 6.53', '', '', 'Android 10', 'Chính 13 MP & Phụ 8 MP, 5 MP, 2 MP', '8 MP', 'MediaTek Helio G80 8 nhân', '4 GB', '64GB', '5020 mAh, có sạc nhanh', '', 14),
+(14, 'IPS LCD, 6.1', '', '', 'iOS 13', 'Chính 12 MP & Phụ 12 MP', '12 MP', 'Apple A13 Bionic 6 nhân', '4 GB', '64 GB', '3110 mAh, có sạc nhanh', '', 15),
+(15, 'IPS LCD, 4.7', '', '', 'iOS 13', '12 MP', '7 MP', 'Apple A13 Bionic 6 nhân', '3 GB', '128 GB', '1821 mAh, có sạc nhanh', '', 16),
+(16, 'OLED, 6.5\", Super Retina', '', '', 'iOS 12', 'Chính 12 MP & Phụ 12 MP', '7 MP', 'Apple A12 Bionic 6 nhân', '4 GB', '64GB', '3174 mAh, có sạc nhanh', '', 17),
+(17, 'Super AMOLED, 6.4\", Full HD+', '', '', 'Android 10', 'Chính 48 MP & Phụ 8 MP, 5 MP, 5 MP', '20 MP', 'MediaTek MT6768 8 nhân (Helio P65)', '6 GB', '128 GB', '5000 mAh, có sạc nhanh', '', 18),
+(18, 'Dynamic AMOLED 2X, 6.9', '', '', 'Android 10', 'Chính 108 MP & phụ 48 MP, 12 MP, TOF 3D', '40 MP', 'Exynos 990 8 nhân', '12 GB', '128 GB', '5000 mAh, có sạc nhanh', '', 19),
+(19, 'IPS LCD, 6.5', '', '', 'Android 10', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio G80 8 nhân', '4 GB', '128 GB', '5000 mAh, có sạc nhanh', '', 13),
+(20, 'Dynamic AMOLED, 6.8\", Quad HD+ (2K+)', '', '', 'Android 9.0 (Pie)', 'Chính 12 MP & Phụ 12 MP, 16 MP, TOF 3D', '10 MP', 'Exynos 9825 8 nhân', '12 GB', '256 GB', '4300 mAh, có sạc nhanh', '', 20),
+(21, 'AMOLED, 6.78\", Quad HD+ (2K+)', '', '', 'Android 10', 'Chính 48 MP & Phụ 13 MP, 12 MP', '32 MP', 'Snapdragon 865 8 nhân', '12 GB', '256 GB', '4200 mAh, có sạc nhanh', '', 21),
+(22, 'Dynamic AMOLED 2X, 6.7\", Quad HD+ (2K+)', '', '', 'Android 10', 'Chính 12 MP & Phụ 64 MP, 12 MP, TOF 3D', '10 MP', 'Exynos 990 8 nhân', '8 GB', '128 GB', '4500 mAh, có sạc nhanh', '', 22),
+(23, 'OLED, 6.58\", Quad HD+ (2K+)', '', '', 'EMUI 10 (Android 10 không có Google)', 'Chính 50 MP & Phụ 40 MP,12 MP, TOF 3D', 'Chính 32 MP & Phụ IR TOF 3D', 'Kirin 990 8 nhân', '8 GB', '256 GB', '4200 mAh, có sạc nhanh', '', 23),
+(24, 'IPS LCD, 6.67\", Full HD+', '', '', 'Android 10', 'Chính 64 MP & Phụ 8 MP, 5 MP, 2 MP', '16 MP', 'Snapdragon 720G 8 nhân', '6 GB', '128 GB', '5020 mAh, có sạc nhanh', '', 24),
+(25, 'AMOLED, 6.39\", Full HD+', '', '', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 8 MP, 2 MP', '16 MP', 'MediaTek Helio P60 8 nhân', '6 GB', '64 GB', '4020 mAh, có sạc nhanh', '', 25),
+(26, 'IPS LCD, 6.09\", HD+', '', '', 'Android 9.0 (Pie)', 'Chính 8 MP & Phụ 5 MP', '8 MP', 'Snapdragon 215 4 nhân', '2 GB', '16 GB', '3500 mAh', '', 26),
+(27, 'Super AMOLED, 6.44\", Full HD+', '', '', 'Android 10', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', 'Chính 32 MP & Phụ 8 MP', 'Snapdragon 712 8 nhân', '8 GB', '128 GB', '4500 mAh, có sạc nhanh', '', 27),
+(28, 'Super AMOLED, 6.38\", Full HD+', '', '', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '32 MP', 'Snapdragon 665 8 nhân', '8 GB', '128 GB', '4500 mAh, có sạc nhanh', '', 28),
+(29, 'AMOLED, 6.47\", Full HD+', '', '', 'Android 9.0 (Pie)', 'Chính 108 MP & Phụ 20 MP, 12 MP, 5 MP, 2 MP', '32 MP', 'Snapdragon 730G 8 nhân', '8 GB', '256 GB', '5260 mAh, có sạc nhanh', '', 29),
+(30, 'IPS LCD, 6.26\", Full HD+', '', '', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 16 MP, 2 MP, 2 MP', '32 MP', 'Kirin 980 8 nhân', '8 GB', '128 GB', '3750 mAh, có sạc nhanh', '', 30);
 
 -- --------------------------------------------------------
 
@@ -961,32 +1006,45 @@ CREATE TABLE `product` (
   `PricePromo` varchar(225) DEFAULT NULL,
   `Brand` varchar(225) DEFAULT NULL,
   `Quantity` int(11) DEFAULT NULL,
-  `GroupProduct` varchar(50) NOT NULL
+  `GroupProduct` varchar(50) NOT NULL,
+  `folder` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Đang đổ dữ liệu cho bảng `product`
 --
 
-INSERT INTO `product` (`ProductId`, `ProductName`, `ProductImage`, `PriceCurrent`, `PricePromo`, `Brand`, `Quantity`, `GroupProduct`) VALUES
-(1, 'Samsung Galaxy A51(8GB/128GB) ', 'img/product/samsung-galaxy-a51-8gb-blue-600x600-400x400.jpg', 8990000, '8490000', 'Samsung', 999, 'Điện Thoại'),
-(2, 'OPPO Reno3', 'img/product/oppo-reno3-trang-600x600-400x400.jpg', 8990000, '8490000', 'OPPO', 999, 'Điện Thoại'),
-(3, 'iPhone 11 Pro Max 64GB', 'img/product/iphone-11-pro-max-green-400x400.jpg', 33990000, '31990000', 'iPhone (Apple)', 999, 'Điện thoại'),
-(4, 'Vsmart Joy 3 (4GB/64GB)', 'img/product/vsmart-joy-3-4gb-den-600x600-400x400.jpg', 3290000, '3090000', 'Vsmart', 999, 'Điện thoại'),
-(5, 'OPPO Reno2 F', 'img/product/oppo-reno2-f-600x600-200x200.jpg', 8990000, '7990000', 'OPPO', 999, 'Điện thoại'),
-(6, 'Samsung Galaxy S10 Lite', 'img/product/samsung-galaxy-s10-lite-blue-thumb-400x400.jpg', 14990000, '12990000', 'Samsung', 999, 'Điện thoại'),
-(7, 'Realme 6 (4GB/128GB)', 'img/product/realme-6-xanh-600x600-400x400.jpg', 5990000, '5690000', 'Realme', 999, 'Điện thoại'),
-(8, 'Vivo U10', 'img/product/vivo-u10-1-400x400.jpg', 3990000, '3790000', 'Vivo', 999, 'Điện thoại'),
-(9, 'iPhone 8 Plus 64GB', 'img/product/iphone-8-plus-hh-600x600-400x400.jpg', 15990000, '13990000', 'iPhone (Apple)', 999, 'Điện thoại'),
-(10, 'OPPO A91', 'img/product/oppo-a91-trang-600x600-600x600.jpg', 6990000, '5990000', 'OPPO', 999, 'Điện thoại'),
-(11, 'Samsung Galaxy Fold', 'img/product/samsung-galaxy-fold-black-400x400.jpg', 50000000, '45000000', 'Samsung', 999, 'Điện thoại'),
-(12, 'Samsung Galaxy Z Flip', 'img/product/samsung-galaxy-z-flip-den-600x600-400x400.jpg', 36000000, '34000000', 'Samsung', 999, 'Điện thoại'),
-(14, 'Xiaomi Redmi 9 4GB/64GB', 'img/product/xiaomi-redmi-9-114620-094644-400x400.jpg', 3990000, '3690000', 'Xiaomi', 999, 'Điện thoại'),
-(15, 'iPhone 11 64GB', 'img/product/iphone-11-red-600x600.jpg', 21990000, '20990000', 'iPhone (Apple)', 999, 'Điện thoại'),
-(16, 'iPhone SE 128GB (2020)', 'img/product/iphone-se-128gb-2020-261820-101803-200x200.jpg', 14990000, '14490000', 'iPhone (Apple)', 999, 'Điện thoại'),
-(17, 'iPhone Xs Max 64GB', 'img/product/iphone-xs-max-256gb-white-600x600.jpg', 25990000, '23990000', 'iPhone (Apple)', 999, 'Điện thoại'),
-(18, 'Samsung Galaxy A31', 'img/product/samsung-galaxy-a31-055720-045750-600x600.jpg', 6490000, '5840000', 'Samsung', 999, 'Điện thoại'),
-(19, 'iPad Pro 12.9 inch Wifi 128GB (2020)', 'img/product/ipad-pro-12-9-inch-wifi-128gb-2020-xam-400x460-1-400x460.png', 27990000, '27490000', 'iPad (Apple)', 999, 'Máy tính bảng');
+INSERT INTO `product` (`ProductId`, `ProductName`, `ProductImage`, `PriceCurrent`, `PricePromo`, `Brand`, `Quantity`, `GroupProduct`, `folder`) VALUES
+(1, 'Samsung Galaxy A51(8GB/128GB) ', 'img/product/samsung-galaxy-a51-8gb-blue-600x600-400x400.jpg', 8990000, '8490000', 'Samsung', 999, 'Điện Thoại', 'dtdd'),
+(2, 'OPPO Reno3', 'img/product/oppo-reno3-trang-600x600-400x400.jpg', 8990000, '8490000', 'OPPO', 999, 'Điện Thoại', 'dtdd'),
+(3, 'iPhone 11 Pro Max 64GB', 'img/product/iphone-11-pro-max-green-400x400.jpg', 33990000, '31990000', 'iPhone (Apple)', 999, 'Điện thoại', 'dtdd'),
+(4, 'Vsmart Joy 3 (4GB/64GB)', 'img/product/vsmart-joy-3-4gb-den-600x600-400x400.jpg', 3290000, '3090000', 'Vsmart', 999, 'Điện thoại', 'dtdd'),
+(5, 'OPPO Reno2 F', 'img/product/oppo-reno2-f-600x600-200x200.jpg', 8990000, '7990000', 'OPPO', 999, 'Điện thoại', 'dtdd'),
+(6, 'Samsung Galaxy S10 Lite', 'img/product/samsung-galaxy-s10-lite-blue-thumb-400x400.jpg', 14990000, '12990000', 'Samsung', 999, 'Điện thoại', 'dtdd'),
+(7, 'Realme 6 (4GB/128GB)', 'img/product/realme-6-xanh-600x600-400x400.jpg', 5990000, '5690000', 'Realme', 999, 'Điện thoại', 'dtdd'),
+(8, 'Vivo U10', 'img/product/vivo-u10-1-400x400.jpg', 3990000, '3790000', 'Vivo', 999, 'Điện thoại', 'dtdd'),
+(9, 'iPhone 8 Plus 64GB', 'img/product/iphone-8-plus-hh-600x600-400x400.jpg', 15990000, '13990000', 'iPhone (Apple)', 999, 'Điện thoại', 'dtdd'),
+(10, 'OPPO A91', 'img/product/oppo-a91-trang-600x600-600x600.jpg', 6990000, '5990000', 'OPPO', 999, 'Điện thoại', 'dtdd'),
+(11, 'Samsung Galaxy Fold', 'img/product/samsung-galaxy-fold-black-400x400.jpg', 50000000, '0', 'Samsung', 999, 'Điện thoại', 'dtdd'),
+(12, 'Samsung Galaxy Z Flip', 'img/product/samsung-galaxy-z-flip-den-600x600-400x400.jpg', 36000000, '0', 'Samsung', 999, 'Điện thoại', 'dtdd'),
+(13, 'Realme 6i', 'img/product/realme-6i-(11).jpg', 4990000, '0', 'Realme', 999, 'Điện thoại', 'dtdd'),
+(14, 'Xiaomi Redmi 9 4GB/64GB', 'img/product/xiaomi-redmi-9-114620-094644-400x400.jpg', 3990000, '3690000', 'Xiaomi', 999, 'Điện thoại', 'dtdd'),
+(15, 'iPhone 11 64GB', 'img/product/iphone-11-red-600x600.jpg', 21990000, '20990000', 'iPhone (Apple)', 999, 'Điện thoại', 'dtdd'),
+(16, 'iPhone SE 128GB (2020)', 'img/product/iphone-se-128gb-2020-261820-101803-200x200.jpg', 14990000, '14490000', 'iPhone (Apple)', 999, 'Điện thoại', 'dtdd'),
+(17, 'iPhone Xs Max 64GB', 'img/product/iphone-xs-max-256gb-white-600x600.jpg', 25990000, '23990000', 'iPhone (Apple)', 999, 'Điện thoại', 'dtdd'),
+(18, 'Samsung Galaxy A31', 'img/product/samsung-galaxy-a31-055720-045750-600x600.jpg', 6490000, '5840000', 'Samsung', 999, 'Điện thoại', 'dtdd'),
+(19, 'Samsung S20 Ultra', 'img/product/samsung-galaxy-s20-ultra-600x600-1-400x400.jpg', 29990000, '24990000', 'Samsung', 999, 'Điện thoại', 'dtdd'),
+(20, 'Samsung Galaxy Note 10+', 'img/product/samsung-galaxy-note-10-plus-blue-400x400.jpg', 26990000, '19990000', 'Samsung', 999, 'Điện thoại', 'dtdd'),
+(21, 'OPPO Find X2', 'img/product/oppo-find-x2-blue-600x600-600x600.jpg', 23990000, '19990000', 'OPPO', 999, 'Điện thoại', 'dtdd'),
+(22, 'Samsung Galaxy S20+', 'img/product/samsung-galaxy-s20-plus-(9).jpg', 23990000, '14990000', 'Samsung', 999, 'Điện thoại', 'dtdd'),
+(23, 'Huawei P40 Pro (Nền tảng Huawei Mobile Service)', 'img/product/huawei-p40-pro-600x600-3-600x600.jpg', 23990000, '21990000', 'Huawei', 999, 'Điện thoại', 'dtdd'),
+(24, 'Xiaomi Redmi Note 9 Pro (6GB/128GB)', 'img/product/xiaomi-redmi-note-9-pro-128gb-white-600x600-200x200.jpg', 6990000, '0', 'Xiaomi', 999, 'Điện thoại', 'dtdd'),
+(25, 'Vsmart Active 3 (6GB/64GB)', 'img/product/vsmart-active-3-6gb-emerald-green-600x600-600x600.jpg', 3990000, '0', 'Vsmart', 999, 'Điện thoại', 'dtdd'),
+(26, 'Vsmart Star 3', 'img/product/vsmart-star-3-xanh-600x600-600x600.jpg', 1990000, '1840000', 'Vsmart', 999, 'Điện thoại', 'dtdd'),
+(27, 'Vivo V19', 'img/product/vivo-v19-xanh-600x600-600x600.jpg', 8990000, '8590000', 'Vivo', 999, 'Điện thoại', 'dtdd'),
+(28, 'Vivo S1 Pro', 'img/product/vivo-s1-pro-white-600x600.jpg', 6990000, '5990000', 'Vivo', 999, 'Điện thoại', 'dtdd'),
+(29, 'Xiaomi Mi Note 10 Pro', 'img/product/xiaomi-mi-note-10-pro-black-600x600.jpg', 14990000, '13990000', 'Xiaomi', 999, 'Điện thoại', 'dtdd'),
+(30, 'Huawei Nova 5T', 'img/product/huawei-nova-5t-blue-600x600-600x600.jpg', 8990000, '8290000', 'Huawei', 999, 'Điện thoại', 'dtdd');
 
 -- --------------------------------------------------------
 
@@ -1026,7 +1084,19 @@ INSERT INTO `promotion` (`PromotionId`, `Promo1`, `Promo2`, `Promo3`, `Promo4`, 
 (15, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác) ', 'Giảm ngay 500.000đ (đã trừ vào giá)', ' ', ' ', ' ', 16),
 (16, 'Giảm ngay 2 triệu (đã trừ vào giá) *', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', '', '', '', 17),
 (17, 'Giảm ngay 10% (650.000đ) (áp dụng đặt và nhận hàng từ 1 - 15/7) (đã trừ vào giá)', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', '', '', '', 18),
-(18, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 500.000đ (đã trừ vào giá) *', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', ' ', ' ', 19);
+(18, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 5 triệu (áp dụng đặt và nhận hàng từ 3 - 5/7) (đã trừ vào giá)', 'Trả góp 0% thẻ tín dụng', ' Ưu đãi phòng chờ thương gia', ' ', 19),
+(19, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', ' ', ' ', ' ', ' ', 13),
+(20, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác) ', 'Giảm ngay 7 triệu (áp dụng đặt và nhận hàng từ 1 - 15/7) (đã trừ vào giá)', 'Trả góp 0% thẻ tín dụng', '', '', 20),
+(21, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 4 triệu (áp dụng đặt và nhận hàng từ 3 - 5/7) (đã trừ vào giá)', '', '', '', 21),
+(22, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác) ', 'Giảm ngay 5 triệu (áp dụng đặt và nhận hàng từ 3 - 5/7) (đã trừ vào giá)', 'Trả góp 0% thẻ tín dụng', 'Ưu đãi phòng chờ thương gia', '', 22),
+(23, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 2 triệu (áp dụng đặt và nhận hàng từ 3 - 5/7) (đã trừ vào giá)', '', '', '', 23),
+(24, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', '', '', '', '', 24),
+(25, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', '', '', '', '', 25),
+(26, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 150.000đ (áp dụng đặt và nhận hàng từ 4 - 31/7) (đã trừ vào giá)', '', '', '', 26),
+(27, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 400.000đ (đã trừ vào giá)', '', '', '', 27),
+(28, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 1 triệu (đã trừ vào giá)', '', '', '', 28),
+(29, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 1 triệu (đã trừ vào giá)', '', '', '', 29),
+(30, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 700.000đ (áp dụng đặt và nhận hàng từ 3 - 5/7) (đã trừ vào giá)', '', '', '', 30);
 
 -- --------------------------------------------------------
 
@@ -44182,7 +44252,7 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT cho bảng `color_product`
 --
 ALTER TABLE `color_product`
-  MODIFY `ColorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `ColorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
 
 --
 -- AUTO_INCREMENT cho bảng `customer`
@@ -44194,7 +44264,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT cho bảng `detail`
 --
 ALTER TABLE `detail`
-  MODIFY `DetailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `DetailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
@@ -44206,13 +44276,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `ProductId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `ProductId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT cho bảng `promotion`
 --
 ALTER TABLE `promotion`
-  MODIFY `PromotionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `PromotionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

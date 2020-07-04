@@ -60,7 +60,7 @@
 		editpromo($data['Promo1'],$data['Promo2'],$data['Promo3'],$data['Promo4'],$data['Promo5'],$data['ProductId']);
 		editdetail($data['Display'],$data['OS'],$data['RearCamera'],$data['FrontCamera'],$data['CPU'],$data['RAM'],	$data['ROM'], $data['battery'], $data['ProductId']);
 
-		// header('location:index.php');	
+		// header('location:edit-product.php');	
 	}
 	disconnect_db();
 ?>

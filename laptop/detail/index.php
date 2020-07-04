@@ -26,7 +26,7 @@
 <body>
 	<header>
 		<div class="wrap-main">
-			<a href="../../" title="Về trang chủ Thegioididong.com" class="logo">
+			<a href="../" title="Về trang chủ Thegioididong.com" class="logo">
 				<i class="icon-logo"></i>
 			</a>
 			<form id="search-site" action="#" method="get" accept-charset="utf-8" autocomplete="off">
@@ -36,16 +36,16 @@
 				</button>
 			</form>
 			<nav>
-	            <a href="../" class="mobile" title="Điện thoại di động, smartphone">
+	            <a href="#" class="mobile" title="Điện thoại di động, smartphone">
 	                <i class="icon-mobile"></i>Điện thoại
 	            </a>
-	            <a href="../../laptop/" class="laptop" title="Máy tính xách tay, Laptop">
+	            <a href="#" class="laptop" title="Máy tính xách tay, Laptop">
 	                <i class="icon-laptop"></i>Laptop
 	            </a>
-	            <a href="../../may-tinh-bang/" class="tablet" title="Máy tính bảng, tablet">
+	            <a href="#" class="tablet" title="Máy tính bảng, tablet">
 	                <i class="icon-tablet"></i>Tablet
 	            </a>
-	            <a href="../../phu-kien/" class="phukien" title="Phụ kiện điện thoại di động, phụ kiện tablet, phụ kiện lapto">
+	            <a href="#" class="phukien" title="Phụ kiện điện thoại di động, phụ kiện tablet, phụ kiện lapto">
 	                <i class="icon-phukien"></i>Phụ kiện
 	            </a>
 	            <a href="#" class="smartwatch" title="Đồng hồ">

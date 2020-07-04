@@ -18,7 +18,7 @@
 <body>
 	<header>
 		<div class="wrap-main">
-			<a href="index.php" title="Về trang chủ Thegioididong.com" class="logo">
+			<a href="" title="Về trang chủ Thegioididong.com" class="logo">
 				<i class="icon-logo"></i>
 			</a>
 			<form id="search-site" action="#" method="get" accept-charset="utf-8" autocomplete="off">
@@ -147,7 +147,7 @@
 										<span><?php  if($item['PricePromo']!=0) echo number_format($item['PriceCurrent'],0,"",".") .'₫'; ?></span>
 									</div>
 									<div class="promo">
-										
+										<?php echo $item['Promo1'] ?>
 									</div>
 									<?php if($item['PricePromo'] != 0){ ?>
 									<label class="discount">GIẢM <?php echo number_format($item['PriceCurrent']-$item['PricePromo'],0,"",".").'₫'?> </label>

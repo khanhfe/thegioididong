@@ -11,11 +11,11 @@
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}
-	function adddetail($Display,$OS,$RearCamera,$FrontCamera,$CPU,$RAM,$ROM,$battery,$productname)
+	function adddetail($Display,$Card,$gateway,$OS,$RearCamera,$FrontCamera,$CPU,$RAM,$ROM,$battery,$design,$productname)
 	{
 		global $conn;
 		connect_db();
-		$sql = "INSERT INTO detail(Display,OS,RearCamera,FrontCamera,CPU,RAM,ROM,battery,ProductId) VALUES ('$Display','$OS','$RearCamera','$FrontCamera','$CPU','$RAM','$ROM','$battery',(SELECT product.ProductId FROM product WHERE product.ProductName='$productname'))";
+		$sql = "INSERT INTO detail(Display,Card,gateway,OS,RearCamera,FrontCamera,CPU,RAM,ROM,battery,design,ProductId) VALUES ('$Display','$Card','$gateway','$OS','$RearCamera','$FrontCamera','$CPU','$RAM','$ROM','$battery','$design',(SELECT product.ProductId FROM product WHERE product.ProductName='$productname'))";
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}
@@ -27,6 +27,7 @@
 		$data['brand'] = $_POST['brand'];
 		$data['quantity'] = $_POST['quantity'];
 		$data['group'] = $_POST['group'];
+		$data['folder'] = $_POST['folder'];
 
 		$data['Promo1'] = $_POST['Promo1'];
 		$data['Promo2'] = $_POST['Promo2'];
@@ -35,6 +36,8 @@
 		$data['Promo5'] = $_POST['Promo5'];
 
 		$data['Display'] = $_POST['Display'];
+		$data['Card'] = $_POST['Card'];
+		$data['gateway'] = $_POST['gateway'];
 		$data['OS'] = $_POST['OS'];
 		$data['RearCamera'] = $_POST['RearCamera'];
 		$data['FrontCamera'] = $_POST['FrontCamera'];
@@ -42,10 +45,11 @@
 		$data['RAM'] = $_POST['RAM'];
 		$data['ROM'] = $_POST['ROM'];
 		$data['battery'] = $_POST['battery'];
+		$data['design'] = $_POST['design'];
 
-		add_product($data['productname'],$data['image'],$data['pricepromo'],$data['pricecurrent'],$data['brand'],$data['quantity'],$data['group']);
+		add_product($data['productname'],$data['image'],$data['pricepromo'],$data['pricecurrent'],$data['brand'],$data['quantity'],$data['group'],$data['folder']);
 		addpromo($data['Promo1'],$data['Promo2'],$data['Promo3'],$data['Promo4'],$data['Promo5'],$data['productname']);
-		adddetail($data['Display'],$data['OS'],$data['RearCamera'],$data['FrontCamera'],$data['CPU'],$data['RAM'],$data['ROM'],$data['battery'],$data['productname']);
+		adddetail($data['Display'],$data['Card'],$data['gateway'],$data['OS'],$data['RearCamera'],$data['FrontCamera'],$data['CPU'],$data['RAM'],$data['ROM'],$data['battery'],$data['design'],$data['productname']);
 		header('location: addcolor.php');
 	}
  	disconnect_db();
@@ -181,6 +185,12 @@
 							<input type="text" name="group" value="" required>
 						</td>				
 					</tr>
+					<tr>
+						<th>Folder</th>
+						<td>
+							<input type="text" name="folder" value="" required>
+						</td>				
+					</tr>
 				</table>
 				<table>
 					<caption>Bảng thông tin khuyến mãi của sản phẩm</caption>
@@ -227,6 +237,18 @@
 							</td>				
 						</tr>
 						<tr>
+							<th>Card (Đối với sản phẩm laptop)</th>
+							<td>
+								<input class="able" type="text" name="Card" value="">
+							</td>				
+						</tr>
+						<tr>
+							<th>Cổng kết nối (Đối với sản phẩm laptop)</th>
+							<td>
+								<input class="able" type="text" name="gateway" value="">
+							</td>				
+						</tr>
+						<tr>
 							<th>Hệ điều hành</th>
 							<td>
 								<input class="able" type="text" name="OS" value="">
@@ -266,6 +288,12 @@
 							<th>Dung lượng pin</th>
 							<td>
 								<input class="able" type="text" name="battery" value="">
+							</td>				
+						</tr>
+						<tr>
+							<th>Thiết kế (Đối với sản phẩm laptop)</th>
+							<td>
+								<input class="able" type="text" name="design" value="">
 							</td>				
 						</tr>
 					</tbody>
