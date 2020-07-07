@@ -2,6 +2,7 @@
  	require'libs/function.php';
  	$product = product_promo();
  	$banner = show_banner();
+ 	$laptop = group_product('Laptop',4);
  	disconnect_db();
 ?>
 <!DOCTYPE html>
@@ -21,7 +22,7 @@
 			<a href="" title="Về trang chủ Thegioididong.com" class="logo">
 				<i class="icon-logo"></i>
 			</a>
-			<form id="search-site" action="#" method="get" accept-charset="utf-8" autocomplete="off">
+			<form id="search-site" action="tim-kiem/" method="get" accept-charset="utf-8" autocomplete="off">
 				<input type="text" name="key" class="topinput" maxlength="50" placeholder="Bạn tìm gì..." id="search-keyword">
 				<button class="btntop" type="submit">
 					<i class="icon-topsearch"></i>
@@ -39,7 +40,7 @@
 	            <a href="may-tinh-bang/" class="tablet" title="Máy tính bảng, tablet">
 	                <i class="icon-tablet"></i>Tablet
 	            </a>
-	            <a href="phukien/" class="phukien" title="Phụ kiện điện thoại di động, phụ kiện tablet, phụ kiện lapto">
+	            <a href="" class="phukien" title="Phụ kiện điện thoại di động, phụ kiện tablet, phụ kiện lapto">
 	                <i class="icon-phukien"></i>Phụ kiện
 	            </a>
 	            <a href="#" class="smartwatch" title="Đồng hồ">
@@ -130,17 +131,18 @@
 				<img src="img/banner/1200-75-1200x75-1.png">
 			</a>
 		</div>
-		<div class="container">
-			<h2>10 Khuyễn mãi hot nhất</h2>
-			<div class="owl-carousel product" id="owl-promo">
+		<div class="">
+			<div class="navigat">
+				<h2>10 Khuyễn mãi hot nhất</h2>
+			</div>
+			<div class="owl-carousel product">
 				<div class="owl-wrapper-out">
 					<div class="owl-wrapper">
-						<?php
-						foreach ($product as $item) {  $_SESSION['id'] = $item['ProductImage'];$_SESSION['ProdcutName'] = $item['ProductName'];?>
+						<?php foreach ($product as $item) {  $_SESSION['id'] = $item['ProductImage'];$_SESSION['ProdcutName'] = $item['ProductName'];?>
 						<div class="owl-item">
 							<div class="item">
 								<a href="<?php echo $item['folder']; ?>/detail/?id=<?= $item['ProductId'] ?>">
-									<img src="<?php echo $item['ProductImage'] ?>" width="180" height="180">	
+									<img src="<?php echo $item['ProductImage'] ?>" width="180">	
 									<h5><?php echo $item['ProductName']; ?></h5>
 									<div class="price">
 										<strong><?php if($item['PricePromo']==0) echo number_format($item['PriceCurrent'],0,"","."); else echo number_format($item['PricePromo'],0,"","."); ?>₫</strong>
@@ -158,12 +160,70 @@
 					</div>	
 				</div>
 				<div class="control">					
-					<div class="btn prev" id="prev">‹</div>
-					<div class="btn next" id="next">›</div>
+					<div class="btn prev">‹</div>
+					<div class="btn next">›</div>
 				</div>
 			</div>
 		</div>
+		<div class="navigat">
+			<h2>Laptop nổi bật</h2>
+			<div class="viewcat">
+				<a href="laptop/">Xem tất cả laptop</a>
+			</div>
+		</div>
+		<div class="clr"></div>
+		<ul class="homeproduct laptop">
+			<?php foreach ($laptop as $item) { ?>
+			<li class="item">
+				<a href="laptop/detail/?id=<?php echo $item['ProductId'] ?>">
+					<img src="<?php echo $item['ProductImage'];?>" >
+					<h3><?php echo $item['ProductName']; ?></h3>
+					<div class="price">
+						<strong><?php if($item['PricePromo']==0) echo number_format($item['PriceCurrent'],0,"","."); else echo number_format($item['PricePromo'],0,"","."); ?>₫</strong>
+						<span><?php  if($item['PricePromo']!=0) echo number_format($item['PriceCurrent'],0,"",".") .'₫'; ?></span>
+					</div>
+					<div class="promo"><?php echo $item['Promo1'] ?></div>
+					<?php if($item['PricePromo'] != 0){ ?>
+					<label class="discount">GIẢM <?php echo floor((($item['PriceCurrent']-$item['PricePromo'])/$item['PriceCurrent'])*100).'%';?> </label>
+					<?php } ?>
+				</a>
+			</li>
+			<?php } ?>
+		</ul>
 	</section>
+	<footer>
+		<div class="rowfoot1">
+			<ul class="colfoot">
+				<li><a href="" title="">Lịch sử mua hàng</a></li>
+				<li><a href="" title="">Tìm hiểu về mua trả góp</a></li>
+				<li><a href="" title="">Chính sách bảo hành</a></li>
+				<li><a href="" title="">Chính sách đổi trả</a></li>
+			</ul>
+			<ul class="colfoot">
+				<li><a href="" title="">Giới thiệu công ty</a></li>
+				<li><a href="" title="">Tuyển dụng</a></li>
+				<li><a href="" title="">Gửi góp ý, khiếu nại</a></li>
+				<li><a href="" title="">Tìm siêu thị</a></li>
+			</ul>
+			<ul class="colfoot">
+				<li>
+					<p>Gọi mua hàng <a href="tel:18001060">1800.1060</a> (7:30 - 22:00)</p>
+					<p>Gọi khiếu nại <a href="tel:18001060">1800.1060</a> (8:00 - 21:30)</p>
+					<p>Gọi bảo hành <a href="tel:18001060">1800.1060</a> (8:00 - 21:30)</p>
+					<p>Kỹ thuật &nbsp; &nbsp; &nbsp; &nbsp; <a href="tel:18001060">1800.1060</a> (7:30 - 22:00)</p>
+				</li>
+			</ul>
+			<ul class="colfoot">
+				<li><a href="" title="">Lịch sử mua hàng</a></li>
+				<li><a href="" title="">Tìm hiểu về mua trả góp</a></li>
+				<li><a href="" title="">Chính sách bảo hành</a></li>
+				<li><a href="" title="">Chính sách đổi trả</a></li>
+			</ul>
+		</div>
+		<div class="rowfoot2">
+        <p>© 2018. Công ty cổ phần Thế Giới Di Động. GPMXH: 238/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 04/06/2020. Địa chỉ: 128 Trần Quang Khải, P. Tân Định, Q.1, TP.Hồ Chí Minh. Điện thoại: 028 38125960. Email: cskh@thegioididong.com. Chịu trách nhiệm nội dung: Huỳnh Văn Tốt. <a href="">Xem chính sách sử dụng</a></p>
+    	</div>
+	</footer>
 	<script type="text/javascript" src="js/javascript.js">
 	</script>
 	<script type="text/javascript" src="js/searching.js">

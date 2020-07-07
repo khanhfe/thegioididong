@@ -1,0 +1,44 @@
+footer{
+	background: #fff;
+}
+.rowfoot1{
+	min-width: 1024px;
+	max-width: 1200px;
+	width: 100%;
+	padding: 15px 0;
+	margin: auto;
+	display: flex;
+	justify-content: space-between;
+	flex-flow: row wrap;
+}
+.rowfoot1 ul{
+	list-style: none;
+}
+.rowfoot1 ul li a,p{
+	display: block;
+	color: #288ad6;
+	line-height: 25px;
+	padding-top: 5px;
+}
+.rowfoot1 ul li p{
+	color: #666
+}
+.rowfoot1 ul li p a{
+	display: inline-block;
+	font-weight: bolder;
+	color: #333;
+	padding:0 5px;
+}
+.rowfoot2{
+	padding: 10px 0;
+	width: 100%;
+	min-width: 980px;
+}
+.rowfoot2 p{
+	font-size: 10px;
+	color: #999;
+	text-align: center;
+}
+.rowfoot2 p a{
+	color: #999;
+}

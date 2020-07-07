@@ -14,7 +14,7 @@
 	foreach ($result as $value) {
 		if($value['PricePromo']==0){
 		echo '<li>
-				<a href="dtdd/?id='.$value["ProductId"].'">
+				<a href="'.$value["folder"].'/detail/?id='.$value["ProductId"].'">
 					<img src="'.$value["ProductImage"].'">
 					<h3>'.$value["ProductName"].'</h3>
 					<span class="price">'.number_format($value['PriceCurrent'],0,"",".").'₫</span>
@@ -22,7 +22,7 @@
 			</li>';
 		}else{
 			echo '<li>
-				<a href="dtdd/?id='.$value["ProductId"].'">
+				<a href="'.$value["folder"].'/detail/?id='.$value["ProductId"].'">
 					<img src="'.$value["ProductImage"].'">
 					<h3>'.$value["ProductName"].'</h3>
 					<span class="price">'.number_format($value['PricePromo'],0,"",".").'₫</span>

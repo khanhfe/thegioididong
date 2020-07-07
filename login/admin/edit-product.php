@@ -22,11 +22,11 @@
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}
-	function editdetail($Display,$OS,$RearCamera,$FrontCamera,$CPU,$RAM,$ROM,$battery,$id)
+	function editdetail($Display,$OS,$RearCamera,$FrontCamera,$CPU,$RAM,$ROM,$network,$battery,$id)
 	{
 		global $conn;
 		connect_db();
-		$sql = "UPDATE detail SET Display = '$Display', OS = '$OS', RearCamera = '$RearCamera',FrontCamera = '$FrontCamera',CPU = '$CPU',RAM = '$RAM',ROM ='$ROM',battery = '$battery' WHERE ProductId = '$id'";
+		$sql = "UPDATE detail SET Display = '$Display', OS = '$OS', RearCamera = '$RearCamera',FrontCamera = '$FrontCamera',CPU = '$CPU',RAM = '$RAM',ROM ='$ROM',Network = '$network',battery = '$battery' WHERE ProductId = '$id'";
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}
@@ -34,7 +34,7 @@
 	if(isset($_POST['submit'])){
 		$data['ProductId'] = $id;
 		$data['ProductName'] = $_POST['ProductName'];
-		$data['ProductImage'] = $_POST['ProductImage'];
+		$data['ProductImage'] = 'img/product/'.$_POST['ProductImage'];
 		$data['PricePromo'] = $_POST['PricePromo'];
 		$data['PriceCurrent'] = $_POST['PriceCurrent'];
 		$data['Brand'] = $_POST['Brand'];
@@ -54,11 +54,12 @@
 		$data['CPU'] = $_POST['CPU'];
 		$data['RAM'] = $_POST['RAM'];
 		$data['ROM'] = $_POST['ROM'];
+		$data['network'] = $_POST['network'];
 		$data['battery'] = $_POST['battery'];
 
 		edit_product($data['ProductName'], $data['ProductImage'], $data['PricePromo'],$data['PriceCurrent'],$data['Brand'],$data['Quantity'],$data['GroupProduct'],$data['ProductId']);
 		editpromo($data['Promo1'],$data['Promo2'],$data['Promo3'],$data['Promo4'],$data['Promo5'],$data['ProductId']);
-		editdetail($data['Display'],$data['OS'],$data['RearCamera'],$data['FrontCamera'],$data['CPU'],$data['RAM'],	$data['ROM'], $data['battery'], $data['ProductId']);
+		editdetail($data['Display'],$data['OS'],$data['RearCamera'],$data['FrontCamera'],$data['CPU'],$data['RAM'],	$data['ROM'],$data['network'], $data['battery'], $data['ProductId']);
 
 		// header('location:edit-product.php');	
 	}
@@ -161,7 +162,7 @@
 					<tr>
 						<th>Hình ảnh</th>
 						<td>
-							<input class="able" type="text" name="ProductImage" value="<?php echo !empty($data['ProductImage']) ? $data['ProductImage'] : ''; ?>" required disabled='disabled'>
+							<input type="file" name="ProductImage" value="<?php echo !empty($data['ProductImage']) ? $data['ProductImage'] : ''; ?>" required>
 						</td>				
 					</tr>
 					<tr>
@@ -273,6 +274,12 @@
 							<th>ROM</th>
 							<td>
 								<input class="able" type="text" name="ROM" value="<?php echo !empty($data['ROM']) ? $data['ROM'] : ''; ?>" disabled='disabled'>
+							</td>				
+						</tr>
+						<tr>
+							<th>Kết nối mạng</th>
+							<td>
+								<input class="able" type="text" name="network" value="<?php echo !empty($data['network']) ? $data['network'] : ''; ?>" disabled='disabled'>
 							</td>				
 						</tr>
 						<tr>

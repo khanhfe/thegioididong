@@ -1,19 +1,19 @@
-
-var array = document.querySelectorAll('#sync1 .owl-item')
-for (var i = 0; i < array.length; i++) {
-	array[i].style.width = '790px'
-}
-document.querySelector('.owl-wrapper').style.width = 790*array.length+'px'
-var widthcarousel = document.querySelector('.owl-wrapper').offsetWidth
-var carousel = document.querySelector('.owl-wrapper')
-var style = window.getComputedStyle(carousel);
-var matrix = new WebKitCSSMatrix(style.webkitTransform)
 function clickable(){
 	document.querySelector('.owl-control').classList.add('active')
 }
 function clickdisable(){
 	document.querySelector('.owl-control').classList.remove('active')
 }
+var carousel = document.querySelector('.owl-wrapper')
+var style = window.getComputedStyle(carousel);
+var matrix = new WebKitCSSMatrix(style.webkitTransform)
+
+$('#sync1 .owl-item').css('width','790px')
+$('#sync2 .owl-item').css('width','158px')
+$('#sync2 .owl-item:first-child').addClass('synced')
+$('#sync1 .owl-wrapper').css('width',$('#sync1 .owl-item').length*790+'px');
+$('#sync2 .owl-wrapper').css('width',$('#sync2 .owl-item').length*158+'px');
+var widthcarousel = document.querySelector('#sync1 .owl-wrapper').offsetWidth
 document.querySelector('.owl-next').addEventListener('click',next)
 function next(){
 	matrix.m41-=790
@@ -39,40 +39,44 @@ function prev(){
 	}
 }
 var auto = setInterval(next,5000)
-var arraysync2 = document.querySelectorAll('#sync2 .owl-item')
-for (var i = 0; i < arraysync2.length; i++) {
-	arraysync2[i].style.width = '158px'
-}
-document.querySelector('#sync2 .owl-wrapper').style.width = 158*arraysync2.length+'px'
-
-document.getElementById('next').addEventListener("click", Next);
-
-document.getElementById('prev').addEventListener("click", Prev);
-var product = document.querySelectorAll('.product .owl-item')
-for (var i = 0; i < product.length; i++) {
-	product[i].style.width = '240px'
-}
-document.querySelector('.product .owl-wrapper').style.width = 240*product.length+'px'
-function Next(){
-	widthcarousel = document.querySelector('#owl-promo .owl-wrapper').offsetWidth;
-	matrix.m41-=1200
-	if ((-matrix.m41)>=widthcarousel) {
-		matrix.m41 = 0
-		document.querySelector('#owl-promo .owl-wrapper').style.transition = "all 500ms ease 0s"
-		document.querySelector('#owl-promo .owl-wrapper').style.transform = 'translate3d('+matrix.m41+'px, 0, 0)'
+$('.product .owl-item').css('width','240px')
+var translateX = 0
+$('.btn.next').click(function(event) {
+	$(this).closest('.product').find('.owl-wrapper').css({
+		'width': $(this).closest('.product').find('.owl-item').length*240+'px',
+		'left': '0'
+	})
+	translateX -= $('.product .owl-wrapper-out').width()
+	if ((-translateX)>=($('.product .owl-wrapper').width())) {
+		translateX = 0
+		$(this).closest('.product').find('.owl-wrapper').css({
+			'transition': 'all 500ms ease 0s',
+			'transform': 'translate3d('+translateX+'px, 0px, 0px)'
+		});
 	}else{
-		document.querySelector('#owl-promo .owl-wrapper').style.transition = "all 200ms ease 0s"
-		document.querySelector('#owl-promo .owl-wrapper').style.transform = 'translate3d('+matrix.m41+'px, 0, 0)'
-	}		
-}
-function Prev(){
-	if ((matrix.m41)==0) {
-		matrix.m41 = -widthcarousel +1200
-		document.querySelector('#owl-promo .owl-wrapper').style.transition = "all 500ms ease 0s"
-		document.querySelector('#owl-promo .owl-wrapper').style.transform = 'translate3d('+matrix.m41+'px, 0, 0)'
-	}else{
-		matrix.m41+=1200
-		document.querySelector('#owl-promo .owl-wrapper').style.transition = "all 200ms ease 0s"
-		document.querySelector('#owl-promo .owl-wrapper').style.transform = 'translate3d('+matrix.m41+'px, 0, 0)'
+		$(this).closest('.product').find('.owl-wrapper').css({
+			'transition': 'all 200ms ease 0s',
+			'transform': 'translate3d('+translateX+'px, 0px, 0px)'
+		});
 	}
-}
+})
+$('.btn.prev').click(function(event) {
+	$(this).closest('.product').find('.owl-wrapper').css({
+		'width': $(this).closest('.product').find('.owl-item').length*240+'px',
+		'left': '0'
+	});
+	if (translateX==0) {
+		translateX = - $(this).closest('.product').find('.owl-wrapper-out').width()
+		console.log(translateX);
+		$(this).closest('.product').find('.owl-wrapper').css({
+			'transition': 'all 500ms ease 0s',
+			'transform': 'translate3d('+translateX+'px, 0px, 0px)'
+		});
+	}else{
+		translateX += $(this).closest('.product').find('.owl-wrapper-out').width()
+		$(this).closest('.product').find('.owl-wrapper').css({
+			'transition': 'all 200ms ease 0s',
+			'transform': 'translate3d('+translateX+'px, 0px, 0px)'
+		});
+	}
+});

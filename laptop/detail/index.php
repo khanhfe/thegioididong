@@ -79,7 +79,7 @@
 				<li><a href="../"><?php echo $product['GroupProduct']; ?></a><span>›</span></li>	
 				<li><a href="../"><?php echo $product['Brand']; ?></a></li>	
 			</ul>
-			<h1>Điện thoại <?php if(isset($product['ProductName'])) echo $product['ProductName']; ?></h1>
+			<h1>Laptop <?php if(isset($product['ProductName'])) echo $product['ProductName']; ?></h1>
 			<div class="row"></div>
 			<div class="product" id="product">
 				<div class="image">
@@ -137,28 +137,28 @@
 					<h2>Thông số kỹ thuật</h2>
 					<ul class="parameter">
 						<li class="p217287">
+							<span>CPU:</span><div><a href=""><?php echo $product['CPU']; ?></a></div>
+						</li>
+						<li>
+							<span>RAM:</span><div><a href=""><?php echo $product['RAM']; ?></a></div>
+						</li>
+						<li>
+							<span>Ổ cứng:</span><div><?php echo $product['ROM']; ?></div>
+						</li>
+						<li>
 							<span>Màn hình:</span><div><?php echo $product['Display']; ?></div>
+						</li>
+						<li>
+							<span>Card màn hình:</span><div><a href=""><?php echo $product['Card']; ?></a></div>
+						</li>
+						<li>
+							<span>Cổng kết nối:</span><div><?php echo $product['gateway']; ?></div>
 						</li>
 						<li>
 							<span>Hệ điều hành:</span><div><a href=""><?php echo $product['OS']; ?></a></div>
 						</li>
 						<li>
-							<span>Camera sau:</span><div><?php echo $product['RearCamera']; ?></div>
-						</li>
-						<li>
-							<span>Camera trước:</span><div><?php echo $product['FrontCamera']; ?></div>
-						</li>
-						<li>
-							<span>CPU:</span><div><a href=""><?php echo $product['CPU']; ?></a></div>
-						</li>
-						<li>
-							<span>RAM:</span><div><?php echo $product['RAM']; ?></div>
-						</li>
-						<li>
-							<span>Bộ nhớ trong:</span><div><?php echo $product['ROM']; ?></div>
-						</li>
-						<li>
-							<span>Dung lượng pin:</span><div><?php echo $product['battery']; ?></div>
+							<span>Thiết kế:</span><div><?php echo $product['design']; ?></div>
 						</li>
 					</ul>
 					<button type="button" class="viewparameterfull">Xem thêm cấu hình chi tiết</button>

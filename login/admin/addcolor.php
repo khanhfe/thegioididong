@@ -82,7 +82,7 @@ if(isset($_POST['submit'])){
 </head>
 <body>
 	<div class="container">
-		<a href="index.php" title="">Quay lại</a>
+		<a href="add-product.php" title="">Quay lại</a>
 		<div class="content">
 			<form action="#" method="post">
 				<table>
@@ -90,13 +90,13 @@ if(isset($_POST['submit'])){
 					<tr>
 						<th>Tên sản phẩm</th>
 						<td>
-							<input class="able" type="text" name="ProductName" value="<?php echo !empty($data['ProductName']) ? $data['ProductName'] : '' ?>"  disabled='disabled'>
+							<input type="text" name="ProductName" value="<?php echo !empty($data['ProductName']) ? $data['ProductName'] : '' ?>">
 						</td>				
 					</tr>
 					<tr>
 						<th>Màu sắc</th>
 						<td>
-							<input class="able" type="text" name="Color" value="" required disabled='disabled'>
+							<input type="text" name="Color" value="" required>
 						</td>				
 					</tr>
 					<tr>
@@ -110,15 +110,5 @@ if(isset($_POST['submit'])){
 			</form>
 		</div>
 	</div>
-	<script type="text/javascript" charset="utf-8" async defer>
-		$(document).ready(function() {
-			$('td').click(function(event) {
-				$('input',this).removeAttr('disabled')
-			});
-			$('form').submit(function(event) {
-				$('input').removeAttr('disabled')
-			});
-		});
-	</script>
 </body>
 </html>

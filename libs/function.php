@@ -29,7 +29,7 @@
 	function product_promo(){
 		global $conn;
 		connect_db();
-		$sql = 'SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId WHERE product.PricePromo>0';
+		$sql = 'SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId WHERE product.PricePromo>0 LIMIT 10';
 		$query = mysqli_query($conn, $sql);
 		$result = array();
 		if($query) {
@@ -52,10 +52,10 @@
 		}
 		return $result;
 	}
-	function group_product($group){
+	function group_product($group,$limit){
 		global $conn;
 		connect_db();
-		$sql = "SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId WHERE product.GroupProduct = '$group' LIMIT 10";
+		$sql = "SELECT * FROM product JOIN promotion ON product.ProductId = promotion.ProductId WHERE product.GroupProduct = '$group' LIMIT $limit";
 		$query = mysqli_query($conn,$sql);
 		$result = array();
 		if($query) {

@@ -1,0 +1,4 @@
+@import "../../dtdd/css/style.css";
+.filter .brand a {
+    width: calc((100% - 6px)/6);
+}

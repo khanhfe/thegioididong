@@ -11,11 +11,11 @@
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}
-	function adddetail($Display,$Card,$gateway,$OS,$RearCamera,$FrontCamera,$CPU,$RAM,$ROM,$battery,$design,$productname)
+	function adddetail($Display,$Card,$gateway,$OS,$RearCamera,$FrontCamera,$CPU,$RAM,$ROM,$network,$battery,$design,$productname)
 	{
 		global $conn;
 		connect_db();
-		$sql = "INSERT INTO detail(Display,Card,gateway,OS,RearCamera,FrontCamera,CPU,RAM,ROM,battery,design,ProductId) VALUES ('$Display','$Card','$gateway','$OS','$RearCamera','$FrontCamera','$CPU','$RAM','$ROM','$battery','$design',(SELECT product.ProductId FROM product WHERE product.ProductName='$productname'))";
+		$sql = "INSERT INTO detail(Display,Card,gateway,OS,RearCamera,FrontCamera,CPU,RAM,ROM,Network,battery,design,ProductId) VALUES ('$Display','$Card','$gateway','$OS','$RearCamera','$FrontCamera','$CPU','$RAM','$ROM','$network','$battery','$design',(SELECT product.ProductId FROM product WHERE product.ProductName='$productname'))";
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}
@@ -44,12 +44,13 @@
 		$data['CPU'] = $_POST['CPU'];
 		$data['RAM'] = $_POST['RAM'];
 		$data['ROM'] = $_POST['ROM'];
+		$data['network'] = $_POST['network'];
 		$data['battery'] = $_POST['battery'];
 		$data['design'] = $_POST['design'];
 
 		add_product($data['productname'],$data['image'],$data['pricepromo'],$data['pricecurrent'],$data['brand'],$data['quantity'],$data['group'],$data['folder']);
 		addpromo($data['Promo1'],$data['Promo2'],$data['Promo3'],$data['Promo4'],$data['Promo5'],$data['productname']);
-		adddetail($data['Display'],$data['Card'],$data['gateway'],$data['OS'],$data['RearCamera'],$data['FrontCamera'],$data['CPU'],$data['RAM'],$data['ROM'],$data['battery'],$data['design'],$data['productname']);
+		adddetail($data['Display'],$data['Card'],$data['gateway'],$data['OS'],$data['RearCamera'],$data['FrontCamera'],$data['CPU'],$data['RAM'],$data['ROM'],$data['network'],$data['battery'],$data['design'],$data['productname']);
 		header('location: addcolor.php');
 	}
  	disconnect_db();
@@ -138,9 +139,9 @@
 		</nav>		
 	</header>
 	<div class="main-body">
-		<div class="back"><a href="index.php">Quay lại</a></div>
+		<div class="back"><a href="add-product.php">Quay lại</a></div>
 		<div class="container">
-			<form action="#" method="post">
+			<form action="" method="post">
 				<table>
 					<caption>Bảng thông tin chung của sản phẩm</caption>
 					<tr>
@@ -282,6 +283,12 @@
 							<th>ROM</th>
 							<td>
 								<input class="able" type="text" name="ROM" value="">
+							</td>				
+						</tr>
+						<tr>
+							<th>Kết nối mạng</th>
+							<td>
+								<input class="able" type="text" name="network" value="">
 							</td>				
 						</tr>
 						<tr>

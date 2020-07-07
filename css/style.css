@@ -1,4 +1,5 @@
 @import "header.css";
+@import "footer.css";
 .homebanner{
     position: relative;
     width: 65.834%;
@@ -21,10 +22,19 @@
 }
 .owl-wrapper{
     position: relative;
+    display: flex;
+    transform: translate3d(0,0,0);
+}
+.owl-carousel .owl-wrapper:after {
+    content: ".";
     display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
 }
 .owl-item{
-    float: left;
+    display: block
 }
 .owl-control{
     margin-top:0;
@@ -94,7 +104,11 @@
     font-size: 12px;
     padding: 0 1%;
 }
+#sync2 .synced .item h3 {
+    font-weight: 600;
+}
 #sync2 .item h3 {
+    text-align: center;
     font-size: 12px;
     line-height: 1.3em;
     vertical-align: middle;
@@ -217,7 +231,6 @@
     color: #333;
     margin-bottom: 5px;
 }
-
 .homenews li span {
     float: left;
     font-size: 12px;
@@ -240,14 +253,12 @@
     top: -5px;
     height: 80px;
 }
-.container{
-    width: 100%;
-    min-width: 1024px;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #fff
+.navigat{
+    display: block;
+    background: #fff;
+    overflow: hidden;
 }
-.container h2{
+.navigat h2{
     font-size: 16px;
     padding: 14px 10px;
     float: left;
@@ -256,7 +267,6 @@
 .product{
     min-height: 360px;
     border-top: 1px solid #eee;
-    margin-bottom: 15px;
 }
 .product a{
     background: #fff;
@@ -343,4 +353,93 @@ label.discount {
 .control .next{
     right: 0;
     border-radius: 5px 0 0 5px;
+}
+.viewcat {
+    float: right;
+    padding: 14px;
+    display: block;
+}
+.viewcat a{
+    color: #288ad6
+}
+.homeproduct{
+    background: #fff;
+    display: flex;
+    flex-flow: row wrap;
+    border-top: 1px solid #eee;
+    border-left: 1px solid #eee;
+    margin-bottom: 15px;
+}
+.homeproduct .item {
+    position: relative;
+    width: 19.91%;
+    overflow: hidden;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+}
+.homeproduct .item a{
+    background: #fff;
+    padding: 10px 0;
+    text-decoration: none;
+    display: block;
+    color: #333;
+    margin: auto;
+}
+.homeproduct .item a img{
+    width: 180px;
+    margin: 15px 30px;
+    transition: all 300ms ease;
+}
+.homeproduct .item h3{
+    font-size: 14px;
+    margin:0 10px ;
+    font-weight: unset;
+}
+.homeproduct .item .promo{
+    font-size: 12px;
+    padding: 0 10px;
+    margin-right: 10px;
+    position: relative;
+}
+.homeproduct .item .price{
+    padding:5px 10px 10px 10px;
+    color: #e10c00;
+    font-family: 18px;
+}
+.homeproduct .price span {
+    margin-left: 5px;
+    font-size: 12px;
+    color: #222;
+    text-decoration: line-through;
+}
+.homeproduct .item a:hover img{
+    transform: translateY(-10px);    
+}
+.homeproduct .item a:hover h3{
+    color: #288ad6;
+}
+.sort span{
+    cursor: pointer;
+}
+.sort span:first-child{
+    color: #288ad6
+}
+.sort span:hover{
+    color: #288ad6
+}
+.laptop .item{
+    width: 24.99999%;
+    text-align: center;
+}
+.laptop .item a div,h3{
+    text-align: left;
+}
+.laptop .item a label{
+    top:190px;
+    transform: translateX(-200%);
+}
+.laptop .item a img{
+    width:225px;
+    text-align: center;
+    margin: 30px auto 25px;
 }
