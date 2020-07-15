@@ -97,7 +97,7 @@
 	function info_orders(){
 		global $conn;
 		connect_db();
-		$sql = "SELECT * FROM customer JOIN orders ON customer.CustomID = orders.CustomID";
+		$sql = "SELECT * FROM customer";
 		$query = mysqli_query($conn, $sql);
 		$result = array();
 		if($query) {

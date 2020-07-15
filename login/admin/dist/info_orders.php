@@ -1,27 +1,38 @@
 <?php
     require'../../../libs/function.php';
-    $orders = info_orders();
-    $product = show_all();
+    $CustomID = $_GET['id'];
+    function info_order($CustomID){
+        global $conn;
+        connect_db();
+        $sql = "SELECT * FROM orders JOIN customer ON orders.CustomID = customer.CustomID WHERE orders.CustomID = '$CustomID'";
+            $query = mysqli_query($conn, $sql);
+            $result = array();
+            if($query) {
+                while($row = mysqli_fetch_assoc($query)){
+                    $result[] = $row;
+                }
+            }
+        return $result;
+    }
+    $detail = info_order($CustomID);
     disconnect_db();
 ?>
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Thegioididong Admin</title>
+        <title>Charts - SB Admin</title>
         <link href="../../../img/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
         <link href="css/styles.css" rel="stylesheet" />
-        <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
-        <style type="text/css">.table td{vertical-align: middle;}</style>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <a class="navbar-brand" href="index.php">Welcome</a>
+            <a class="navbar-brand" href="index.html">Start Bootstrap</a>
             <button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
@@ -51,7 +62,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -103,7 +114,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts
                             </a>
-                            <a class="nav-link" href="tables.php">
+                            <a class="nav-link" href="tables.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
                             </a>
@@ -111,95 +122,18 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Khảnh Nguyễn
+                        Khanh Nguyen
                     </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Dashboard</h1>
+                        <h1 class="mt-4">Information Orders</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
+                            <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Information Orders</li>
                         </ol>
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table mr-1"></i>
-                                List Product
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <a href="../add-product.php" class="add">Add Product</a>
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name Product</th>
-                                                <th>Image Product</th>
-                                                <th>Promotion Price (if available)</th>
-                                                <th>Original Price </th>
-                                                <th>Brand</th>
-                                                <th>Quantity</th>
-                                                <th>Group</th>
-                                                <th>Tool</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name Product</th>
-                                                <th>Image Product</th>
-                                                <th>Promotion Price (if available)</th>
-                                                <th>Original Price </th>
-                                                <th>Brand</th>
-                                                <th>Quantity</th>
-                                                <th>Group</th>
-                                                <th>Tool</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            <tr>
-                                                <?php
-                                                    foreach ($product as $item) {?>
-                                                <td><?php echo $item['ProductId']; ?></td>
-                                                <td class="name"><?php echo $item['ProductName']; ?></td>
-                                                <td><img src="<?php echo '../../../'.$item['ProductImage']; ?>" width="100px"></td>
-                                                <td class="price"><?php echo number_format($item['PricePromo']); ?>đ</td>
-                                                <td class="price old"><?php echo number_format($item['PriceCurrent']); ?>đ</td>
-                                                <td class="brand"><?php echo $item['Brand']; ?></td>
-                                                <td><?php echo $item['Quantity']; ?></td>
-                                                <td class="group"><?php echo $item['GroupProduct']; ?></td>
-                                                <td>
-                                                    <a href="../edit-product.php?id=<?php echo $item['ProductId'];?>" class="edit">Edit</a>
-                                                    <a href="../delete-product.php?id=<?php echo $item['ProductId'];?>" onclick="return confirm('Xóa sản phẩm ?')" class="del">Delete</a>
-                                                </td>
-                                            </tr>
-                                                <?php } ?>  
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area mr-1"></i>
-                                        Area Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar mr-1"></i>
-                                        Bar Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
@@ -208,33 +142,44 @@
                             <div class="card-body">
                                 <div class="table-responsive">
                                     <table class="table table-bordered" width="100%" cellspacing="0">
+                                        <tr>
+                                            <th>Name Customer</th>
+                                            <th>Phone Number</th>
+                                            <th>Address</th>
+                                        </tr>
+                                        <tr>
+                                            <?php foreach ($detail as $data) {?>
+                                            <td><?php echo $data['FullName']; ?></td>
+                                            <td>0<?php echo $data['PhoneNumber']; ?></td>
+                                            <td><?php echo $data['Address']; ?></td>
+                                        </tr><?php break; }?>
+                                    </table>
+                                    <table class="table table-bordered" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
-                                                <th>ID</th>
-                                                <th>Full Name</th>
-                                                <th>Gender</th>
-                                                <th>Phone Number</th>
-                                                <th>Address </th>
-                                                <th>Create Time </th>
-                                                <th>Orders</th>
+                                                <th>Product</th>
+                                                <th>Image</th>
+                                                <th>Price Unit</th>
+                                                <th>Price Promote</th>
+                                                <th>Color </th>
+                                                <th>Quantity</th>
+                                                <th>Total Pay</th>
+                                                <th>Estimated Delivery Time</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="data-notnull">
-                                                <?php
-                                                    foreach ($orders as $data) {?>
-                                                <td class="CustomID"><?php echo $data['CustomID']; ?></td>
-                                                <td><?php echo $data['FullName']; ?></td>
-                                                <td><?php echo $data['Gender']; ?></td>
-                                                <td>0<?php echo $data['PhoneNumber']; ?></td>
-                                                <td><?php echo $data['Address'] ?></td>
-                                                <td><?php echo $data['CreateTime']; ?></td>
-                                                <td><a href="info_orders.php?id=<?php echo $data['CustomID']; ?>">Information Order</a></td>
+                                            <tr>
+                                                <?php foreach ($detail as $data) {?>
+                                                <td><?php echo $data['Product']; ?></td>
+                                                <td><img src="../../../<?php echo $data['Image']; ?>" width=100></td>
+                                                <td><?php echo number_format($data['PriceUnit']); ?>đ</td>
+                                                <td><?php echo number_format($data['PricePromote']); ?>đ</td>
+                                                <td><?php echo $data['Color'] ?></td>
+                                                <td><?php echo $data['Quantity']; ?></td>
+                                                <td><?php echo number_format($data['TotalPay']); ?>đ</td>
+                                                <td><?php echo $data['EstimatedDeliveryTime']; ?></td>
                                             </tr>
                                                 <?php } ?>
-                                            <tr>
-                                                <td valign="top" colspan="10" class="dataTables_empty" style="text-align: center;">No data available in table</td> 
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -245,7 +190,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; thegioididong 2020</div>
+                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
@@ -262,17 +207,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/chart-area-demo.js"></script>
         <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-        <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/datatables-demo.js"></script>
-        <script type="text/javascript" charset="utf-8">
-            $(document).ready(function() {
-                $('.dataTables_empty').css('display', 'none');
-                if ($('.CustomID').text()=='') {
-                    $('.dataTables_empty').css('display', 'block'); 
-                }
-                
-            });
-        </script>
+        <script src="assets/demo/chart-pie-demo.js"></script>
     </body>
 </html>
