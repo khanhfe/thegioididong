@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 08, 2020 lúc 05:27 PM
+-- Thời gian đã tạo: Th7 15, 2020 lúc 06:57 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.6
 
@@ -229,6 +229,13 @@ CREATE TABLE `customer` (
   `TotalPay` int(11) NOT NULL,
   `CreateTime` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `customer`
+--
+
+INSERT INTO `customer` (`CustomID`, `FullName`, `Gender`, `PhoneNumber`, `Email`, `Address`, `NoteCart`, `TotalPay`, `CreateTime`) VALUES
+(1, 'Nguyễn Văn Khảnh', 'Nam', 389021327, '', 'thôn Hạ Hòa, Xã Tân Phú, Huyện Quốc Oai, Hà Nội', ', , ', 51980000, '03:10:26, 2020-07-15 ');
 
 -- --------------------------------------------------------
 
@@ -1059,6 +1066,13 @@ CREATE TABLE `orders` (
   `EstimatedDeliveryTime` varchar(225) NOT NULL,
   `CustomID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Đang đổ dữ liệu cho bảng `orders`
+--
+
+INSERT INTO `orders` (`OrderID`, `Product`, `Image`, `PriceUnit`, `PricePromote`, `Color`, `Quantity`, `TotalPay`, `OrderDate`, `EstimatedDeliveryTime`, `CustomID`) VALUES
+(1, 'Acer Nitro AN515 54 71HS i7 9750H', 'img/product/acer-nitro-an515-54-71hs-i7-9750h-8gb-256gb-gtx165-5-600x600.jpg', 25990000, 0, 'Đen', 2, 51980000, 'Wednesday, 2020-07-15', '03:10:26 , Thursday, 2020-07-16', 1);
 
 -- --------------------------------------------------------
 
@@ -44372,7 +44386,7 @@ ALTER TABLE `color_product`
 -- AUTO_INCREMENT cho bảng `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CustomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `detail`
@@ -44384,7 +44398,7 @@ ALTER TABLE `detail`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `product`
