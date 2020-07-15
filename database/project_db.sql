@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 04, 2020 lúc 10:25 AM
+-- Thời gian đã tạo: Th7 08, 2020 lúc 05:27 PM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.6
 
@@ -166,7 +166,51 @@ INSERT INTO `color_product` (`ColorID`, `Color`, `image_product`, `ProductId`) V
 (76, 'Đen', 'img/product/color/xiaomi-mi-note-10-pro-black-200-180x125.png', 29),
 (77, 'Xanh lá', 'img/product/color/xiaomi-mi-note-10-pro-green-200-180x125.png', 29),
 (78, 'Xanh dương', 'img/product/color/huawei-nova-5t-blue-200x200-180x125.png', 30),
-(79, 'Xanh lá', 'img/product/color/huawei-nova-5t-green-200x200-180x125.png', 30);
+(79, 'Xanh lá', 'img/product/color/huawei-nova-5t-green-200x200-180x125.png', 30),
+(80, 'Bạc', 'img/product/color/hp-elitebook-x360-1040-g5-i7-8550u-16gb-512gb-touc-1-1-180x125.jpg', 31),
+(81, 'Đen', 'img/product/color/acer-swift-7-sf714-52t-76c6-i7-8500y-16gb-512gb-to-1-2-180x125.jpg', 32),
+(82, 'Đen', 'img/product/color/acer-swift-7-sf714-52t-76c6-i7-8500y-16gb-512gb-to-1-2-180x125.jpg', 32),
+(83, 'Đen', 'img/product/color/acer-swift-7-sf714-52t-76c6-i7-8500y-16gb-512gb-to-1-2-180x125.jpg', 32),
+(84, 'bạc', 'img/product/color/apple-macbook-pro-touch-2020-i5-mwp72sa-a-221914-400x400.jpg', 33),
+(85, 'Xám', 'img/product/color/apple-macbook-pro-2019-touch-i5-8gb-256gb-mv962sa-1-1-180x125.jpg', 34),
+(86, 'Đen', 'img/product/color/asus-rog-g531-i7-9750h-8gb-512gb-6gb-gtx2060-win10-1-1-180x125.jpg', 35),
+(87, 'Trắng', 'img/product/color/laptop-544x342-1.png', 36),
+(88, 'Vàng', 'img/product/color/apple-macbook-air-2020-i3-1-4-180x125.jpg', 37),
+(89, 'Xanh dương', 'img/product/color/asus-zenbook-ux433fa-i7-8565u-8gb-512gb-win10-a60-xanh-duong-1-180x125.jpg', 38),
+(90, 'Đen', 'img/product/color/acer-nitro-an515-54-71hs-i7-9750h-8gb-256gb-gtx165-1-2-180x125.jpg', 39),
+(91, 'Bạc', 'img/product/color/asus-vivobook-x409fa-i3-ek468t-1-180x125.jpg', 40),
+(92, 'Hồng', 'img/product/color/huawei-nova-7i-pink-200x200-1-180x125.png', 41),
+(93, 'Xanh lá', 'img/product/color/huawei-nova-7i-green-200x200-1-180x125.png', 41),
+(94, 'Xám', 'img/product/color/ipad-pro-12-9-inch-wifi-128gb-2020-xam-200x200-1-180x125.png', 42),
+(95, 'Xanh dương', 'img/product/color/samsung-galaxy-tab-s6-blue-200-180x125.png', 43),
+(96, 'Vàng đồng', 'img/product/color/ipad-air-105-inch-wifi-2019-gold-300-180x125.png', 44),
+(97, 'Xám', 'img/product/color/ipad-air-105-inch-wifi-2019-gray-300-180x125.png', 44),
+(98, 'Bạc', 'img/product/color/ipad-10-2-inch-wifi-128gb-2019-silver-200-180x125.png', 45),
+(99, 'Xám', 'img/product/color/ipad-10-2-inch-wifi-128gb-2019-gray-200-180x125.png', 45),
+(100, 'Vàng đồng', 'img/product/color/ipad-10-2-inch-wifi-128gb-2019-gold-200-1-180x125.png', 45),
+(101, 'Xanh dương', 'img/product/color/samsung-galaxy-tab-s6-lite-xanh-200x200-180x125.png', 46),
+(102, 'Xám', 'img/product/color/samsung-galaxy-tab-s6-lite-xam-200x200-180x125.png', 46),
+(103, 'Xám', 'img/product/color/huawei-mediapad-m5-lite-gray-200-180x125.png', 47),
+(104, 'Vàng', 'img/product/color/samsung-galaxy-tab-a-101-t515-2019-gold-200-180x125.png', 48),
+(105, 'Đen', 'img/product/color/samsung-galaxy-tab-a-101-t515-2019-black-300-180x125.png', 48),
+(106, 'Đen', 'img/product/color/huawei-mediapad-t5-den-200x200-180x125.png', 49),
+(107, 'Bạc', 'img/product/color/samsung-galaxy-tab-a8-t295-2019-silver-200-180x125.png', 50),
+(108, 'Đen', 'img/product/color/samsung-galaxy-tab-a-101-t515-2019-black-300-180x125.png', NULL),
+(109, 'Đen', 'img/product/color/samsung-galaxy-tab-a-101-t515-2019-black-300-180x125.png', 50),
+(110, 'Vàng đồng', 'img/product/color/huawei-mediapad-t3-10-1-33397-vangdong-180x125.png', 51),
+(111, 'Xám', 'img/product/color/lenovo-tab-a22-200x200-180x125.png', 52),
+(112, '', 'img/product/color/', NULL),
+(113, '', 'img/product/color/', NULL),
+(114, 'Vàng', 'img/product/color/masstel-tab10-pro-gold-200-1-180x125.png', NULL),
+(115, 'Bạc', 'img/product/color/masstel-tab10-pro-silver-200-1-180x125.png', NULL),
+(116, '', 'img/product/color/', NULL),
+(117, '', 'img/product/color/', NULL),
+(118, 'Vàng', 'img/product/color/masstel-tab10-pro-gold-200-1-180x125.png', NULL),
+(119, 'Bạc', 'img/product/color/masstel-tab10-pro-silver-200-1-180x125.png', NULL),
+(120, '', 'img/product/color/', NULL),
+(121, '', 'img/product/color/', NULL),
+(122, 'Vàng', 'img/product/color/masstel-tab10-pro-gold-200-1-180x125.png', 53),
+(123, 'Bạc', 'img/product/color/masstel-tab10-pro-silver-200-1-180x125.png', 53);
 
 -- --------------------------------------------------------
 
@@ -203,6 +247,7 @@ CREATE TABLE `detail` (
   `CPU` varchar(50) DEFAULT NULL,
   `RAM` varchar(50) DEFAULT NULL,
   `ROM` varchar(50) DEFAULT NULL,
+  `Network` varchar(225) NOT NULL,
   `battery` varchar(50) DEFAULT NULL,
   `design` varchar(225) NOT NULL,
   `ProductId` int(11) DEFAULT NULL
@@ -212,37 +257,60 @@ CREATE TABLE `detail` (
 -- Đang đổ dữ liệu cho bảng `detail`
 --
 
-INSERT INTO `detail` (`DetailId`, `Display`, `Card`, `gateway`, `OS`, `RearCamera`, `FrontCamera`, `CPU`, `RAM`, `ROM`, `battery`, `design`, `ProductId`) VALUES
-(1, 'Super AMOLED, 6.5', '', '', 'Android 10', 'Chính 48 MP & Phụ 12 MP, 5 MP, 5 MP', '32 MP', 'Exynos 9611 8 nhân', '8GB', '128GB', '4000 mAh, có sạc nhanh', '', 1),
-(2, 'AMOLED, 6.4', '', '', 'Android 10', 'Chính 48 MP & Phụ 13 MP, 8 MP, 2 MP', '44 MP', 'MediaTek Helio P90 8 nhân', '8 GB', '128 GB', '4025 mAh, có sạc nhanh', '', 2),
-(3, 'OLED, 6.5', '', '', 'iOS 13', '3 camera 12 MP', '12 MP', 'Apple A13 Bionic 6 nhân', '4GB', '64GB', '3969 mAh, có sạc nhanh', '', 3),
-(4, 'IPS LCD, 6.5\", HD+', '', '', 'Android 9.0 (Pie)', 'Chính 13 MP & Phụ 8 MP, 2 MP', '8MP', 'Snapdragon 632 8 nhân', '4GB', '64GB', '5000 mAh, có sạc nhanh', '', 4),
-(5, '	AMOLED, 6.5', '', '', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio P70 8 nhân', '8GB', '128GB', '4000 mAh, có sạc nhanh', '', 5),
-(6, 'Super AMOLED, 6.7\", Full HD+', '', '', 'Android 10', 'Chính 48 MP & Phụ 12 MP, 5 MP', '32 MP', 'Snapdragon 855 8 nhân', '8GB', '128GB', '4500 mAh, có sạc nhanh', '', 6),
-(7, 'IPS LCD, 6.5\", Full HD+', '', '', 'Android 10', 'Chính 64 MP & Phụ 8 MP, 2 MP, 2 MP', '16 MP', 'Mediatek Helio G90T 8 nhân', '4GB', '128GB', '4300 mAh, có sạc nhanh', '', 7),
-(8, 'IPS LCD, 6.35', '', '', 'Android 9.0 (Pie)', 'Chính 13 MP & Phụ 8 MP, 2 MP', '8MP', 'Snapdragon 665 8 nhân', '4GB', '64GB', '5000 mAh, có sạc nhanh', '', 8),
-(9, 'LED-backlit IPS LCD, 5.5', '', '', 'iOS 12', 'Chính 12 MP & Phụ 12 MP', '7 MP', 'Apple A11 Bionic 6 nhân', '3GB', '64GB', '2691 mAh, có sạc nhanh', '', 9),
-(10, 'AMOLED, 6.4', '', '', 'ColorOS 6.1 (Android 9.0)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio P70 8 nhân', '8GB', '128GB', '4025 mAh, có sạc nhanh', '', 10),
-(11, 'Chính: Dynamic AMOLED, phụ: Super AMOLED, Chính 7.3', '', '', 'Android 9.0 (Pie)', 'Chính 12 MP & Phụ 12 MP, 16 MP', 'Trong: 10 MP, 8 MP; Ngoài: 10 MP', 'Snapdragon 855 8 nhân', '12GB', '512GB', '4380 mAh, có sạc nhanh', '', 11),
-(12, 'Chính: Dynamic AMOLED, phụ: Super AMOLED, 6.7', '', '', 'Android 10', 'Chính 12 MP & Phụ 12 MP', '10MP', 'Snapdragon 855+ 8 nhân', '8GB', '256GB', '3300 mAh, có sạc nhanh', '', 12),
-(13, 'IPS LCD, 6.53', '', '', 'Android 10', 'Chính 13 MP & Phụ 8 MP, 5 MP, 2 MP', '8 MP', 'MediaTek Helio G80 8 nhân', '4 GB', '64GB', '5020 mAh, có sạc nhanh', '', 14),
-(14, 'IPS LCD, 6.1', '', '', 'iOS 13', 'Chính 12 MP & Phụ 12 MP', '12 MP', 'Apple A13 Bionic 6 nhân', '4 GB', '64 GB', '3110 mAh, có sạc nhanh', '', 15),
-(15, 'IPS LCD, 4.7', '', '', 'iOS 13', '12 MP', '7 MP', 'Apple A13 Bionic 6 nhân', '3 GB', '128 GB', '1821 mAh, có sạc nhanh', '', 16),
-(16, 'OLED, 6.5\", Super Retina', '', '', 'iOS 12', 'Chính 12 MP & Phụ 12 MP', '7 MP', 'Apple A12 Bionic 6 nhân', '4 GB', '64GB', '3174 mAh, có sạc nhanh', '', 17),
-(17, 'Super AMOLED, 6.4\", Full HD+', '', '', 'Android 10', 'Chính 48 MP & Phụ 8 MP, 5 MP, 5 MP', '20 MP', 'MediaTek MT6768 8 nhân (Helio P65)', '6 GB', '128 GB', '5000 mAh, có sạc nhanh', '', 18),
-(18, 'Dynamic AMOLED 2X, 6.9', '', '', 'Android 10', 'Chính 108 MP & phụ 48 MP, 12 MP, TOF 3D', '40 MP', 'Exynos 990 8 nhân', '12 GB', '128 GB', '5000 mAh, có sạc nhanh', '', 19),
-(19, 'IPS LCD, 6.5', '', '', 'Android 10', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio G80 8 nhân', '4 GB', '128 GB', '5000 mAh, có sạc nhanh', '', 13),
-(20, 'Dynamic AMOLED, 6.8\", Quad HD+ (2K+)', '', '', 'Android 9.0 (Pie)', 'Chính 12 MP & Phụ 12 MP, 16 MP, TOF 3D', '10 MP', 'Exynos 9825 8 nhân', '12 GB', '256 GB', '4300 mAh, có sạc nhanh', '', 20),
-(21, 'AMOLED, 6.78\", Quad HD+ (2K+)', '', '', 'Android 10', 'Chính 48 MP & Phụ 13 MP, 12 MP', '32 MP', 'Snapdragon 865 8 nhân', '12 GB', '256 GB', '4200 mAh, có sạc nhanh', '', 21),
-(22, 'Dynamic AMOLED 2X, 6.7\", Quad HD+ (2K+)', '', '', 'Android 10', 'Chính 12 MP & Phụ 64 MP, 12 MP, TOF 3D', '10 MP', 'Exynos 990 8 nhân', '8 GB', '128 GB', '4500 mAh, có sạc nhanh', '', 22),
-(23, 'OLED, 6.58\", Quad HD+ (2K+)', '', '', 'EMUI 10 (Android 10 không có Google)', 'Chính 50 MP & Phụ 40 MP,12 MP, TOF 3D', 'Chính 32 MP & Phụ IR TOF 3D', 'Kirin 990 8 nhân', '8 GB', '256 GB', '4200 mAh, có sạc nhanh', '', 23),
-(24, 'IPS LCD, 6.67\", Full HD+', '', '', 'Android 10', 'Chính 64 MP & Phụ 8 MP, 5 MP, 2 MP', '16 MP', 'Snapdragon 720G 8 nhân', '6 GB', '128 GB', '5020 mAh, có sạc nhanh', '', 24),
-(25, 'AMOLED, 6.39\", Full HD+', '', '', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 8 MP, 2 MP', '16 MP', 'MediaTek Helio P60 8 nhân', '6 GB', '64 GB', '4020 mAh, có sạc nhanh', '', 25),
-(26, 'IPS LCD, 6.09\", HD+', '', '', 'Android 9.0 (Pie)', 'Chính 8 MP & Phụ 5 MP', '8 MP', 'Snapdragon 215 4 nhân', '2 GB', '16 GB', '3500 mAh', '', 26),
-(27, 'Super AMOLED, 6.44\", Full HD+', '', '', 'Android 10', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', 'Chính 32 MP & Phụ 8 MP', 'Snapdragon 712 8 nhân', '8 GB', '128 GB', '4500 mAh, có sạc nhanh', '', 27),
-(28, 'Super AMOLED, 6.38\", Full HD+', '', '', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '32 MP', 'Snapdragon 665 8 nhân', '8 GB', '128 GB', '4500 mAh, có sạc nhanh', '', 28),
-(29, 'AMOLED, 6.47\", Full HD+', '', '', 'Android 9.0 (Pie)', 'Chính 108 MP & Phụ 20 MP, 12 MP, 5 MP, 2 MP', '32 MP', 'Snapdragon 730G 8 nhân', '8 GB', '256 GB', '5260 mAh, có sạc nhanh', '', 29),
-(30, 'IPS LCD, 6.26\", Full HD+', '', '', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 16 MP, 2 MP, 2 MP', '32 MP', 'Kirin 980 8 nhân', '8 GB', '128 GB', '3750 mAh, có sạc nhanh', '', 30);
+INSERT INTO `detail` (`DetailId`, `Display`, `Card`, `gateway`, `OS`, `RearCamera`, `FrontCamera`, `CPU`, `RAM`, `ROM`, `Network`, `battery`, `design`, `ProductId`) VALUES
+(1, 'Super AMOLED, 6.5', '', '', 'Android 10', 'Chính 48 MP & Phụ 12 MP, 5 MP, 5 MP', '32 MP', 'Exynos 9611 8 nhân', '8GB', '128GB', '', '4000 mAh, có sạc nhanh', '', 1),
+(2, 'AMOLED, 6.4', '', '', 'Android 10', 'Chính 48 MP & Phụ 13 MP, 8 MP, 2 MP', '44 MP', 'MediaTek Helio P90 8 nhân', '8 GB', '128 GB', '', '4025 mAh, có sạc nhanh', '', 2),
+(3, 'OLED, 6.5', '', '', 'iOS 13', '3 camera 12 MP', '12 MP', 'Apple A13 Bionic 6 nhân', '4GB', '64GB', '', '3969 mAh, có sạc nhanh', '', 3),
+(4, 'IPS LCD, 6.5\", HD+', '', '', 'Android 9.0 (Pie)', 'Chính 13 MP & Phụ 8 MP, 2 MP', '8MP', 'Snapdragon 632 8 nhân', '4GB', '64GB', '', '5000 mAh, có sạc nhanh', '', 4),
+(5, '	AMOLED, 6.5', '', '', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio P70 8 nhân', '8GB', '128GB', '', '4000 mAh, có sạc nhanh', '', 5),
+(6, 'Super AMOLED, 6.7\", Full HD+', '', '', 'Android 10', 'Chính 48 MP & Phụ 12 MP, 5 MP', '32 MP', 'Snapdragon 855 8 nhân', '8GB', '128GB', '', '4500 mAh, có sạc nhanh', '', 6),
+(7, 'IPS LCD, 6.5\", Full HD+', '', '', 'Android 10', 'Chính 64 MP & Phụ 8 MP, 2 MP, 2 MP', '16 MP', 'Mediatek Helio G90T 8 nhân', '4GB', '128GB', '', '4300 mAh, có sạc nhanh', '', 7),
+(8, 'IPS LCD, 6.35', '', '', 'Android 9.0 (Pie)', 'Chính 13 MP & Phụ 8 MP, 2 MP', '8MP', 'Snapdragon 665 8 nhân', '4GB', '64GB', '', '5000 mAh, có sạc nhanh', '', 8),
+(9, 'LED-backlit IPS LCD, 5.5', '', '', 'iOS 12', 'Chính 12 MP & Phụ 12 MP', '7 MP', 'Apple A11 Bionic 6 nhân', '3GB', '64GB', '', '2691 mAh, có sạc nhanh', '', 9),
+(10, 'AMOLED, 6.4', '', '', 'ColorOS 6.1 (Android 9.0)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio P70 8 nhân', '8GB', '128GB', '', '4025 mAh, có sạc nhanh', '', 10),
+(11, 'Chính: Dynamic AMOLED, phụ: Super AMOLED, Chính 7.3', '', '', 'Android 9.0 (Pie)', 'Chính 12 MP & Phụ 12 MP, 16 MP', 'Trong: 10 MP, 8 MP; Ngoài: 10 MP', 'Snapdragon 855 8 nhân', '12GB', '512GB', '', '4380 mAh, có sạc nhanh', '', 11),
+(12, 'Chính: Dynamic AMOLED, phụ: Super AMOLED, 6.7', '', '', 'Android 10', 'Chính 12 MP & Phụ 12 MP', '10MP', 'Snapdragon 855+ 8 nhân', '8GB', '256GB', '', '3300 mAh, có sạc nhanh', '', 12),
+(13, 'IPS LCD, 6.53', '', '', 'Android 10', 'Chính 13 MP & Phụ 8 MP, 5 MP, 2 MP', '8 MP', 'MediaTek Helio G80 8 nhân', '4 GB', '64GB', '', '5020 mAh, có sạc nhanh', '', 14),
+(14, 'IPS LCD, 6.1', '', '', 'iOS 13', 'Chính 12 MP & Phụ 12 MP', '12 MP', 'Apple A13 Bionic 6 nhân', '4 GB', '64 GB', '', '3110 mAh, có sạc nhanh', '', 15),
+(15, 'IPS LCD, 4.7', '', '', 'iOS 13', '12 MP', '7 MP', 'Apple A13 Bionic 6 nhân', '3 GB', '128 GB', '', '1821 mAh, có sạc nhanh', '', 16),
+(16, 'OLED, 6.5\", Super Retina', '', '', 'iOS 12', 'Chính 12 MP & Phụ 12 MP', '7 MP', 'Apple A12 Bionic 6 nhân', '4 GB', '64GB', '', '3174 mAh, có sạc nhanh', '', 17),
+(17, 'Super AMOLED, 6.4\", Full HD+', '', '', 'Android 10', 'Chính 48 MP & Phụ 8 MP, 5 MP, 5 MP', '20 MP', 'MediaTek MT6768 8 nhân (Helio P65)', '6 GB', '128 GB', '', '5000 mAh, có sạc nhanh', '', 18),
+(18, 'Dynamic AMOLED 2X, 6.9', '', '', 'Android 10', 'Chính 108 MP & phụ 48 MP, 12 MP, TOF 3D', '40 MP', 'Exynos 990 8 nhân', '12 GB', '128 GB', '', '5000 mAh, có sạc nhanh', '', 19),
+(19, 'IPS LCD, 6.5', '', '', 'Android 10', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio G80 8 nhân', '4 GB', '128 GB', '', '5000 mAh, có sạc nhanh', '', 13),
+(20, 'Dynamic AMOLED, 6.8\", Quad HD+ (2K+)', '', '', 'Android 9.0 (Pie)', 'Chính 12 MP & Phụ 12 MP, 16 MP, TOF 3D', '10 MP', 'Exynos 9825 8 nhân', '12 GB', '256 GB', '', '4300 mAh, có sạc nhanh', '', 20),
+(21, 'AMOLED, 6.78\", Quad HD+ (2K+)', '', '', 'Android 10', 'Chính 48 MP & Phụ 13 MP, 12 MP', '32 MP', 'Snapdragon 865 8 nhân', '12 GB', '256 GB', '', '4200 mAh, có sạc nhanh', '', 21),
+(22, 'Dynamic AMOLED 2X, 6.7\", Quad HD+ (2K+)', '', '', 'Android 10', 'Chính 12 MP & Phụ 64 MP, 12 MP, TOF 3D', '10 MP', 'Exynos 990 8 nhân', '8 GB', '128 GB', '', '4500 mAh, có sạc nhanh', '', 22),
+(23, 'OLED, 6.58\", Quad HD+ (2K+)', '', '', 'EMUI 10 (Android 10 không có Google)', 'Chính 50 MP & Phụ 40 MP,12 MP, TOF 3D', 'Chính 32 MP & Phụ IR TOF 3D', 'Kirin 990 8 nhân', '8 GB', '256 GB', '', '4200 mAh, có sạc nhanh', '', 23),
+(24, 'IPS LCD, 6.67\", Full HD+', '', '', 'Android 10', 'Chính 64 MP & Phụ 8 MP, 5 MP, 2 MP', '16 MP', 'Snapdragon 720G 8 nhân', '6 GB', '128 GB', '', '5020 mAh, có sạc nhanh', '', 24),
+(25, 'AMOLED, 6.39\", Full HD+', '', '', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 8 MP, 2 MP', '16 MP', 'MediaTek Helio P60 8 nhân', '6 GB', '64 GB', '', '4020 mAh, có sạc nhanh', '', 25),
+(26, 'IPS LCD, 6.09\", HD+', '', '', 'Android 9.0 (Pie)', 'Chính 8 MP & Phụ 5 MP', '8 MP', 'Snapdragon 215 4 nhân', '2 GB', '16 GB', '', '3500 mAh', '', 26),
+(27, 'Super AMOLED, 6.44\", Full HD+', '', '', 'Android 10', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', 'Chính 32 MP & Phụ 8 MP', 'Snapdragon 712 8 nhân', '8 GB', '128 GB', '', '4500 mAh, có sạc nhanh', '', 27),
+(28, 'Super AMOLED, 6.38\", Full HD+', '', '', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '32 MP', 'Snapdragon 665 8 nhân', '8 GB', '128 GB', '', '4500 mAh, có sạc nhanh', '', 28),
+(29, 'AMOLED, 6.47\", Full HD+', '', '', 'Android 9.0 (Pie)', 'Chính 108 MP & Phụ 20 MP, 12 MP, 5 MP, 2 MP', '32 MP', 'Snapdragon 730G 8 nhân', '8 GB', '256 GB', '', '5260 mAh, có sạc nhanh', '', 29),
+(30, 'IPS LCD, 6.26\", Full HD+', '', '', 'Android 9.0 (Pie)', 'Chính 48 MP & Phụ 16 MP, 2 MP, 2 MP', '32 MP', 'Kirin 980 8 nhân', '8 GB', '128 GB', '', '3750 mAh, có sạc nhanh', '', 30),
+(31, '14 inch, Full HD (1920 x 1080)', 'Card đồ họa tích hợp, Intel® UHD Graphics 620', '2 x USB 3.1, HDMI, 2 x Thunderbolt 2', 'Windows 10 Pro', '', '', 'Intel Core i7 Coffee Lake, 8550U, 1.80 GHz', '16 GB, DDR3, 2133 MHz', 'SSD 512 GB M.2 PCIe', '', '', 'Vỏ kim loại nguyên khối, PIN liền', 31),
+(32, '14 inch, Full HD (1920 x 1080)', 'Card đồ họa tích hợp, Intel® UHD Graphics 615', 'Thunderbolt 3, USB Type-C', 'Windows 10 Home SL', '', '', 'Intel Core i7 Coffee Lake, 8500Y, 1.50 GHz', '16 GB, DDR3 (on board), 1866 MHz', 'SSD 512 GB M.2 PCIe', '', '', 'Nhôm - Magie, PIN liền', 32),
+(33, '13.3 inch, Retina (2560 x 1600)', 'Card đồ họa tích hợp, Intel Iris Plus Graphics', '4 x Thunderbolt 3 (USB-C)', 'Mac OS', '', '', 'Intel Core i5 Thế hệ 10, 2.00 GHz', '16 GB, LPDDR4X (On board), 3733 MHz', 'SSD 512GB', '', '', 'Vỏ kim loại nguyên khối, PIN liền', 33),
+(34, '13.3 inch, Retina (2560 x 1600)', 'Card đồ họa tích hợp, Intel Iris Plus Graphics 655', '4 x Thunderbolt 3 (USB-C)', 'Mac OS', '', '', 'Intel Core i5 Coffee Lake, 2.40 GHz', '8 GB, DDR3L, 2133 MHz', 'SSD 256GB NVMe PCIe', '', '', 'Vỏ kim loại nguyên khối, PIN liền', 34),
+(35, '15.6 inch, Full HD (1920 x 1080)', 'Card đồ họa rời, NVIDIA® GeForce RTX™ 2060, 6GB', 'HDMI 2.0, 3 x USB 3.1, LAN (RJ45), USB Type-C', 'Windows 10 Home SL', '', '', 'Intel Core i7 Coffee Lake, 9750H, 2.60 GHz', '8 GB, DDR4 (2 khe), 2666 MHz', 'SSD 512 GB M.2 PCIe, Hỗ trợ khe cắm HDD SATA', '', '', 'Vỏ kim loại, PIN liền', 35),
+(36, '13.3 inch, Full HD (1920 x 1080)', 'Card đồ họa rời, NVIDIA GeForce MX250 2GB', 'USB 3.1, HDMI, USB 2.0, USB Type-C', 'Windows 10 Home SL', '', '', 'Intel Core i5 Coffee Lake, 8265U, 1.60 GHz', '8 GB, LPDDR3 (On board), 2133 MHz', 'SSD 512 GB M.2 PCIe, Không hỗ trợ khe cắm HDD', '', '', 'Kim loại bọc da, PIN liền', 36),
+(37, '13.3 inch, Retina (2560 x 1600)', 'Card đồ họa tích hợp, Intel Iris Plus Graphics', '2 x Thunderbolt 3 (USB-C)', 'Mac OS', '', '', 'Intel Core i3 Thế hệ 10, 1.10 GHz', '8 GB, LPDDR4X (On board), 3733 MHz', 'SSD: 256 GB', '', '', 'Vỏ kim loại nguyên khối, PIN liền', 37),
+(38, '14 inch, Full HD (1920 x 1080)', 'Card đồ họa tích hợp, Intel® UHD Graphics 620', 'USB 3.1, HDMI, USB 2.0, USB Type-C', 'Windows 10 Home SL', '', '', 'Intel Core i7 Coffee Lake, 8565U, 1.80 GHz', '8 GB, DDR3L, 2133 MHz', 'SSD 512 GB M.2 PCIe', '', '', 'Vỏ kim loại, PIN liền', 38),
+(39, '15.6 inch, Full HD (1920 x 1080)', 'Card đồ họa rời, NVIDIA GeForce GTX 1650 4GB', '2 x USB 3.1, HDMI, LAN (RJ45), USB 2.0, USB Type-C', 'Windows 10 Home SL', '', '', 'Intel Core i7 Coffee Lake, 9750H, 2.60 GHz', '8 GB, DDR4 (2 khe), 2400 MHz', 'SSD 256GB NVMe PCIe, Hỗ trợ khe cắm SSD M.2, Hỗ tr', '', '', 'Vỏ nhựa, PIN liền', 39),
+(40, '14 inch, Full HD (1920 x 1080)', 'Card đồ họa tích hợp, Intel UHD Graphics', '2 x USB 2.0, USB 3.1, HDMI, USB Type-C', 'Windows 10 Home SL', '', '', 'Intel Core i3 Coffee Lake, 8145U, 2.10 GHz', '4 GB, DDR4 (On board +1 khe), 2400 MHz', 'SSD 256GB NVMe PCIe, Hỗ trợ khe cắm HDD SATA', '', '', 'Vỏ nhựa, PIN liền', 40),
+(41, 'LTPS LCD, 6.4\", Full HD+', '', '', 'EMUI 10 (Android 10 không có Google)', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16 MP', 'Kirin 810 8 nhân', '8 GB', '128 GB', '', '4200 mAh, có sạc nhanh', '', 41),
+(42, 'Liquid Retina, 12.9', '', '', 'iPadOS 13', 'Chính 12 MP & Phụ 10 MP, TOF 3D LiDAR', '7 MP', 'Apple A12Z Bionic, 4 nhân 2.5 GHz & 4 nhân 1.6 GHz', '6 GB', '128 GB', '', '', '', 42),
+(43, 'Super AMOLED, 10.5\"', '', '', 'Android 9.0 (Pie)', 'Chính 13 MP & Phụ 5 MP', '8 MP', 'Snapdragon 855 8 nhân, 1 nhân 2.84 GHz, 3 nhân 2.4', '6 GB', '128 GB', 'WiFi, 3G, 4G LTE', '', '', 43),
+(44, 'LED backlit LCD, 10.5\"', '', '', 'iPadOS 13', '8 MP', '7 MP', 'Apple A12 Bionic 6 nhân, 2 nhân 2.5 GHz & 4 nhân 1', '3 GB', '64 GB', 'WiFi, Không hỗ trợ 3G, Không hỗ trợ 4G', '', '', 44),
+(45, 'LED backlit LCD, 10.2\"', '', '', 'iPadOS 13', '8 MP', '1.2 MP', 'Apple A10 Fusion 4 nhân, 2.34 GHz', '3 GB', '128 GB', 'WiFi, Không hỗ trợ 3G, Không hỗ trợ 4G', '', '', 45),
+(46, '10.4', '', '', 'Android 10', '8 MP', '5 MP', 'Exynos 9611 8 nhân, 4 nhân 2.3 GHz & 4 nhân 1.7 GH', '4 GB', '64 Gb', '', '', '', 46),
+(47, 'IPS LCD Full HD, 10.1\"', '', '', 'Android 8.0', '8 MP', '8 MP', 'Kirin 659, 1.7 GHz', '4 GB', '64 GB', 'WiFi, 3G, 4G LTE', '', '', 47),
+(48, 'TFT LCD, 10.1\"', '', '', 'Android 9.0 (Pie)', '8 MP', '5 MP', 'Exynos 7904 8 nhân, 2 nhân 1.8 GHz & 6 nhân 1.6 GH', '3 GB', '32 GB', 'WiFi, 3G, 4G LTE', '', '', 48),
+(49, 'IPS LCD Full HD, 10.1', '', '', 'Android 8.0', '5 MP', '2 MP', 'Kirin 659, 4 nhân 2.36 GHz & 4 nhân 1.7 GHz', '3 GB', '32 GB', '', '', '', 49),
+(50, 'TFT LCD, 8\"', '', '', 'Android 9.0 (Pie)', '8 MP', '2 MP', 'Snapdragon 429, 4 nhân 2.0 GHz', '2 GB', '32 GB', 'WiFi, 3G, 4G LTE', '', '', 50),
+(51, 'PLS LCD, 10\"', '', '', 'Android 7.0', '5 MP ', '2 MP', 'Snapdragon 425 4 nhân, 1.4 GHz', '2 GB', ' 16 GB', 'WiFi, 3G, 4G LTE', '', '', 51),
+(52, 'IPS LCD, 8\"', '', '', 'Android 9.0 (Pie)', '5 MP', '2 MP', 'MediaTek Helio A22 4 nhân, 4 nhân 2.0 GHz', '3 GB ', '32 GB', 'WiFi, 3G, Hỗ trợ 4G', '', '', 52),
+(53, 'IPS LCD, 10.1\"', '', '', 'Android 9.0 (Pie)', '5 MP', '2 MP', 'MediaTek MT6580 4 nhân, 1.3 GHz', '2 GB', '16 GB', 'WiFi, 3G, Không hỗ trợ 4G', '', '', 53);
 
 -- --------------------------------------------------------
 
@@ -1044,7 +1112,30 @@ INSERT INTO `product` (`ProductId`, `ProductName`, `ProductImage`, `PriceCurrent
 (27, 'Vivo V19', 'img/product/vivo-v19-xanh-600x600-600x600.jpg', 8990000, '8590000', 'Vivo', 999, 'Điện thoại', 'dtdd'),
 (28, 'Vivo S1 Pro', 'img/product/vivo-s1-pro-white-600x600.jpg', 6990000, '5990000', 'Vivo', 999, 'Điện thoại', 'dtdd'),
 (29, 'Xiaomi Mi Note 10 Pro', 'img/product/xiaomi-mi-note-10-pro-black-600x600.jpg', 14990000, '13990000', 'Xiaomi', 999, 'Điện thoại', 'dtdd'),
-(30, 'Huawei Nova 5T', 'img/product/huawei-nova-5t-blue-600x600-600x600.jpg', 8990000, '8290000', 'Huawei', 999, 'Điện thoại', 'dtdd');
+(30, 'Huawei Nova 5T', 'img/product/huawei-nova-5t-blue-600x600-600x600.jpg', 8990000, '8290000', 'Huawei', 999, 'Điện thoại', 'dtdd'),
+(31, 'HP EliteBook X360 14 i7 8550U', 'img/product/hp-elitebook-x360-1040-g5-i7-8550u-16gb-512gb-touc-6-600x600.jpg', 51990000, '41590000', 'HP', 99, 'Laptop', 'laptop'),
+(32, 'Acer Swift 7  i7 8500Y', 'img/product/acer-swift-7-600x600.jpg', 49990000, '44990000', 'Acer', 99, 'Laptop', 'laptop'),
+(33, 'Apple MacBook Pro Touch 2020', 'img/product/apple-macbook-pro-touch-2020-i5-mwp72sa-a-221914-600x600.jpg', 47990000, '0', 'Macbook', 99, 'Laptop', 'laptop'),
+(34, 'Apple Macbook Pro 2019 Touch i5', 'img/product/apple-macbook-pro-2019-touch-i5-8gb-256gb-mv962sa-1-600x600.jpg', 44990000, '39490000', 'Macbook', 99, 'Laptop', 'laptop'),
+(35, 'Asus Gaming ROG Strix G531 i7 9750H (VAL218T)', 'img/product/asus-rog-g531-i7-9750h-8gb-512gb-6gb-gtx2060-win10-14-600x600.jpg', 38990000, '0', 'Asus', 99, 'Laptop', 'laptop'),
+(36, 'Asus ZenBook Edition 30 UX334FL i5 8265U (A4053T)', 'img/product/asus-zenbook-edition-30-222269-600x600.jpg', 29990000, '26990000', 'Asus', 99, 'Laptop', 'laptop'),
+(37, 'Apple MacBook Air 2020 i3', 'img/product/apple-macbook-air-2020-i3-220174-220174-600x600.jpg', 28990000, '0', 'Macbook', 99, 'Laptop', 'laptop'),
+(38, 'Asus ZenBook UX433FA i7 8565U', 'img/product/asus-zenbook-ux433fa-i7-8565u-8gb-512gb-win10-a60-3-600x600.jpg', 26990000, '0', 'Asus', 99, 'Laptop', 'laptop'),
+(39, 'Acer Nitro AN515 54 71HS i7 9750H', 'img/product/acer-nitro-an515-54-71hs-i7-9750h-8gb-256gb-gtx165-5-600x600.jpg', 25990000, '0', 'Acer', 99, 'Laptop', 'laptop'),
+(40, 'Asus VivoBook X409FA i3 8145U', 'img/product/asus-vivobook-x409fa-i3-ek468t-221618-1-600x600.jpg', 10290000, '0', 'Asus', 99, 'Laptop', 'laptop'),
+(41, 'Huawei Nova 7i (Nền tảng Huawei Mobile Service)', 'img/product/huawei-nova-7i-pink-600x600-400x400.jpg', 6990000, '6690000', 'Huawei', 999, 'Điện thoại', 'dtdd'),
+(42, 'iPad Pro 12.9 inch Wifi 128GB (2020)', 'img/product/ipad-pro-12-9-inch-wifi-128gb-2020-xam-400x460-1-400x460.png', 27990000, '27490000', 'iPad (Apple)', 999, 'Máy tính bảng', 'may-tinh-bang'),
+(43, 'Samsung Galaxy Tab S6', 'img/product/samsung-galaxy-tab-s6-600x600.jpg', 18490000, '0', 'Samsung', 999, 'Máy tính bảng', 'may-tinh-bang'),
+(44, 'iPad Air 10.5 inch Wifi 64GB 2019', 'img/product/ipad-air-105-inch-wifi-2019-gold-600x600.jpg', 13990000, '13490000', 'iPad (Apple)', 999, 'Máy tính bảng', 'may-tinh-bang'),
+(45, 'iPad 10.2 inch Wifi 128GB (2019)', 'img/product/ipad-10-2-inch-wifi-128gb-2019-silver-600x600.jpg', 11990000, '11490000', 'iPad (Apple)', 999, 'Máy tính bảng', 'may-tinh-bang'),
+(46, 'Samsung Galaxy Tab S6 Lite', 'img/product/samsung-galaxy-tab-s6-600x600.jpg', 9990000, '0', 'Samsung', 999, 'Máy tính bảng', 'may-tinh-bang'),
+(47, 'Huawei MediaPad M5 Lite', 'img/product/huawei-mediapad-m5-lite-gray-600x600.jpg', 7990000, '0', 'Huawei', 999, 'Máy tính bảng', 'may-tinh-bang'),
+(48, 'Samsung Galaxy Tab A 10.1 T515 (2019)', 'img/product/samsung-galaxy-tab-a-101-t515-2019-gold-400x400.jpg', 7490000, '0', 'Samsung', 999, 'Máy tính bảng', 'may-tinh-bang'),
+(49, 'Huawei Mediapad T5 10.1 inch (3GB/32GB)', 'img/product/huawei-mediapad-t5-(14).jpg', 4990000, '0', 'Huawei', 999, 'Máy tính bảng', 'maytinh-bang'),
+(50, 'Samsung Galaxy Tab A8 8\" T295 (2019)', 'img/product/samsung-galaxy-tab-a8-t295-2019-(13).jpg', 3690000, '0', 'Samsung', 999, 'Máy tính bảng', 'may-tinh-bang'),
+(51, 'Huawei MediaPad T3 10 (2017)', 'img/product/huawei-mediapad-t3-10-1-33397-thumb-400x400.jpg', 3990000, '0', 'Huawei', 999, 'Máy tính bảng', 'may-tinh-bang'),
+(52, 'Lenovo Tab M8 (TB-8505X)', 'img/product/lenovo-tab-m8-tb-8505x400x400-600x600.jpg', 3690000, '3490000', 'Lenovo', 999, 'Máy tính bảng', 'may-tinh-bang'),
+(53, 'Masstel Tab 10 Pro', 'img/product/masstel-tab10-pro-gold-2-600x600.jpg', 2590000, '0', 'Mastel', 999, 'Máy tính bảng', 'may-tinh-bang');
 
 -- --------------------------------------------------------
 
@@ -1096,7 +1187,30 @@ INSERT INTO `promotion` (`PromotionId`, `Promo1`, `Promo2`, `Promo3`, `Promo4`, 
 (27, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 400.000đ (đã trừ vào giá)', '', '', '', 27),
 (28, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 1 triệu (đã trừ vào giá)', '', '', '', 28),
 (29, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 1 triệu (đã trừ vào giá)', '', '', '', 29),
-(30, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 700.000đ (áp dụng đặt và nhận hàng từ 3 - 5/7) (đã trừ vào giá)', '', '', '', 30);
+(30, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 700.000đ (áp dụng đặt và nhận hàng từ 3 - 5/7) (đã trừ vào giá)', '', '', '', 30),
+(31, 'Túi chống sốc Laptop 14 inch eValu', 'Giảm ngay 20% (đã trừ vào giá) *', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', '', '', 31),
+(32, 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', 'Giảm ngay 10% (đã trừ vào giá)', ' ', ' ', ' ', 32),
+(33, 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', '', '', '', '', 33),
+(34, 'Túi chống sốc Laptop 13', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', ' ', ' ', ' ', 34),
+(35, 'Balo Laptop Asus ROG + Chuột Gamming Cerberus (trong thùng máy)', 'Túi chống sốc Laptop 15.6 inch eValu', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', ' ', ' ', 35),
+(36, 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', '', '', '', '', 36),
+(37, 'Balo Laptop 13.3 inch Tucano WOV-MB133', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', ' ', ' ', ' ', 37),
+(38, 'Túi chống sốc Laptop 14 inch eValu', 'Chuột không dây *', 'Tai nghe chụp tai Kanen IP-350 *', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', '', 38),
+(39, 'Balo Acer Predator Gaming', 'Chuột Acer Gaming Predator *', 'Tai nghe chụp tai Gaming MozardX DS902 7.1 *', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', '', 39),
+(40, 'Túi chống sốc Laptop 14 inch eValu', 'Chuột không dây *', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', '', '', 40),
+(41, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 300.000đ (đã trừ vào giá)', '', '', '', 41),
+(42, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 500.000đ (đã trừ vào giá) *', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', ' ', ' ', 42),
+(43, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Phiếu mua hàng Samsung 2.1 triệu (áp dụng đặt và nhận hàng từ 1 - 19/7)', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', '', '', 43),
+(44, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác) ', 'Giảm ngay 500.000đ (đã trừ vào giá) *', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', '', '', 44),
+(45, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác) (click xem chi tiết)', 'Giảm ngay 500.000đ (đã trừ vào giá) *', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', '', '', 45),
+(46, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Phiếu mua hàng Samsung 2.1 triệu (áp dụng đặt và nhận hàng từ 1 - 19/7)', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', ' ', ' ', 46),
+(47, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', '', '', '', 47),
+(48, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', '', '', '', 48),
+(49, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Bao da (trong hộp máy)', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', ' ', ' ', 49),
+(50, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', '', '', '', 50),
+(51, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Bao da (trong hộp máy)', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', '', '', 51),
+(52, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 200.000đ (đã trừ vào giá)', 'Mua kèm Microsoft 365 Personal ưu đãi giảm 600.000đ', '', '', 52),
+(53, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Điện thoại Masstel IZI 112', '', '', '', 53);
 
 -- --------------------------------------------------------
 
@@ -44252,7 +44366,7 @@ ALTER TABLE `banner`
 -- AUTO_INCREMENT cho bảng `color_product`
 --
 ALTER TABLE `color_product`
-  MODIFY `ColorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `ColorID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT cho bảng `customer`
@@ -44264,7 +44378,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT cho bảng `detail`
 --
 ALTER TABLE `detail`
-  MODIFY `DetailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `DetailId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
@@ -44276,13 +44390,13 @@ ALTER TABLE `orders`
 -- AUTO_INCREMENT cho bảng `product`
 --
 ALTER TABLE `product`
-  MODIFY `ProductId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `ProductId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- AUTO_INCREMENT cho bảng `promotion`
 --
 ALTER TABLE `promotion`
-  MODIFY `PromotionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `PromotionId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

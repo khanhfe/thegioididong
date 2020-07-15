@@ -1,5 +1,5 @@
 <?php 
-	require '../libs/function.php';
+	require 'function.php';
 	$keyword = $_POST['key'];
 	global $conn;
 	connect_db();

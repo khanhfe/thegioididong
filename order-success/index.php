@@ -87,7 +87,6 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
 		</div>
 	</header>
 	<section>
-		<?php echo implode($_SESSION['note']); ?>
 		<div class="container">
 			<div class="picsuccess">
                 <div class="notistatus">
@@ -214,7 +213,7 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
 	<script type="text/javascript" charset="utf-8" async defer>
 		var notnull = document.querySelectorAll('.promotion span')
 		for (var i = 0; i < notnull.length; i++) {
-			if(notnull[i].innerHTML=='') notnull[i].classList.remove('notnull')
+			if(notnull[i].innerHTML==' ') notnull[i].classList.remove('notnull')
 		}
 		function choosePayOffline(){
 			document.getElementById('choosepayment').style.display = "none"

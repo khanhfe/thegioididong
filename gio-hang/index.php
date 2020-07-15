@@ -326,8 +326,6 @@
 			$('.choosecolor').each(function() {
 				$('.color',this).append($('.blockcolor',this).attr('data-color'))
 				$('input[name="color[]"]',this).val($('.blockcolor',this).attr('data-color'))
-				var img = $(this).children('img')
-				console.log(img.attr('src','1'));
 			});
 			$('.choosecolor').click(function(event) {
 				$('.listcolor', this).slideToggle(200)

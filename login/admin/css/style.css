@@ -1,3 +1,4 @@
+@import '../../../dtdd/css/style.css';
 *{
 	padding: 0;
 	margin: 0;
@@ -40,11 +41,15 @@ ul{
 ul li {
 	padding: 10px;
 }
+ul li a{
+	background: #fff;
+}
 nav{
 	width: 98%;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	background: #fff;
 }
 .navright{
 	display: flex;
@@ -110,13 +115,14 @@ nav{
 	border-bottom: 1px solid #d8dbe0;
 }
 .main-body{
+	margin-top: 130px;
 	padding: 0 15px;
 	background: #fff;
 	text-align: center;
 }
 .container{
 	padding: 15px;
-	width: 1024px;
+	width: 1200px;
 	margin: auto
 }
 .container .add{
@@ -127,6 +133,20 @@ nav{
 	width: fit-content;
 	color:#fff;
 	background: #28a745;
+}
+.search{
+	text-align: left;
+}
+.search input{
+	width: 500px;
+	margin-bottom: 10px;
+	padding:10px;
+	outline: none;
+	border: 1px solid #999;
+	text-align: left;
+}
+.search input:focus{
+	outline: none;
 }
 table{
 	width: 100%;
@@ -152,12 +172,12 @@ td{
 .price.old{
 	color: #222
 }
-.content{
+.brand{
 	text-transform: capitalize;
 	text-align: left;
 	line-height: 1.8em;
 }
-.last_updated{
+.group{
 	color: #28a745;
 }
 td a{

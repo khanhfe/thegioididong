@@ -139,7 +139,7 @@
 		</nav>		
 	</header>
 	<div class="main-body">
-		<div class="back"><a href="add-product.php">Quay lại</a></div>
+		<div class="back"><a href="index.php">Quay lại</a></div>
 		<div class="container">
 			<form action="" method="post">
 				<table>

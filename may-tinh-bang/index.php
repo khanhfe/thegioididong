@@ -121,7 +121,7 @@
 			</li>
 			<?php } ?>
 		</ul>
-		<a class="viewmore">Xem thêm <span><?php echo $total_records-10; ?></span> laptop</a>
+		<a class="viewmore">Xem thêm <span><?php echo $total_records-10; ?></span> máy tính bảng</a>
 	</section>
 	<footer>
 		<div class="rowfoot1">
