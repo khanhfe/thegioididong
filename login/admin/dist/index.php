@@ -236,10 +236,10 @@
                                             </tr>
                                         </tfoot>
                                         <tbody>
-                                            <tr>
+                                            <tr class="data-notnull">
                                                 <?php
                                                     foreach ($orders as $data) {?>
-                                                <td><?php echo $data['OrderID']; ?></td>
+                                                <td class="orderid"><?php echo $data['OrderID']; ?></td>
                                                 <td class="name"><?php echo $data['Product']; ?></td>
                                                 <td><img src="<?php echo '../../../'.$data['Image']; ?>" width="100px"></td>
                                                 <td class="price"><?php echo number_format($data['PricePromote']); ?>đ</td>
@@ -251,9 +251,12 @@
                                                 <td><?php echo $data['EstimatedDeliveryTime'];?></td>
                                             </tr>
                                                 <?php } ?>
-                                            <td valign="top" colspan="6" class="dataTables_empty">No data available in table</td> 
+                                            <tr>
+                                                <td valign="top" colspan="10" class="dataTables_empty" style="text-align: center;">No data available in table</td> 
+                                            </tr>
                                         </tbody>
                                     </table>
+                                    <div class="btn btn-primary">Customer Information</div>
                                 </div>
                             </div>
                         </div>
@@ -282,5 +285,14 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
+        <script type="text/javascript" charset="utf-8">
+            $(document).ready(function() {
+                $('.dataTables_empty').css('display', 'none');
+                if ($('.orderid').text()=='') {
+                    $('.dataTables_empty').css('display', 'block'); 
+                }
+                
+            });
+        </script>
     </body>
 </html>
