@@ -10,15 +10,20 @@
 		$username = addslashes($username);
 		$password = strip_tags($password);
 		$password = addslashes($password);
+		$pass     = $password;
 		$password = md5($password);
 		$error = "Tên đăng nhập hoặc mật khẩu không chính xác!";
 		if ($username != "" || $password !="") {
 			$sql = "SELECT username,password FROM account WHERE username = '$username' AND password = '$password'";
 			$query = mysqli_query($conn,$sql);
 			$num_rows = mysqli_num_rows($query);
+			$_SESSION['username'] = $username;
 			if ($num_rows!=0) {
-				$_SESSION['username'] = $username;
-				$_SESSION['password'] = $password;
+				if (isset($_POST['remember'])) {
+					$_SESSION['password'] = $pass;
+					header('Location: admin/');
+				}
+				unset($_SESSION['error']);
 	            header('Location: admin/');
 			}else{
 				$_SESSION['error'] =$error;

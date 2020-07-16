@@ -105,7 +105,7 @@
 			<figure>
             <h2><a href="#">Tin công nghệ</a></h2>
             <b></b>
-                <a id="b_35866" title="Vina TẶNG 20% giá trị nạp thẻ - 24/06" href="#" class="liveevent card" target="_blank" rel="noopener"><span id="dot"><span class="ping"></span></span><span class="text"><strong>Vina TẶNG 20%</strong> giá trị thẻ nạp - 17/07</span></a>
+                <a id="b_35866" title="Vina TẶNG 20% giá trị nạp thẻ - 24/06" href="#" class="liveevent card" rel="noopener"><span id="dot"><span class="ping"></span></span><span class="text"><strong>Vina TẶNG 20%</strong> giá trị thẻ nạp - 17/07</span></a>
         	</figure>
         	<ul>
                 <li>

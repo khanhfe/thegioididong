@@ -25,10 +25,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Charts - SB Admin</title>
+        <title>Information Orders - Admin</title>
         <link href="../../../img/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <style type="text/css" media="screen">
+            .table td{
+                vertical-align: middle;
+            }
+        </style>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -146,12 +151,14 @@
                                             <th>Name Customer</th>
                                             <th>Phone Number</th>
                                             <th>Address</th>
+                                            <th>Time Order</th>
                                         </tr>
                                         <tr>
                                             <?php foreach ($detail as $data) {?>
                                             <td><?php echo $data['FullName']; ?></td>
                                             <td>0<?php echo $data['PhoneNumber']; ?></td>
                                             <td><?php echo $data['Address']; ?></td>
+                                            <td><?php echo $data['CreateTime']; ?></td>
                                         </tr><?php break; }?>
                                     </table>
                                     <table class="table table-bordered" width="100%" cellspacing="0">
@@ -163,8 +170,6 @@
                                                 <th>Price Promote</th>
                                                 <th>Color </th>
                                                 <th>Quantity</th>
-                                                <th>Total Pay</th>
-                                                <th>Estimated Delivery Time</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -176,10 +181,16 @@
                                                 <td><?php echo number_format($data['PricePromote']); ?>đ</td>
                                                 <td><?php echo $data['Color'] ?></td>
                                                 <td><?php echo $data['Quantity']; ?></td>
-                                                <td class="text-danger"><?php echo number_format($data['TotalPay']); ?>đ</td>
-                                                <td class="text-success"><?php echo $data['EstimatedDeliveryTime']; ?></td>
                                             </tr>
                                                 <?php } ?>
+                                            <tr>
+                                                <th colspan="5" style="text-align: right;">Estimated Delivery Time : </th>
+                                                <td class="text-success"><?php echo $data['EstimatedDeliveryTime']; ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="5" style="text-align: right;">Total Pay : </th>
+                                                <td class="text-danger"><?php echo number_format($data['TotalPay']); ?>đ</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -190,7 +201,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div class="text-muted">Copyright &copy; Thegioididong 2020</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
@@ -204,9 +215,5 @@
         <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="assets/demo/chart-pie-demo.js"></script>
     </body>
 </html>

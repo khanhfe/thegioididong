@@ -20,13 +20,13 @@
 					<h3>Đăng nhập</h3><br>
 					<img src="../img/icon/account.jpg" height="45">
 				</div>
-				<div class="error"><?php if(isset($_SESSION['error'])) echo $_SESSION['error']; ?></div>
+				<div class="error"><?php if(isset($_SESSION['error'])) echo $_SESSION['error'];?></div>
 				<form action="check.php" method="post" >
 					<div class="user">
 						<input class="input check" type="text" name="username" value="<?php if(isset($_SESSION['username'])) echo $_SESSION['username']; ?>" placeholder="Tài khoản">	
 					</div>
 					<div class="pass">
-						<input class="input check" type="password" name="password" value="" placeholder="Mật khẩu">
+						<input class="input check" type="password" name="password" value="<?php if(isset($_SESSION['password'])) echo $_SESSION['password']; ?>" placeholder="Mật khẩu">
 						<div class="togglepass">Ẩn/Hiện</div>	
 					</div>
 					<div class="remember_forgot">
@@ -75,7 +75,29 @@
 					$('input[type="submit"]').attr('disabled','disable');
 				}
 			});
-			
+			if ($('input[name="password"]').val()!=' '){
+				$('input[type="submit"]').removeAttr('disabled');
+					$('input[type="submit"]').hover(function() {
+						$('input[type="submit"]').css({
+						'cursor': 'pointer',
+						'color': '#000',
+						'background' : 'rgba(254,215,0,1)',
+						'border' : '1px solid #fed700'
+						});
+					}, function() {
+						$('input[type="submit"]').css({
+						'cursor': 'auto',
+						'color': '#000',
+						'background' : '#00a88a',
+						'border' : '1px solid #00a88a'
+					});
+				});
+			}
+			if ($('.error').html()!=' ') {
+				$('.check').keyup(function(event) {
+					$('.error').html('')
+				})
+			}
 		});
 	</script>
 </body>
