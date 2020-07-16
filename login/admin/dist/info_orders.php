@@ -110,11 +110,11 @@
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
+                            <a class="nav-link" href="charts.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts
                             </a>
-                            <a class="nav-link" href="tables.html">
+                            <a class="nav-link" href="tables.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
                             </a>
@@ -176,8 +176,8 @@
                                                 <td><?php echo number_format($data['PricePromote']); ?>đ</td>
                                                 <td><?php echo $data['Color'] ?></td>
                                                 <td><?php echo $data['Quantity']; ?></td>
-                                                <td><?php echo number_format($data['TotalPay']); ?>đ</td>
-                                                <td><?php echo $data['EstimatedDeliveryTime']; ?></td>
+                                                <td class="text-danger"><?php echo number_format($data['TotalPay']); ?>đ</td>
+                                                <td class="text-success"><?php echo $data['EstimatedDeliveryTime']; ?></td>
                                             </tr>
                                                 <?php } ?>
                                         </tbody>

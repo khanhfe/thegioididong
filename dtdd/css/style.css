@@ -5,6 +5,18 @@ body{
 nav a.actmenu{
 	background: #f5f5f5;
 }
+.left{
+    width: 800px;
+    float: left;
+    height: 170px;
+}
+.right {
+    float: right;
+    width: 390px;
+}
+.right img:first-child{
+    margin-bottom: 6px;
+}
 .filter {
     padding: 10px 0;
 }

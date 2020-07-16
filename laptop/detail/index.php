@@ -36,13 +36,13 @@
 				</button>
 			</form>
 			<nav>
-	            <a href="#" class="mobile" title="Điện thoại di động, smartphone">
+	            <a href="../../dtdd" class="mobile" title="Điện thoại di động, smartphone">
 	                <i class="icon-mobile"></i>Điện thoại
 	            </a>
-	            <a href="#" class="laptop" title="Máy tính xách tay, Laptop">
+	            <a href="../" class="laptop" title="Máy tính xách tay, Laptop">
 	                <i class="icon-laptop"></i>Laptop
 	            </a>
-	            <a href="#" class="tablet" title="Máy tính bảng, tablet">
+	            <a href="../../may-tinh-bang" class="tablet" title="Máy tính bảng, tablet">
 	                <i class="icon-tablet"></i>Tablet
 	            </a>
 	            <a href="#" class="phukien" title="Phụ kiện điện thoại di động, phụ kiện tablet, phụ kiện lapto">
@@ -65,7 +65,7 @@
 	            <a href="#" class="gameapp" title="Game app">
 	                <i class="icon-gameapp"></i>Game App
 	            </a>
-	            <a href="../login/" class="account" title="Đăng nhập">
+	            <a href="../../login/" class="account" title="Đăng nhập">
 	            	<i class="icon-account"></i> Đăng nhập
 	            </a>
             </div>
@@ -166,6 +166,39 @@
 			</div>
 		</div>
 	</section>
+	<footer>
+		<div class="rowfoot1">
+			<ul class="colfoot">
+				<li><a href="" title="">Lịch sử mua hàng</a></li>
+				<li><a href="" title="">Tìm hiểu về mua trả góp</a></li>
+				<li><a href="" title="">Chính sách bảo hành</a></li>
+				<li><a href="" title="">Chính sách đổi trả</a></li>
+			</ul>
+			<ul class="colfoot">
+				<li><a href="" title="">Giới thiệu công ty</a></li>
+				<li><a href="" title="">Tuyển dụng</a></li>
+				<li><a href="" title="">Gửi góp ý, khiếu nại</a></li>
+				<li><a href="" title="">Tìm siêu thị</a></li>
+			</ul>
+			<ul class="colfoot">
+				<li>
+					<p>Gọi mua hàng <a href="tel:18001060">1800.1060</a> (7:30 - 22:00)</p>
+					<p>Gọi khiếu nại <a href="tel:18001060">1800.1060</a> (8:00 - 21:30)</p>
+					<p>Gọi bảo hành <a href="tel:18001060">1800.1060</a> (8:00 - 21:30)</p>
+					<p>Kỹ thuật &nbsp; &nbsp; &nbsp; &nbsp; <a href="tel:18001060">1800.1060</a> (7:30 - 22:00)</p>
+				</li>
+			</ul>
+			<ul class="colfoot">
+				<li><a href="" title="">Lịch sử mua hàng</a></li>
+				<li><a href="" title="">Tìm hiểu về mua trả góp</a></li>
+				<li><a href="" title="">Chính sách bảo hành</a></li>
+				<li><a href="" title="">Chính sách đổi trả</a></li>
+			</ul>
+		</div>
+		<div class="rowfoot2">
+        <p>© 2018. Công ty cổ phần Thế Giới Di Động. GPMXH: 238/GP-BTTTT do Bộ Thông Tin và Truyền Thông cấp ngày 04/06/2020. Địa chỉ: 128 Trần Quang Khải, P. Tân Định, Q.1, TP.Hồ Chí Minh. Điện thoại: 028 38125960. Email: cskh@thegioididong.com. Chịu trách nhiệm nội dung: Huỳnh Văn Tốt. <a href="">Xem chính sách sử dụng</a></p>
+    	</div>
+	</footer>
 	<script type="text/javascript" charset="utf-8" async defer>
 		var notnull = document.querySelectorAll('.infopromo span')
 		for (var i = 0; i < notnull.length; i++) {

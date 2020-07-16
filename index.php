@@ -105,32 +105,32 @@
 			<figure>
             <h2><a href="#">Tin công nghệ</a></h2>
             <b></b>
-                <a id="b_35866" title="Mobi Tặng 20% giá trị nạp thẻ - 24/06" href="#" class="liveevent card" target="_blank" rel="noopener"><span id="dot"><span class="ping"></span></span><span class="text"><strong></strong>Trực tiếp ra mắt Reddmi 9</span></a>
+                <a id="b_35866" title="Vina TẶNG 20% giá trị nạp thẻ - 24/06" href="#" class="liveevent card" target="_blank" rel="noopener"><span id="dot"><span class="ping"></span></span><span class="text"><strong>Vina TẶNG 20%</strong> giá trị thẻ nạp - 17/07</span></a>
         	</figure>
         	<ul>
                 <li>
-                    <a href="https://khanh-nguyen28.github.io/technews/">
-                        <img width="100" height="70" src="img/news/gismochina1_800x448-100x100.jpg" alt="Chơi lớn như Samsung, tiếp tục giảm sốc 2 triệu đồng cho Galaxy S10 Lite, Samfans không nên bỏ qua lần này">
-                        <h3>Vivo X50 Pro và X50 Pro Plus với khả năng chống rung như Gimbal, sắp sửa lên kệ toàn cầu. Tín đồ thích quay video hẳn sẽ phải để ý</h3>
-                        <span>56 phút trước</span>
+                    <a href="">
+                        <img width="100" height="70" src="img/news/honor-30_800x451-100x100.jpg" alt="Chơi lớn như Samsung, tiếp tục giảm sốc 2 triệu đồng cho Galaxy S10 Lite, Samfans không nên bỏ qua lần này">
+                        <h3>Huawei Enjoy 20s lộ gần như toàn bộ thông số cấu hình: Chip Dimensity 800, bộ 3 camera sau 64MP, viên pin 4.300mAh</h3>
+                        <span>8 giờ trước</span>
                     </a>
                 </li>
         	</ul>
         	<div class="twobanner ">
-		        <a aria-label="slide" href="">
+		        <a aria-label="slide" href="dtdd/detail/?id=18">
 		        	<img style="cursor:pointer" src="img/banner/A31-398-110-398x110.png" alt="A21s" width="398" height="110">
 		        </a>
-				<a aria-label="slide" href="">
-					<img style="cursor:pointer" src="img/banner/398-110copy-398x110.png" alt="iPhone 7" width="398" height="110">
+				<a aria-label="slide" href="dtdd/detail/?id=17">
+					<img style="cursor:pointer" src="img/banner/398-110copy-398x110.png" width="398" height="110">
 				</a>    
 			</div>
 		</aside>
 		<div class="clr"></div>
-		<div class="promotebanner">
+		<!-- <div class="promotebanner">
 			<a href="">
 				<img src="img/banner/1200-75-1200x75-1.png">
 			</a>
-		</div>
+		</div> -->
 		<div class="">
 			<div class="navigat">
 				<h2>10 Khuyễn mãi hot nhất</h2>

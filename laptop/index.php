@@ -72,9 +72,14 @@
 		</div>
 	</header>
 	<section>
-		<aside>
-			<img src="../img/banner/sinh-nhat-800-170-800x170.png" alt="">
-		</aside>
+		<div class="left">
+			<img src="../img/banner/800-170-800x170-75.png">
+		</div>
+		<div class="right">
+			<img src="../img/banner/390-80copy-390x80.png" alt="">
+			<img src="../img/banner/390-80-390x80-2.png" alt="">
+		</div>
+		<div class="clr"></div>
 		<div class="filter">
 			<div class="brand">
 				<a href="laptop-apple/">

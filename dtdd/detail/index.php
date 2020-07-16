@@ -65,7 +65,7 @@
 	            <a href="#" class="gameapp" title="Game app">
 	                <i class="icon-gameapp"></i>Game App
 	            </a>
-	            <a href="../login/" class="account" title="Đăng nhập">
+	            <a href="../../login/" class="account" title="Đăng nhập">
 	            	<i class="icon-account"></i> Đăng nhập
 	            </a>
             </div>

@@ -39,10 +39,10 @@
 	            <a href="../dtdd" class="mobile" title="Điện thoại di động, smartphone">
 	                <i class="icon-mobile"></i>Điện thoại
 	            </a>
-	            <a href="" class="laptop" title="Máy tính xách tay, Laptop">
+	            <a href="../laptop" class="laptop" title="Máy tính xách tay, Laptop">
 	                <i class="icon-laptop"></i>Laptop
 	            </a>
-	            <a href="../may-tinh-bang actmenu" class="tablet" title="Máy tính bảng, tablet">
+	            <a href="../may-tinh-bang" class="tablet actmenu" title="Máy tính bảng, tablet">
 	                <i class="icon-tablet"></i>Tablet
 	            </a>
 	            <a href="#" class="phukien" title="Phụ kiện điện thoại di động, phụ kiện tablet, phụ kiện lapto">
@@ -72,9 +72,14 @@
 		</div>
 	</header>
 	<section>
-		<aside>
-			<img src="../img/banner/sinh-nhat-800-170-800x170.png" alt="">
-		</aside>
+		<div class="left">
+			<img src="../img/banner/800-170-800x170-69.png">
+		</div>
+		<div class="right">
+			<img src="../img/banner/sticky-galaxy-tab-a8-390x80.png" alt="">
+			<img src="../img/banner/StickyiPAD_390-80-390x80.png" alt="">
+		</div>
+		<div class="clr"></div>
 		<div class="filter">
 			<div class="brand">
 				<a href="laptop-apple/">
