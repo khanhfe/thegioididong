@@ -223,25 +223,23 @@
 							<div id="district" class="dropdown">
 								<div class="pseudo" id="districtvalue" value="0">Chọn quận, huyện</div>
 								<div class="layer grid2 district">
-									<?php $district = get_district(); foreach ($district as $value) { ?>
-									<div class="list listdist" value="<?php echo $value['_prefix'].$value['id']; ?>"><?php echo $value['_name']; ?></div> 
-									<?php } ?>
+									<div class="list listdist" value="0"></div>
 								</div>
-								<div class="error" id="nulldistrict"></div>
+								<div class="error" id="nulldistrict" style="line-height: 30px;margin-top:10px"></div>
 							</div>
 							<div id="ward" class="dropdown">
 								<div class="pseudo" id="wardvalue" value="0">Chọn phường, xã</div>
 								<div class="layer grid2 ward">
 									<div class="list listward" value=""></div> 
 								</div>
-								<div class="error" id="nullward"></div>
+								<div class="error" id="nullward" style="line-height: 30px;margin-top:11px"></div>
 							</div>
 							<div class="billaddress">
 								<input type="text" placeholder="Số nhà, tên đường" id="BillingAddress_Address" name="BillingAddress" maxlength="200" class="ShipAtHome homenumber saveinfo dropdown" value="" width="100%">
 								<div class="error" id="address" style="line-height: 30px;"></div>
 							</div>
 						</div>
-						<input type="hidden" name="province" value="">
+						<input type="hidden" name="province" value="Hồ Chí Minh">
 						<input type="hidden" name="district" value="">
 						<input type="hidden" name="ward" value="">
 						<p class="introduction" style="margin-top:20px;color: #fb6e2e;display: block"><b>Hướng dẫn: </b>Chọn địa chỉ để biết chính xác thời gian giao hàng</p>
@@ -405,6 +403,10 @@
 				$('#wardvalue').html(listward);
 				$('#wardvalue').attr('value',index);
 			});
+			ProvinceID = $('#default').attr('value');
+				$.post('get_district.php', {'ID': ProvinceID}, function(data) {
+					$('#district').html(data);
+				});
 			$('.province').click(function(event) {
 				ProvinceID = $('#default').attr('value');
 				$.post('get_district.php', {'ID': ProvinceID}, function(data) {
@@ -416,13 +418,13 @@
 				$.post('get_ward.php', {'ID': DistrictID}, function(data) {
 					$('#ward').html(data);
 				});
+				listprovince = $('#default').html()
+				$('input[name="province"]').val(listprovince)
 				listdist = $('#districtvalue').html();
 				$('input[name="district"]').val(listdist)
 			});
 			$('.listward').live('click', function(event) {
-				listprovince = $('#default').html()
 				listward = $('#wardvalue').html();
-				$('input[name="province"]').val(listprovince)
 				$('input[name="ward"]').val(listward)
 			});
 			$('input[type="radio"]').change(function(event) {
@@ -487,6 +489,20 @@
 		function checkInforUser(){
 			var male = document.getElementById('male');
 			var female = document.getElementById('female');
+			var city = document.querySelector('#default').innerHTML
+			var district = document.querySelector('#districtvalue').innerHTML
+			var ward = document.querySelector('#wardvalue').innerHTML
+			if(city==='Chọn tỉnh, thành phố'){
+				document.querySelector('#nullcity').innerHTML = 'Quý khách vui lòng chọn tỉnh thành phố'
+			}
+			if(district==='Chọn quận, huyện'){
+				document.querySelector('#nulldistrict').innerHTML = 'Quý khách vui lòng chọn quận huyện'
+				document.querySelector('#district').style.marginBottom = '10px'
+				document.getElementById("nulldistrict").style.cssText = 'line-height:30px;margin-top:7px;'
+			}
+			if(ward==='Chọn phường, xã'){
+				document.querySelector('#nullward').innerHTML = 'Quý khách vui lòng chọn phưỡng xã'
+			}
 			if (!male.checked&&!female.checked) {
 				document.getElementById('errorgender').innerHTML = "Mời quý khách chọn danh xưng";
 				document.getElementById('errorgender').style.marginTop = "5px";

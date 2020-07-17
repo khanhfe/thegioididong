@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 15, 2020 lúc 06:57 AM
+-- Thời gian đã tạo: Th7 17, 2020 lúc 06:09 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.6
 
@@ -63,14 +63,12 @@ CREATE TABLE `banner` (
 --
 
 INSERT INTO `banner` (`BannerId`, `image`, `content`, `link`) VALUES
-(1, 'img/banner/S20-800-300-800x300-3.png', 'Galaxy S20 series<br>Giảm Ngay 3 Triệu', '#'),
-(2, 'img/banner/reno3-800-300-800x300.png', 'Mua OPPO Reno3<br>Tặng Tiền Cước 500.000đ', '#'),
-(3, 'img/banner/60749522-6C82-4FF3-BEF0-76FD21BB4D25-800x300.png', 'Sắm iPhone 11<br>Trả Góp 0%', '#'),
-(4, 'img/banner/800-300-800x300-27.png', 'Redmi 9 4GB|64GB<br>Giảm Ngay 300 Ngàn', '#'),
-(5, 'img/banner/800-300-800x300-18.png', 'Đồng Hồ Thời Trang<br> Giảm Ngay 20%', '#'),
-(6, 'img/banner/800-300-800x300-15.png', 'Realme 6|6 Pro <br>Giá Tốt Trả Góp 0%', '#'),
-(7, 'img/banner/800-300-800x300-12.png', 'Lễ Hội SmartWatch<br>Giảm Đến 40%', '#'),
-(8, 'img/banner/800-300-800x300-1.png', 'Phụ Kiện Online<br>Đồng Giá 199.000đ', '#');
+(1, 'img/banner/combo-800-300-800x300.png', 'OPPO Reno3 | A92<br>Giảm Ngay 500.000đ', 'dtdd/detail/?id=2'),
+(2, 'img/banner/800-300-800x300-8.png', 'Sắm Ngay iPhone<br>Giảm Đến 5 Triệu', 'dtdd/detail/?id=17'),
+(3, 'img/banner/800-300-800x300-1.png', 'Vivo V19 | V19 Neo<br>Giảm Đến 400 Ngàn', 'dtdd/detail/?id=27'),
+(4, 'img/banner/800-300-800x300-27.png', 'Redmi 9 4GB|64GB<br>Giảm Ngay 300 Ngàn', 'dtdd/detail/?id=14'),
+(5, 'img/banner/S20-800-300-800x300-3.png', 'Samsung Galaxy<br> Giảm Ngay 3 triệu', 'dtdd/detail/?id=19'),
+(6, 'img/banner/800-300-800x300-15.png', 'Realme 6|6 Pro <br>Giá Tốt Trả Góp 0%', 'dtdd/detail/?id=7');
 
 -- --------------------------------------------------------
 
@@ -235,7 +233,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`CustomID`, `FullName`, `Gender`, `PhoneNumber`, `Email`, `Address`, `NoteCart`, `TotalPay`, `CreateTime`) VALUES
-(1, 'Nguyễn Văn Khảnh', 'Nam', 389021327, '', 'thôn Hạ Hòa, Xã Tân Phú, Huyện Quốc Oai, Hà Nội', ', , ', 51980000, '03:10:26, 2020-07-15 ');
+(1, 'Nguyễn Văn Khảnh', 'Nam', 389021327, '', 'xóm Giếng, thôn Hạ Hòa, Xã Tân Phú, Huyện Quốc Oai, Hà Nội', '  ', 107470000, '11:06:37, 2020-07-17 '),
+(2, 'Nguyễn Văn Khảnh', 'Nam', 389021327, '', 'xóm Giếng, thôn Hạ Hòa, Xã Tân Phú, Huyện Quốc Oai, Hà Nội', '  ', 142450000, '11:08:19, 2020-07-17 ');
 
 -- --------------------------------------------------------
 
@@ -280,7 +279,7 @@ INSERT INTO `detail` (`DetailId`, `Display`, `Card`, `gateway`, `OS`, `RearCamer
 (13, 'IPS LCD, 6.53', '', '', 'Android 10', 'Chính 13 MP & Phụ 8 MP, 5 MP, 2 MP', '8 MP', 'MediaTek Helio G80 8 nhân', '4 GB', '64GB', '', '5020 mAh, có sạc nhanh', '', 14),
 (14, 'IPS LCD, 6.1', '', '', 'iOS 13', 'Chính 12 MP & Phụ 12 MP', '12 MP', 'Apple A13 Bionic 6 nhân', '4 GB', '64 GB', '', '3110 mAh, có sạc nhanh', '', 15),
 (15, 'IPS LCD, 4.7', '', '', 'iOS 13', '12 MP', '7 MP', 'Apple A13 Bionic 6 nhân', '3 GB', '128 GB', '', '1821 mAh, có sạc nhanh', '', 16),
-(16, 'OLED, 6.5\", Super Retina', '', '', 'iOS 12', 'Chính 12 MP & Phụ 12 MP', '7 MP', 'Apple A12 Bionic 6 nhân', '4 GB', '64GB', '', '3174 mAh, có sạc nhanh', '', 17),
+(16, 'OLED, 6.5', '', '', 'iOS 12', 'Chính 12 MP & Phụ 12 MP', '7 MP', 'Apple A12 Bionic 6 nhân', '4 GB', '64GB', '', '3174 mAh, có sạc nhanh', '', 17),
 (17, 'Super AMOLED, 6.4\", Full HD+', '', '', 'Android 10', 'Chính 48 MP & Phụ 8 MP, 5 MP, 5 MP', '20 MP', 'MediaTek MT6768 8 nhân (Helio P65)', '6 GB', '128 GB', '', '5000 mAh, có sạc nhanh', '', 18),
 (18, 'Dynamic AMOLED 2X, 6.9', '', '', 'Android 10', 'Chính 108 MP & phụ 48 MP, 12 MP, TOF 3D', '40 MP', 'Exynos 990 8 nhân', '12 GB', '128 GB', '', '5000 mAh, có sạc nhanh', '', 19),
 (19, 'IPS LCD, 6.5', '', '', 'Android 10', 'Chính 48 MP & Phụ 8 MP, 2 MP, 2 MP', '16MP', 'MediaTek Helio G80 8 nhân', '4 GB', '128 GB', '', '5000 mAh, có sạc nhanh', '', 13),
@@ -1072,7 +1071,11 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`OrderID`, `Product`, `Image`, `PriceUnit`, `PricePromote`, `Color`, `Quantity`, `TotalPay`, `OrderDate`, `EstimatedDeliveryTime`, `CustomID`) VALUES
-(1, 'Acer Nitro AN515 54 71HS i7 9750H', 'img/product/acer-nitro-an515-54-71hs-i7-9750h-8gb-256gb-gtx165-5-600x600.jpg', 25990000, 0, 'Đen', 2, 51980000, 'Wednesday, 2020-07-15', '03:10:26 , Thursday, 2020-07-16', 1);
+(1, 'iPhone 11 Pro Max 64GB', 'img/product/iphone-11-pro-max-green-400x400.jpg', 33990000, 31990000, 'Bạc', 1, 107470000, 'Friday, 2020-07-17', '11:06:37 , Saturday, 2020-07-18', 1),
+(2, 'iPad Pro 12.9 inch Wifi 128GB (2020)', 'img/product/ipad-pro-12-9-inch-wifi-128gb-2020-xam-400x460-1-400x460.png', 27990000, 27490000, 'Xám', 1, 107470000, 'Friday, 2020-07-17', '11:06:37 , Saturday, 2020-07-18', 1),
+(3, 'Apple MacBook Pro Touch 2020', 'img/product/apple-macbook-pro-touch-2020-i5-mwp72sa-a-221914-600x600.jpg', 47990000, 0, 'bạc', 1, 107470000, 'Friday, 2020-07-17', '11:06:37 , Saturday, 2020-07-18', 1),
+(4, 'Samsung Galaxy A51(8GB/128GB) ', 'img/product/samsung-galaxy-a51-8gb-blue-600x600-400x400.jpg', 8990000, 8490000, 'Xanh ngọc', 5, 142450000, 'Friday, 2020-07-17', '11:08:19 , Saturday, 2020-07-18', 2),
+(5, 'Samsung Galaxy Fold', 'img/product/samsung-galaxy-fold-black-400x400.jpg', 50000000, 0, 'Đen', 2, 142450000, 'Friday, 2020-07-17', '11:08:19 , Saturday, 2020-07-18', 2);
 
 -- --------------------------------------------------------
 
@@ -1097,9 +1100,9 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`ProductId`, `ProductName`, `ProductImage`, `PriceCurrent`, `PricePromo`, `Brand`, `Quantity`, `GroupProduct`, `folder`) VALUES
-(1, 'Samsung Galaxy A51(8GB/128GB) ', 'img/product/samsung-galaxy-a51-8gb-blue-600x600-400x400.jpg', 8990000, '8490000', 'Samsung', 999, 'Điện Thoại', 'dtdd'),
+(1, 'Samsung Galaxy A51(8GB/128GB) ', 'img/product/samsung-galaxy-a51-8gb-blue-600x600-400x400.jpg', 8990000, '8490000', 'Samsung', 994, 'Điện Thoại', 'dtdd'),
 (2, 'OPPO Reno3', 'img/product/oppo-reno3-trang-600x600-400x400.jpg', 8990000, '8490000', 'OPPO', 999, 'Điện Thoại', 'dtdd'),
-(3, 'iPhone 11 Pro Max 64GB', 'img/product/iphone-11-pro-max-green-400x400.jpg', 33990000, '31990000', 'iPhone (Apple)', 999, 'Điện thoại', 'dtdd'),
+(3, 'iPhone 11 Pro Max 64GB', 'img/product/iphone-11-pro-max-green-400x400.jpg', 33990000, '31990000', 'iPhone (Apple)', 998, 'Điện thoại', 'dtdd'),
 (4, 'Vsmart Joy 3 (4GB/64GB)', 'img/product/vsmart-joy-3-4gb-den-600x600-400x400.jpg', 3290000, '3090000', 'Vsmart', 999, 'Điện thoại', 'dtdd'),
 (5, 'OPPO Reno2 F', 'img/product/oppo-reno2-f-600x600-200x200.jpg', 8990000, '7990000', 'OPPO', 999, 'Điện thoại', 'dtdd'),
 (6, 'Samsung Galaxy S10 Lite', 'img/product/samsung-galaxy-s10-lite-blue-thumb-400x400.jpg', 14990000, '12990000', 'Samsung', 999, 'Điện thoại', 'dtdd'),
@@ -1107,13 +1110,13 @@ INSERT INTO `product` (`ProductId`, `ProductName`, `ProductImage`, `PriceCurrent
 (8, 'Vivo U10', 'img/product/vivo-u10-1-400x400.jpg', 3990000, '3790000', 'Vivo', 999, 'Điện thoại', 'dtdd'),
 (9, 'iPhone 8 Plus 64GB', 'img/product/iphone-8-plus-hh-600x600-400x400.jpg', 15990000, '13990000', 'iPhone (Apple)', 999, 'Điện thoại', 'dtdd'),
 (10, 'OPPO A91', 'img/product/oppo-a91-trang-600x600-600x600.jpg', 6990000, '5990000', 'OPPO', 999, 'Điện thoại', 'dtdd'),
-(11, 'Samsung Galaxy Fold', 'img/product/samsung-galaxy-fold-black-400x400.jpg', 50000000, '0', 'Samsung', 999, 'Điện thoại', 'dtdd'),
+(11, 'Samsung Galaxy Fold', 'img/product/samsung-galaxy-fold-black-400x400.jpg', 50000000, '0', 'Samsung', 997, 'Điện thoại', 'dtdd'),
 (12, 'Samsung Galaxy Z Flip', 'img/product/samsung-galaxy-z-flip-den-600x600-400x400.jpg', 36000000, '0', 'Samsung', 999, 'Điện thoại', 'dtdd'),
 (13, 'Realme 6i', 'img/product/realme-6i-(11).jpg', 4990000, '0', 'Realme', 999, 'Điện thoại', 'dtdd'),
 (14, 'Xiaomi Redmi 9 4GB/64GB', 'img/product/xiaomi-redmi-9-114620-094644-400x400.jpg', 3990000, '3690000', 'Xiaomi', 999, 'Điện thoại', 'dtdd'),
 (15, 'iPhone 11 64GB', 'img/product/iphone-11-red-600x600.jpg', 21990000, '20990000', 'iPhone (Apple)', 999, 'Điện thoại', 'dtdd'),
 (16, 'iPhone SE 128GB (2020)', 'img/product/iphone-se-128gb-2020-261820-101803-200x200.jpg', 14990000, '14490000', 'iPhone (Apple)', 999, 'Điện thoại', 'dtdd'),
-(17, 'iPhone Xs Max 64GB', 'img/product/iphone-xs-max-256gb-white-600x600.jpg', 25990000, '23990000', 'iPhone (Apple)', 999, 'Điện thoại', 'dtdd'),
+(17, 'iPhone Xs Max 64GB', 'img/product/iphone-xs-max-256gb-white-600x600.jpg', 25990000, '20990000', 'iPhone (Apple)', 999, 'Điện thoại', 'dtdd'),
 (18, 'Samsung Galaxy A31', 'img/product/samsung-galaxy-a31-055720-045750-600x600.jpg', 6490000, '5840000', 'Samsung', 999, 'Điện thoại', 'dtdd'),
 (19, 'Samsung S20 Ultra', 'img/product/samsung-galaxy-s20-ultra-600x600-1-400x400.jpg', 29990000, '24990000', 'Samsung', 999, 'Điện thoại', 'dtdd'),
 (20, 'Samsung Galaxy Note 10+', 'img/product/samsung-galaxy-note-10-plus-blue-400x400.jpg', 26990000, '19990000', 'Samsung', 999, 'Điện thoại', 'dtdd'),
@@ -1129,7 +1132,7 @@ INSERT INTO `product` (`ProductId`, `ProductName`, `ProductImage`, `PriceCurrent
 (30, 'Huawei Nova 5T', 'img/product/huawei-nova-5t-blue-600x600-600x600.jpg', 8990000, '8290000', 'Huawei', 999, 'Điện thoại', 'dtdd'),
 (31, 'HP EliteBook X360 14 i7 8550U', 'img/product/hp-elitebook-x360-1040-g5-i7-8550u-16gb-512gb-touc-6-600x600.jpg', 51990000, '41590000', 'HP', 99, 'Laptop', 'laptop'),
 (32, 'Acer Swift 7  i7 8500Y', 'img/product/acer-swift-7-600x600.jpg', 49990000, '44990000', 'Acer', 99, 'Laptop', 'laptop'),
-(33, 'Apple MacBook Pro Touch 2020', 'img/product/apple-macbook-pro-touch-2020-i5-mwp72sa-a-221914-600x600.jpg', 47990000, '0', 'Macbook', 99, 'Laptop', 'laptop'),
+(33, 'Apple MacBook Pro Touch 2020', 'img/product/apple-macbook-pro-touch-2020-i5-mwp72sa-a-221914-600x600.jpg', 47990000, '0', 'Macbook', 98, 'Laptop', 'laptop'),
 (34, 'Apple Macbook Pro 2019 Touch i5', 'img/product/apple-macbook-pro-2019-touch-i5-8gb-256gb-mv962sa-1-600x600.jpg', 44990000, '39490000', 'Macbook', 99, 'Laptop', 'laptop'),
 (35, 'Asus Gaming ROG Strix G531 i7 9750H (VAL218T)', 'img/product/asus-rog-g531-i7-9750h-8gb-512gb-6gb-gtx2060-win10-14-600x600.jpg', 38990000, '0', 'Asus', 99, 'Laptop', 'laptop'),
 (36, 'Asus ZenBook Edition 30 UX334FL i5 8265U (A4053T)', 'img/product/asus-zenbook-edition-30-222269-600x600.jpg', 29990000, '26990000', 'Asus', 99, 'Laptop', 'laptop'),
@@ -1138,7 +1141,7 @@ INSERT INTO `product` (`ProductId`, `ProductName`, `ProductImage`, `PriceCurrent
 (39, 'Acer Nitro AN515 54 71HS i7 9750H', 'img/product/acer-nitro-an515-54-71hs-i7-9750h-8gb-256gb-gtx165-5-600x600.jpg', 25990000, '0', 'Acer', 99, 'Laptop', 'laptop'),
 (40, 'Asus VivoBook X409FA i3 8145U', 'img/product/asus-vivobook-x409fa-i3-ek468t-221618-1-600x600.jpg', 10290000, '0', 'Asus', 99, 'Laptop', 'laptop'),
 (41, 'Huawei Nova 7i (Nền tảng Huawei Mobile Service)', 'img/product/huawei-nova-7i-pink-600x600-400x400.jpg', 6990000, '6690000', 'Huawei', 999, 'Điện thoại', 'dtdd'),
-(42, 'iPad Pro 12.9 inch Wifi 128GB (2020)', 'img/product/ipad-pro-12-9-inch-wifi-128gb-2020-xam-400x460-1-400x460.png', 27990000, '27490000', 'iPad (Apple)', 999, 'Máy tính bảng', 'may-tinh-bang'),
+(42, 'iPad Pro 12.9 inch Wifi 128GB (2020)', 'img/product/ipad-pro-12-9-inch-wifi-128gb-2020-xam-400x460-1-400x460.png', 27990000, '27490000', 'iPad (Apple)', 998, 'Máy tính bảng', 'may-tinh-bang'),
 (43, 'Samsung Galaxy Tab S6', 'img/product/samsung-galaxy-tab-s6-600x600.jpg', 18490000, '0', 'Samsung', 999, 'Máy tính bảng', 'may-tinh-bang'),
 (44, 'iPad Air 10.5 inch Wifi 64GB 2019', 'img/product/ipad-air-105-inch-wifi-2019-gold-600x600.jpg', 13990000, '13490000', 'iPad (Apple)', 999, 'Máy tính bảng', 'may-tinh-bang'),
 (45, 'iPad 10.2 inch Wifi 128GB (2019)', 'img/product/ipad-10-2-inch-wifi-128gb-2019-silver-600x600.jpg', 11990000, '11490000', 'iPad (Apple)', 999, 'Máy tính bảng', 'may-tinh-bang'),
@@ -1187,7 +1190,7 @@ INSERT INTO `promotion` (`PromotionId`, `Promo1`, `Promo2`, `Promo3`, `Promo4`, 
 (13, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', ' ', ' ', ' ', ' ', 14),
 (14, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác) ', 'Giảm ngay 1 triệu (đã trừ vào giá) *', ' ', ' ', ' ', 15),
 (15, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác) ', 'Giảm ngay 500.000đ (đã trừ vào giá)', ' ', ' ', ' ', 16),
-(16, 'Giảm ngay 2 triệu (đã trừ vào giá) *', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', '', '', '', 17),
+(16, 'Giảm ngay 2 triệu (đã trừ vào giá) *', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', ' ', ' ', ' ', 17),
 (17, 'Giảm ngay 10% (650.000đ) (áp dụng đặt và nhận hàng từ 1 - 15/7) (đã trừ vào giá)', 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', '', '', '', 18),
 (18, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', 'Giảm ngay 5 triệu (áp dụng đặt và nhận hàng từ 3 - 5/7) (đã trừ vào giá)', 'Trả góp 0% thẻ tín dụng', ' Ưu đãi phòng chờ thương gia', ' ', 19),
 (19, 'Tặng 2 suất mua Đồng hồ thời trang giảm 40% (không áp dụng thêm khuyến mãi khác)', ' ', ' ', ' ', ' ', 13),
@@ -44386,7 +44389,7 @@ ALTER TABLE `color_product`
 -- AUTO_INCREMENT cho bảng `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `CustomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `CustomID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT cho bảng `detail`
@@ -44398,7 +44401,7 @@ ALTER TABLE `detail`
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT cho bảng `product`

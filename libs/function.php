@@ -75,7 +75,7 @@
 	function add_orders($product,$image,$priceunit,$pricepromote,$color,$quantity,$pay,$date,$time,$phonenumber){
 		global $conn;
 		connect_db();
-		$sql = "INSERT INTO orders(Product,Image,PriceUnit,PricePromote,Color,Quantity,TotalPay,OrderDate,CustomID) VALUES ('$product','$image','$priceunit','$pricepromote','$color','$quantity','$pay','$date','$time',(SELECT customer.CustomID From customer WHERE customer.PhoneNumber = '$phonenumber'))";
+		$sql = "INSERT INTO orders(Product,Image,PriceUnit,PricePromote,Color,Quantity,TotalPay,OrderDate,EstimatedDeliveryTime,CustomID) VALUES ('$product','$image','$priceunit','$pricepromote','$color','$quantity','$pay','$date','$time',(SELECT customer.CustomID From customer WHERE customer.PhoneNumber = '$phonenumber'))";
 		$query = mysqli_query($conn, $sql);
 		return $query;
 	}

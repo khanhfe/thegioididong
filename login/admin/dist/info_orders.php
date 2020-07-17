@@ -151,6 +151,7 @@
                                             <th>Name Customer</th>
                                             <th>Phone Number</th>
                                             <th>Address</th>
+                                            <th>Note</th>
                                             <th>Time Order</th>
                                         </tr>
                                         <tr>
@@ -158,6 +159,7 @@
                                             <td><?php echo $data['FullName']; ?></td>
                                             <td>0<?php echo $data['PhoneNumber']; ?></td>
                                             <td><?php echo $data['Address']; ?></td>
+                                            <td><?php echo $data['NoteCart']; ?></td>
                                             <td><?php echo $data['CreateTime']; ?></td>
                                         </tr><?php break; }?>
                                     </table>

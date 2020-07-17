@@ -171,7 +171,7 @@
                                                 <td class="group"><?php echo $item['GroupProduct']; ?></td>
                                                 <td>
                                                     <a href="../edit-product.php?id=<?php echo $item['ProductId'];?>" class="edit">Edit</a>
-                                                    <a href="../delete-product.php?id=<?php echo $item['ProductId'];?>" onclick="return confirm('Xóa sản phẩm ?')" class="del">Delete</a>
+                                                    <a class="text-danger" href="../delete-product.php?id=<?php echo $item['ProductId'];?>" onclick="return confirm('Xóa sản phẩm ?')" class="del">Delete</a>
                                                 </td>
                                             </tr>
                                                 <?php } ?>  

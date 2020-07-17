@@ -17,7 +17,6 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
     }  else {
         $gender = false;
     }
-    foreach ($_SESSION['infoProduct'] as $cart) {};
 	if (isset($_POST['submit'])) {
 		$_SESSION['quantity'] = $_POST['amount'];
 		$_SESSION['color'] = $_POST['color'];
@@ -27,12 +26,17 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
 		$_SESSION['fullname'] = $_POST['FullName'];
 		$_SESSION['email'] = '';
 		$_SESSION['pay'] = $_POST['pay'];
-		$_SESSION['address'] = $_POST['BillingAddress'].", ".$_POST['ward'].", ".$_POST['district'].", ".$_POST['province'];
+		
+		if($_POST['BillingAddress']!=null){
+			$_SESSION['address'] = $_POST['BillingAddress'].", ".$_POST['ward'].", ".$_POST['district'].", ".$_POST['province'];
+		}else{
+			$_SESSION['address'] = $_POST['district'].", ".$_POST['province'];
+		}
 	}
 	?>
 	<header id="header" class="">
 		<div class="wrap-main">
-			<a href="../" title="Về trang chủ Thegioididong.com" class="logo">
+			<a href="add_database.php" title="Về trang chủ Thegioididong.com" class="logo">
 				<i class="icon-logo"></i>
 			</a>
 			<form id="search-site" action="#" method="get" accept-charset="utf-8" autocomplete="off">
@@ -71,17 +75,9 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
 	            <a href="#" class="gameapp" title="Game app">
 	                <i class="icon-gameapp"></i>Game App
 	            </a>
-	            <div id="utility-cardsim" class="utility">
-                Sim, thẻ cào<br>
-                Đóng tiền
-                <div class="mix-menu">
-                    <a href="#" class="cardsim">
-                        Sim số, thẻ cào
-                    </a>
-                    <a href="#">
-                        Đóng tiền điện, <br> nước, trả góp
-                    </a>
-                </div>
+	            <a href="../login/" class="account" title="Đăng nhập">
+	            	<i class="icon-account"></i> Đăng nhập
+	            </a>
             </div>
         	</nav>
 		</div>
@@ -99,12 +95,12 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
         	<div class="titlebill">Thông tin đặt hàng:</div>
         	<div class="infoorder">
 				<div>Người nhận: <b><?php echo $_POST['FullName']; ?>,<?php echo $_POST['PhoneNumber']; ?></b></div>
-				<div>Địa chỉ nhận hàng: <b><?php echo $_SESSION['address'] ?></b> </div>
+				<div>Địa chỉ nhận hàng: <b><?php if($_POST['BillingAddress']==null){echo "Các siêu thị thuộc hệ thống trong khu vực: ";}; echo $_SESSION['address']; ?></b> </div>
 				<div>Thời gian nhận hàng dự kiến: 
 					<b> Trước <?php $currenttime = date('l, yy-m-d H:i:s');
-							$date = new DateTime($currenttime);
-							$date->add(new DateInterval('P1D'));
-							echo $date->format('H')." giờ 00 phút "." Ngày mai ".$date->format('d/m'); ?>	
+						$date = new DateTime($currenttime);
+						$date->add(new DateInterval('P1D'));
+						echo $date->format('H')." giờ 00 phút "." Ngày mai ".$date->format('d/m'); ?>	
 					</b>
 				</div>
 				<div>Tổng tiền: <strong><?php echo number_format($_SESSION['pay'],0,"","."); ?>₫</strong></div>
@@ -213,7 +209,7 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
 	<script type="text/javascript" charset="utf-8" async defer>
 		var notnull = document.querySelectorAll('.promotion span')
 		for (var i = 0; i < notnull.length; i++) {
-			if(notnull[i].innerHTML==' ') notnull[i].classList.remove('notnull')
+			if(notnull[i].innerHTML.trim()==='') notnull[i].classList.remove('notnull')
 		}
 		function choosePayOffline(){
 			document.getElementById('choosepayment').style.display = "none"
