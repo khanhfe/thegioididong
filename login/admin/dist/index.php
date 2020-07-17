@@ -170,8 +170,8 @@
                                                 <td><?php echo $item['Quantity']; ?></td>
                                                 <td class="group"><?php echo $item['GroupProduct']; ?></td>
                                                 <td>
-                                                    <a href="../edit-product.php?id=<?php echo $item['ProductId'];?>" class="edit">Edit</a>
-                                                    <a class="text-danger" href="../delete-product.php?id=<?php echo $item['ProductId'];?>" onclick="return confirm('Xóa sản phẩm ?')" class="del">Delete</a>
+                                                    <a class="btn btn-primary" href="../edit-product.php?id=<?php echo $item['ProductId'];?>">Edit</a>
+                                                    <a class="btn btn-danger" href="../delete-product.php?id=<?php echo $item['ProductId'];?>" onclick="return confirm('Xóa sản phẩm ?')">Delete</a>
                                                 </td>
                                             </tr>
                                                 <?php } ?>  
@@ -216,6 +216,7 @@
                                                 <th>Phone Number</th>
                                                 <th>Address </th>
                                                 <th>Create Time </th>
+                                                <th>Order Status</th>
                                                 <th>Orders</th>
                                             </tr>
                                         </thead>
@@ -229,6 +230,7 @@
                                                 <td>0<?php echo $data['PhoneNumber']; ?></td>
                                                 <td><?php echo $data['Address'] ?></td>
                                                 <td><?php echo $data['CreateTime']; ?></td>
+                                                <td><?php if($data['Status']==0){ echo "<div class='text-danger'>Chưa giao hàng</div>";}else echo "<div class='text-success'>Đã giao hàng</div>"; ?></td>
                                                 <td><a href="info_orders.php?id=<?php echo $data['CustomID']; ?>">Information Order</a></td>
                                             </tr>
                                                 <?php } ?>

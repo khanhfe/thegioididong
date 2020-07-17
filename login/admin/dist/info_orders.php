@@ -152,6 +152,7 @@
                                             <th>Phone Number</th>
                                             <th>Address</th>
                                             <th>Note</th>
+                                            <th>Order Status</th>
                                             <th>Time Order</th>
                                         </tr>
                                         <tr>
@@ -160,6 +161,7 @@
                                             <td>0<?php echo $data['PhoneNumber']; ?></td>
                                             <td><?php echo $data['Address']; ?></td>
                                             <td><?php echo $data['NoteCart']; ?></td>
+                                            <td><?php if($data['Status']==0){ echo "<div class='text-danger'>Chưa giao hàng</div>";}else echo "<div class='text-success'>Đã giao hàng</div>"; ?></td>
                                             <td><?php echo $data['CreateTime']; ?></td>
                                         </tr><?php break; }?>
                                     </table>
@@ -196,6 +198,14 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <?php if($data['Status'] == 0){ ?>
+                                <div class="form_confirm">
+                                    <form action="delivery_confirm.php" method="post" accept-charset="utf-8">
+                                        <input type="hidden" name="CustomID" value="<?php echo $data['CustomID']; ?>">
+                                        <button type="submit"class="btn btn-success">Xác nhận giao hàng</button> 
+                                    </form>
+                                </div>
+                                <?php } ?>
                             </div>
                         </div>
                     </div>
