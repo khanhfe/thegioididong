@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
     require'../../../libs/function.php';
     $orders = info_orders();
     $product = show_all();
@@ -82,7 +82,7 @@
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="login.html">Login</a>
                                             <a class="nav-link" href="register.php">Register</a>
-                                            <a class="nav-link" href="password.php">Forgot Password</a>
+                                            <a class="nav-link" href="password.php">Change Password</a>
                                         </nav>
                                     </div>
                                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
@@ -118,8 +118,7 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Khảnh Nguyễn
+                        <div class="small">Logged in as:</div> <?php echo $_SESSION['username']; ?> 
                     </div>
                 </nav>
             </div>

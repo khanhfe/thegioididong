@@ -1,6 +1,6 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta http-equiv="refresh" content="0;url=dist/index.html">
     <title>SB Admin</title>
