@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th7 20, 2020 lúc 07:51 AM
+-- Thời gian đã tạo: Th7 20, 2020 lúc 09:49 AM
 -- Phiên bản máy phục vụ: 10.4.11-MariaDB
 -- Phiên bản PHP: 7.4.6
 
@@ -44,7 +44,7 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`AccountID`, `FirstName`, `Lastname`, `username`, `password`, `Birthday`, `PhoneNumber`, `email`, `Level`) VALUES
-(1, 'Nguyễn Văn ', 'Khảnh', 'admin', '9b2beca231e962dc022f3ac7ec9f48ee', '2001-03-28', 389021327, 'khanhr.fe@gmail.com', 0);
+(1, 'Nguyễn Văn ', 'Khảnh', 'admin', '773660cb80c526fa3a6775ccc7dc4481', '2001-03-28', 389021327, 'khanhr.fe@gmail.com', 0);
 
 -- --------------------------------------------------------
 
