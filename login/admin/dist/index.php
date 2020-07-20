@@ -80,8 +80,7 @@
                                     </a>
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.php">Register</a>
+                                            <a class="nav-link" href="register.php">Create Account</a>
                                             <a class="nav-link" href="password.php">Change Password</a>
                                         </nav>
                                     </div>
