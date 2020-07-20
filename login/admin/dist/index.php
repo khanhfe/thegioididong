@@ -51,7 +51,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="index.html">
+                            <a class="nav-link" href="index.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -81,8 +81,8 @@
                                     <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-parent="#sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="login.html">Login</a>
-                                            <a class="nav-link" href="register.html">Register</a>
-                                            <a class="nav-link" href="password.html">Forgot Password</a>
+                                            <a class="nav-link" href="register.php">Register</a>
+                                            <a class="nav-link" href="password.php">Forgot Password</a>
                                         </nav>
                                     </div>
                                     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
@@ -99,13 +99,21 @@
                                 </nav>
                             </div>
                             <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
+                            <a class="nav-link" href="charts.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Charts
                             </a>
                             <a class="nav-link" href="tables.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Tables
+                                Products
+                            </a>
+                            <a class="nav-link" href="orders.php">
+                                <div class="sb-nav-link-icon" style="display: flex">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 4h14v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm7-2.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
+                                    </svg>
+                                </div>
+                               Orders
                             </a>
                         </div>
                     </div>
@@ -129,7 +137,9 @@
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <a href="../add-product.php" class="add">Add Product</a>
+                                    <div style="margin-bottom: 15px;">
+                                        <a class="btn btn-success" href="add-product.php" class="add">Add Product</a>
+                                    </div>
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
@@ -163,14 +173,14 @@
                                                     foreach ($product as $item) {?>
                                                 <td><?php echo $item['ProductId']; ?></td>
                                                 <td class="name"><?php echo $item['ProductName']; ?></td>
-                                                <td><img src="<?php echo '../../../'.$item['ProductImage']; ?>" width="100px"></td>
+                                                <td><img src="<?php echo '../../../'.$item['ProductImage']; ?>" height="100"></td>
                                                 <td class="price"><?php echo number_format($item['PricePromo']); ?>đ</td>
                                                 <td class="price old"><?php echo number_format($item['PriceCurrent']); ?>đ</td>
                                                 <td class="brand"><?php echo $item['Brand']; ?></td>
                                                 <td><?php echo $item['Quantity']; ?></td>
                                                 <td class="group"><?php echo $item['GroupProduct']; ?></td>
                                                 <td>
-                                                    <a class="btn btn-primary" href="../edit-product.php?id=<?php echo $item['ProductId'];?>">Edit</a>
+                                                    <a class="btn btn-primary" href="edit-product.php?id=<?php echo $item['ProductId'];?>">Edit</a>
                                                     <a class="btn btn-danger" href="../delete-product.php?id=<?php echo $item['ProductId'];?>" onclick="return confirm('Xóa sản phẩm ?')">Delete</a>
                                                 </td>
                                             </tr>

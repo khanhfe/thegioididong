@@ -1,8 +1,20 @@
 <?php
-    require'../../../libs/function.php';
-    $orders = info_orders();
-    $product = show_all();
-    disconnect_db();
+require '../../../libs/function.php';
+function addcolor($color,$image_product,$ProductName){
+	global $conn;
+	connect_db();
+	$sql = "INSERT INTO color_product(Color,image_product,ProductId) VALUES ('$color','$image_product',(SELECT product.ProductId FROM product WHERE product.ProductName = '$ProductName'))";
+	$query = mysqli_query($conn, $sql);
+	return $query;
+};
+$data = array();
+if(isset($_POST['submit'])){
+	$data['Color'] = $_POST['Color'];
+	$data['image_product'] = 'img/product/color/'.$_POST['image_product'];
+	$data['ProductName'] = $_POST['ProductName'];
+	addcolor($data['Color'], $data['image_product'], $data['ProductName'] );
+	disconnect_db();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,11 +24,19 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Thegioididong Admin</title>
+        <title>Add Product</title>
         <link href="../../../img/icon/favicon.ico" rel="shortcut icon" type="image/x-icon">
         <link href="css/styles.css" rel="stylesheet" />
         <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <style type="text/css" media="screen">
+            input{
+                width: 90%
+            }
+            th{
+                width: 30%
+            }
+        </style>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -125,69 +145,38 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Products</h1>
+                        <h1 class="mt-4">Add</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Products</li>
+                            <li class="breadcrumb-item active">Add</li>
                         </ol>
                         <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-table mr-1"></i>
-                                List Products 
-                            </div>
-                            <div class="card-body">
-                                <div class="table-responsive">
-                                    <div style="margin-bottom: 15px;">
-                                        <a class="btn btn-success" href="../add-product.php" class="add">Add Product</a>
-                                    </div>
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name Product</th>
-                                                <th>Image Product</th>
-                                                <th>Promotion Price (if available)</th>
-                                                <th>Original Price </th>
-                                                <th>Brand</th>
-                                                <th>Quantity</th>
-                                                <th>Group</th>
-                                                <th>Tool</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name Product</th>
-                                                <th>Image Product</th>
-                                                <th>Promotion Price (if available)</th>
-                                                <th>Original Price </th>
-                                                <th>Brand</th>
-                                                <th>Quantity</th>
-                                                <th>Group</th>
-                                                <th>Tool</th>
-                                            </tr>
-                                        </tfoot>
-                                        <tbody>
-                                            <tr>
-                                                <?php
-                                                    foreach ($product as $item) {?>
-                                                <td><?php echo $item['ProductId']; ?></td>
-                                                <td class="name"><?php echo $item['ProductName']; ?></td>
-                                                <td><img src="<?php echo '../../../'.$item['ProductImage']; ?>" width="100px"></td>
-                                                <td class="price"><?php echo number_format($item['PricePromo']); ?>đ</td>
-                                                <td class="price old"><?php echo number_format($item['PriceCurrent']); ?>đ</td>
-                                                <td class="brand"><?php echo $item['Brand']; ?></td>
-                                                <td><?php echo $item['Quantity']; ?></td>
-                                                <td class="group"><?php echo $item['GroupProduct']; ?></td>
-                                                <td>
-                                                    <a class="btn btn-danger" href="../edit-product.php?id=<?php echo $item['ProductId'];?>" class="edit">Edit</a>
-                                                    <a class="btn btn-primary" href="../delete-product.php?id=<?php echo $item['ProductId'];?>" onclick="return confirm('Xóa sản phẩm ?')" class="del">Delete</a>
-                                                </td>
-                                            </tr>
-                                                <?php } ?>
-                                        </tbody>
+                            <div class="card-body table-responsive">
+                                <form action="" method="post">
+                                   
+                                    <table class="table table-bordered" width="100%" cellspacing="0">
+                                        <h2 class="text-primary">Bảng thông số kỹ thuật của sản phẩm</h2>
+										<tr>
+											<th>Tên sản phẩm</th>
+											<td>
+												<input type="text" name="ProductName" value="<?php echo !empty($data['ProductName']) ? $data['ProductName'] : '' ?>">
+											</td>				
+										</tr>
+										<tr>
+											<th>Màu sắc</th>
+											<td>
+												<input type="text" name="Color" value="" required>
+											</td>				
+										</tr>
+										<tr>
+											<th>Hình ảnh</th>
+											<td>
+												<input type="file" name="image_product" value="" required>
+											</td>				
+										</tr>
                                     </table>
-                                </div>
+                                    <div ><button class="btn btn-success" type="submit" name="submit" value="Thêm">Thêm</button></div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -195,7 +184,7 @@
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid">
                         <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div class="text-muted">Copyright &copy; Thegioididong 2020</div>
                             <div>
                                 <a href="#">Privacy Policy</a>
                                 &middot;
@@ -212,5 +201,16 @@
         <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="assets/demo/datatables-demo.js"></script>
+        <script type="text/javascript" charset="utf-8" async defer>
+        $(document).ready(function() {
+            $('input[type="submit"]').removeAttr('disabled')
+            $('td').click(function(event) {
+                $('input',this).removeAttr('disabled')
+            });
+            $('form').submit(function(event) {
+                $('input').removeAttr('disabled')
+            });
+        });
+    </script>
     </body>
 </html>

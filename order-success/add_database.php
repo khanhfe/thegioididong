@@ -19,12 +19,6 @@
 	$date = new DateTime($currenttime);
 	$date->add(new DateInterval('P1D'));
 	$EstimatedDeliveryTime = $date->format('H:i:s , l, Y-m-d');
-	global $conn;
-	connect_db();
-	$phonenumber = $_SESSION['phonenumber'];
-	$sql = "SELECT COUNT(*) FROM customer WHERE PhoneNumber = '$phonenumber'";
-	$query = mysqli_query($conn, $sql);
-	$row = mysqli_fetch_row($query);
 	$data = array();
 	$data['fullname'] = $_SESSION['fullname'];
 	$data['gender'] = $_SESSION['gender'] == 'anh' ? 'Nam' : 'Nữ';
@@ -36,24 +30,20 @@
 	$data['date'] = $currenttime;
 	add_customer($data['fullname'],$data['gender'],$data['phonenumber'],$data['email'],$data['address'],$data['note'],$data['pay'],$data['date']);
 	$i=0;
-	$row[0]+=1;
 	foreach ($_SESSION['infoProduct'] as $data) {
 		$data['quantity'] = $_SESSION['quantity'][$i];
 		$data['color'] = $_SESSION['color'][$i];$i++;
-		if($row[0]>=1){
-			add_orders_exist($data['nameproduct'],$data['image'],$data['priceunit'],$data['pricepromo'],$data['color'],$data['quantity'],$_SESSION['pay'],date('l, Y-m-d'),$EstimatedDeliveryTime,$row[0]);
-		}
-		else{
-			add_orders($data['nameproduct'],$data['image'],$data['priceunit'],$data['pricepromo'],$data['color'],$data['quantity'],$_SESSION['pay'],date('l, Y-m-d'),$EstimatedDeliveryTime,$_SESSION['phonenumber']);
-		}
+		
+		add_orders($data['nameproduct'],$data['image'],$data['priceunit'],$data['pricepromo'],$data['color'],$data['quantity'],$_SESSION['pay'],date('l, Y-m-d'),$EstimatedDeliveryTime,$_SESSION['phonenumber'],$currenttime	);
 		$quantity = GetQuantity($data['nameproduct']);
 		foreach ($quantity as $quan) {
 			$quan = $quan - $data['quantity'];
 			UpdateQuantity($quan,$data['nameproduct']);
 		}
 	}
-	
 	disconnect_db();
 	session_destroy();
-	header('location:../');
+	if (isset($_GET['links'])) {
+		header('location:../'.$_GET['links']);
+	}else header('location:../');
 ?>

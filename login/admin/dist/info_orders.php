@@ -123,6 +123,14 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
                             </a>
+                            <a class="nav-link" href="orders.php">
+                                <div class="sb-nav-link-icon" style="display: flex">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bag-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M1 4h14v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4zm7-2.5A2.5 2.5 0 0 0 5.5 4h-1a3.5 3.5 0 1 1 7 0h-1A2.5 2.5 0 0 0 8 1.5z"/>
+                                    </svg>
+                                </div>
+                               Orders
+                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -180,7 +188,7 @@
                                             <tr>
                                                 <?php foreach ($detail as $data) {?>
                                                 <td><?php echo $data['Product']; ?></td>
-                                                <td><img src="../../../<?php echo $data['Image']; ?>" width=100></td>
+                                                <td><img src="../../../<?php echo $data['Image']; ?>" height=100></td>
                                                 <td><?php echo number_format($data['PriceUnit']); ?>đ</td>
                                                 <td><?php echo number_format($data['PricePromote']); ?>đ</td>
                                                 <td><?php echo $data['Color'] ?></td>

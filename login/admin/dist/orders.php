@@ -125,66 +125,48 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Products</h1>
+                        <h1 class="mt-4">Orders</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="index.php">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Products</li>
+                            <li class="breadcrumb-item active">Order</li>
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table mr-1"></i>
-                                List Products 
+                                List Orders
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
-                                    <div style="margin-bottom: 15px;">
-                                        <a class="btn btn-success" href="../add-product.php" class="add">Add Product</a>
-                                    </div>
-                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <table class="table table-bordered" width="100%" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Name Product</th>
-                                                <th>Image Product</th>
-                                                <th>Promotion Price (if available)</th>
-                                                <th>Original Price </th>
-                                                <th>Brand</th>
-                                                <th>Quantity</th>
-                                                <th>Group</th>
-                                                <th>Tool</th>
+                                                <th>Full Name</th>
+                                                <th>Gender</th>
+                                                <th>Phone Number</th>
+                                                <th>Address </th>
+                                                <th>Create Time </th>
+                                                <th>Order Status</th>
+                                                <th>Orders</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Name Product</th>
-                                                <th>Image Product</th>
-                                                <th>Promotion Price (if available)</th>
-                                                <th>Original Price </th>
-                                                <th>Brand</th>
-                                                <th>Quantity</th>
-                                                <th>Group</th>
-                                                <th>Tool</th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
-                                            <tr>
+                                            <tr class="data-notnull">
                                                 <?php
-                                                    foreach ($product as $item) {?>
-                                                <td><?php echo $item['ProductId']; ?></td>
-                                                <td class="name"><?php echo $item['ProductName']; ?></td>
-                                                <td><img src="<?php echo '../../../'.$item['ProductImage']; ?>" width="100px"></td>
-                                                <td class="price"><?php echo number_format($item['PricePromo']); ?>đ</td>
-                                                <td class="price old"><?php echo number_format($item['PriceCurrent']); ?>đ</td>
-                                                <td class="brand"><?php echo $item['Brand']; ?></td>
-                                                <td><?php echo $item['Quantity']; ?></td>
-                                                <td class="group"><?php echo $item['GroupProduct']; ?></td>
-                                                <td>
-                                                    <a class="btn btn-danger" href="../edit-product.php?id=<?php echo $item['ProductId'];?>" class="edit">Edit</a>
-                                                    <a class="btn btn-primary" href="../delete-product.php?id=<?php echo $item['ProductId'];?>" onclick="return confirm('Xóa sản phẩm ?')" class="del">Delete</a>
-                                                </td>
+                                                    foreach ($orders as $data) {?>
+                                                <td class="CustomID"><?php echo $data['CustomID']; ?></td>
+                                                <td><?php echo $data['FullName']; ?></td>
+                                                <td><?php echo $data['Gender']; ?></td>
+                                                <td>0<?php echo $data['PhoneNumber']; ?></td>
+                                                <td><?php echo $data['Address'] ?></td>
+                                                <td><?php echo $data['CreateTime']; ?></td>
+                                                <td><?php if($data['Status']==0){ echo "<div class='text-danger'>Chưa giao hàng</div>";}else echo "<div class='text-success'>Đã giao hàng</div>"; ?></td>
+                                                <td><a href="info_orders.php?id=<?php echo $data['CustomID']; ?>">Information Order</a></td>
                                             </tr>
                                                 <?php } ?>
+                                            <tr>
+                                                <td valign="top" colspan="10" class="dataTables_empty" style="text-align: center;">No data available in table</td> 
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>

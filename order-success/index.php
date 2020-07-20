@@ -46,13 +46,13 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
 				</button>
 			</form>
 			<nav>
-	            <a href="#" class="mobile" title="Điện thoại di động, smartphone">
+	            <a href="add_database.php?links=dtdd" class="mobile" title="Điện thoại di động, smartphone">
 	                <i class="icon-mobile"></i>Điện thoại
 	            </a>
-	            <a href="#" class="tablet" title="Máy tính bảng, tablet">
+	            <a href="add_database.php?links=may-tinh-bang" class="tablet" title="Máy tính bảng, tablet">
 	                <i class="icon-tablet"></i>Tablet
 	            </a>
-	            <a href="#" class="laptop" title="Máy tính xách tay, Laptop">
+	            <a href="add_database.php?links=laptop" class="laptop" title="Máy tính xách tay, Laptop">
 	                <i class="icon-laptop"></i>Laptop
 	            </a>
 	            <a href="#" class="phukien" title="Phụ kiện điện thoại di động, phụ kiện tablet, phụ kiện lapto">
@@ -75,7 +75,7 @@ if(empty($_SESSION['infoProduct'])){ header('location:../');};?>
 	            <a href="#" class="gameapp" title="Game app">
 	                <i class="icon-gameapp"></i>Game App
 	            </a>
-	            <a href="../login/" class="account" title="Đăng nhập">
+	            <a href="add_database.php?links=login" class="account" title="Đăng nhập">
 	            	<i class="icon-account"></i> Đăng nhập
 	            </a>
             </div>
